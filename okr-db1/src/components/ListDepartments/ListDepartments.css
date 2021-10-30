@@ -1,0 +1,30 @@
+.list-departments{
+    margin: 1em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    min-width: 95%;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 20px 20px 0px 0px;
+    padding: 1%;
+    padding-top: 0;
+    padding-left: 0;
+}
+.list-departments .title{
+    min-width: 101%;
+    min-height: 1em;
+    margin: 0;
+    border-radius: 20px 20px 0px 0px;
+    margin-bottom: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+    background-color: #E32A42;
+
+}

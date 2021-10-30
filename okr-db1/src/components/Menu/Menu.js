@@ -1,19 +1,12 @@
 import React from "react";
 import LogoSquad from './../LogoSquad/LogoSquad';
+import MenuOptions from './../MenuOptions/MenuOptions';
 import './Menu.css';
-export default function Menu(){
+export default function Menu(props){
     return (
         <div class="bar">
-        <LogoSquad>
-
-        </LogoSquad>
-        <nav class="menu">
-            <ul class="options">
-                <li class="option">
-                    <a>Register new Objective</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
+            <LogoSquad logoText={props.logoText}/>
+            <MenuOptions route={props.route} textRoute={props.routeText} />
+        </div>
     );
 }

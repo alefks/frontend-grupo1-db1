@@ -1,0 +1,14 @@
+.department{
+    margin-left: 1%;
+    margin-bottom: 1%;
+    display: flex;
+    min-width: 24%;
+    min-height: 5em;
+    background-color: rgba(12, 8, 250, 0.5);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    font-weight: bold;
+    border-radius: 10px;
+}
