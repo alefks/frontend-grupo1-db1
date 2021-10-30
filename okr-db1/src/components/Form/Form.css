@@ -1,0 +1,79 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    box-shadow: 0px 0px 2px 1px black;
+}
+@media only screen and (orientation: landscape) {
+@media (min-width: 901px) {
+    .form{
+        min-width: 25%;
+        height: auto;
+    }
+    
+}
+@media (max-width: 900px){
+    .form{
+        min-width: 40%;
+        height: auto;
+    } 
+ }
+@media (max-width: 600px){
+   .form{
+        min-width: 60%;
+        height: auto;
+   } 
+}
+@media (max-width: 400px){
+    .form{
+        min-width: 80%;
+        height: auto;
+    } 
+ }
+}
+@media only screen and (orientation: portrait) {
+    @media (min-width: 901px) {
+        .form{
+            min-width: 80%;
+            padding-top: 2em;
+            padding-bottom: 2em;
+            margin-top: 10em;
+        }
+    }
+    @media (max-width: 900px){
+        .form{
+            min-width: 40%;
+            padding-top: 1em;
+            padding-bottom: 1em;
+            margin-top: 2em;
+        } 
+     }
+    @media (max-width: 600px){
+       .form{
+            min-width: 60%;
+            padding-top: 1em;
+            padding-bottom: 1em;
+       } 
+    }
+    @media (max-width: 400px){
+        .form{
+            min-width: 80%;
+            padding-top: 1em;
+            padding-bottom: 1em;
+        } 
+     }
+}
+@media only screen and (orientation: landscape)
+{
+    .form input::after:focus{
+        width: 100%;
+        height: 100%;
+        margin-top: 0em;
+    }
+}
