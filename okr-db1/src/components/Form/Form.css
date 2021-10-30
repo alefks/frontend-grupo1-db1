@@ -1,4 +1,4 @@
-.form{
+.form-refresh,.form{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -12,26 +12,26 @@
 }
 @media only screen and (orientation: landscape) {
 @media (min-width: 901px) {
-    .form{
+    .form-refresh,.form{
         min-width: 25%;
         height: auto;
     }
     
 }
 @media (max-width: 900px){
-    .form{
+    .form-refresh,.form{
         min-width: 40%;
         height: auto;
     } 
  }
 @media (max-width: 600px){
-   .form{
+    .form-refresh,.form{
         min-width: 60%;
         height: auto;
    } 
 }
 @media (max-width: 400px){
-    .form{
+    .form-refresh,.form{
         min-width: 80%;
         height: auto;
     } 
@@ -39,7 +39,7 @@
 }
 @media only screen and (orientation: portrait) {
     @media (min-width: 901px) {
-        .form{
+        .form-refresh,.form{
             min-width: 80%;
             padding-top: 2em;
             padding-bottom: 2em;
@@ -47,7 +47,7 @@
         }
     }
     @media (max-width: 900px){
-        .form{
+        .form-refresh,.form{
             min-width: 40%;
             padding-top: 1em;
             padding-bottom: 1em;
@@ -55,14 +55,14 @@
         } 
      }
     @media (max-width: 600px){
-       .form{
+        .form-refresh,.form{
             min-width: 60%;
             padding-top: 1em;
             padding-bottom: 1em;
        } 
     }
     @media (max-width: 400px){
-        .form{
+        .form-refresh,.form{
             min-width: 80%;
             padding-top: 1em;
             padding-bottom: 1em;
@@ -76,4 +76,13 @@
         height: 100%;
         margin-top: 0em;
     }
+}
+.form-refresh{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    justify-content: flex-start;
+    background-color: transparent;
+    box-shadow: none;
 }
