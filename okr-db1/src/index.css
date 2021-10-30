@@ -1,4 +1,8 @@
+
 body {
+  width: 100vw;
+    height: 100vh;
+    padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,4 +14,49 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+/* App custom css */
+@import url('https://fonts.googleapis.com/css2?family=Qahiri&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Qahiri&family=Roboto&display=swap');
+#root{
+    padding: 0;
+    margin: 0;
+    width:100%;
+    height:100%;
+}
+.App{
+    font-family: 'Roboto', sans-serif;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(68, 7, 124);
+    background-image: url("./img/maxresdefault.png");
+    background-position: left bottom;
+    background-repeat: no-repeat;
+}
+@media only screen and (orientation: portrait) {
+    
+  .App{
+        justify-content: flex-start;
+        background-size:  100% auto;
+    }
+   
+}
+@media only screen and (orientation: landscape) {
+   
+  .App{
+       background-size: auto 100%;
+    }
+   
+}
+@media (max-aspect-ratio:1/1)
+{
+  .App{
+        background-size: 50% auto;
+    }
 }
