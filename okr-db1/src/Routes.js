@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import CheckPoints from './pages/CheckPoints/CheckPoints'
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
-import Objectives from './pages/Objectives/Objectives';
+import Goals from './pages/Goals/Goals';
 import RegisterDepartment from './pages/RegisterDepartment/RegisterDepartment';
 import RegiterKeyResult from './pages/RegisterKeyResult/RegisterKeyResult';
 import RegisterObjective from './pages/RegisterObjective/RegisterObjective';
@@ -15,7 +15,7 @@ export default function Routes(){
             <Route exact path="/" component={ Home } />
             <Route exact path="/checkpoint" component={ CheckPoints } />
             <Route exact path="/login" component={ Login } />
-            <Route exact path="/objectives" component={ Objectives } />
+            <Route exact path="/goals" component={ Goals } />
             <Route exact path="/registerdepartment" component={ RegisterDepartment } />
             <Route exact path="/registerkeyresult" component={ RegiterKeyResult } />
             <Route exact path="/registerobjective" component={ RegisterObjective } />
