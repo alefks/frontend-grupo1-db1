@@ -1,15 +1,10 @@
 import React from "react";
-import Box from './../Box/Box';
+import './TitleBox.css';
 export default function TitleBox(props){
     return (
-        <Box classname={props.boxClassName}>
-            <label className={props.titleClassName}>
-                {props.titleText} 
+            <label className={props.classname} onClick={props.clickevent}>
+                {props.children} 
             </label>
-            <div className="task">
-                {props.children}
-            </div>
-        </Box>
     );
     
 }

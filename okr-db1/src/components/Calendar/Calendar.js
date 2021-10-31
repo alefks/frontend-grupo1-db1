@@ -1,9 +1,10 @@
 import React from "react";
 import './Calendar.css';
-export default function Calendar(){
+export default function Calendar(props){
+   
     return (
-        <div className="calendar">
-            <label className="calendar-avaliations">Check Points</label>
+        <div className="calendar" style={props.styleCalendar}>
+            <label className="calendar-avaliations" >Check Points</label>
             <ul className="calendar-list">
                 <li className="check">01</li>
                 <li className="check">02</li>

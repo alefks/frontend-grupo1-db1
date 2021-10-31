@@ -16,26 +16,28 @@
     transform: translateX(1em);
 }
 .menu .options .option{
-    color: white;
     display: block;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(148, 160, 160, 0.6);
     padding: 0;
     text-align: center;
     padding-left: 0.5em;
     padding-right: 0.5em;
     cursor: pointer;
+    color:#006D99;
+    box-shadow: 0px 3px 1px 0px #006D99;
+    box-shadow: 0px 0px 3px 1px #00335E;
 
 }
-.option:hover{
-    color:#E32A42;
-    box-shadow: 0px 3px 1px 0px #E32A42;
+.menu .options .option:hover{
+    background-color: rgba(148, 160, 160, 0.9);
+    color:#00335E;
+    box-shadow: -2px 2px 5px 0px #00335E;
 }
 .option:hover > a{
-    color:#E32A42;
+    color:#00335E;
 }
 .option a{
-    color: white;
     text-decoration: none;
     height: 100%;
     display: flex;

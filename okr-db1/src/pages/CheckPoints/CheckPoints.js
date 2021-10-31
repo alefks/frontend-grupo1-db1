@@ -6,15 +6,21 @@ import Button from './../../components/Button/Button';
 import TitleBox from "../../components/TitleBox/TitleBox";
 import NoteBlock from "../../components/NoteBlock/NoteBlock";
 import Box from "../../components/Box/Box";
+import CheckPointsList from "../../components/CheckPointsList/CheckPointsList";
 export default function CheckPoints(){
     return (
         <Form classname="form-refresh">
             <section className="box">
-                <TitleBox titleText="OKR's" boxClassName="points" titleClassName="task-title">
+                <Box classname="points">
+                    <TitleBox classname="task-title" >
+                        OkR's
+                    </TitleBox>
+                    <CheckPointsList>
 
-                </TitleBox>
+                    </CheckPointsList>
+                </Box>
                 <Box classname="box-block">
-                    <NoteBlock boxClassName="note-block" titleClassName="note-title" titleText="Note Block">
+                    <NoteBlock boxClassName="note-block" titleClassName="task-title" titleText="Note Block">
                     
                     </NoteBlock>
                     <Button classname="button-refresh">

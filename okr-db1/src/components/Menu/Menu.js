@@ -4,7 +4,7 @@ import MenuOptions from './../MenuOptions/MenuOptions';
 import './Menu.css';
 export default function Menu(props){
     return (
-        <div class="bar">
+        <div className="bar">
             <LogoSquad logoText={props.logoText}/>
             <MenuOptions route={props.route} textRoute={props.routeText} />
         </div>

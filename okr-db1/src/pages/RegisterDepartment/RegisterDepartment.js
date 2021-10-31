@@ -8,7 +8,7 @@ export default function RegisterDepartment(){
     return (
         <Form>
             <Title classname="title">Register New Department</Title>
-            <Input inputType="text" inputName="inputDepartmentName" inputHolder="Department Name" inputRequired="true"></Input>
+            <Input inputType="text" inputName="inputDepartmentName" inputHolder="Department Name" inputRequired={ true }></Input>
             <Button>Register</Button>
         </Form>
     );
