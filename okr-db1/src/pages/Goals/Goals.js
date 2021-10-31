@@ -1,19 +1,20 @@
 import React from "react";
+import CheckPointList from "../../components/CheckPointList/CheckPointList";
+import DirectionBox from "../../components/DirectionBox/DirectionBox";
 import Menu from "../../components/Menu/Menu";
+import TitleBox from "../../components/TitleBox/TitleBox";
+import './Goals.css';
 export default function Goals(){
     return (
-        <div> 
+        <div className="body"> 
             <Menu></Menu>
-            <section class="objective-box">
-                
-                <label class="objName"> 
-                    <div class="direction">
-                    {">"}
-                    </div>
-                    Objective Name
-                </label>
-                <div class="box">
-                    <div class="objectives">
+            <section class="goals-box">
+                <TitleBox classname="task-title goals-name">
+                    <DirectionBox />
+                   {"Objective Name"}
+                </TitleBox>
+                <div class="goals-list">
+                    <div class="goals">
                         <div class="column">
                             <div class="title">
                                 KR'S
@@ -65,17 +66,7 @@ export default function Goals(){
                         </div>
                         
                     </div>
-                    <div class="calendar">
-                        <label class="calendar-avaliations">Check Points</label>
-                        <ul class="calendar-list">
-                            <li class="check">01</li>
-                            <li class="check">02</li>
-                            <li class="check">03</li>
-                            <li class="check">04</li>
-                            <li class="check">05</li>
-                            <li class="check">06</li>
-                        </ul>
-                    </div>
+                    <CheckPointList />                
                 </div>
             </section>
         </div>

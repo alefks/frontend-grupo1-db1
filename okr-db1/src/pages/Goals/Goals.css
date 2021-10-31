@@ -6,12 +6,12 @@
     margin: 0;
     padding: 0;
 }
-.objective-box,.box,.objectives,.objName{
+.goals-box,.goals-list,.goals{
     margin: 0;
     padding: 0;
     height: auto;
 }
-.objective-box{
+.goals-box{
     min-width:95%;
     margin-right: 2.5%;
     margin-left: 2.5%;
@@ -23,26 +23,23 @@
 
 
 }
-.objName,.box,.objectives{
+.goals-list,.goals{
     min-width: 100%;
 }
-.objectives{
+.goals{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
 }
-.objName{
-    text-align: center;
-}
-.box{
+.goals-list{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
 }
-.objectives{
+.goals{
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -67,20 +64,9 @@
     transition-duration: 1s;
     height: 0;
 }
-.objName{
-    display: flex;
-    flex-direction:row;
-    align-items: center;
-    justify-content: center;
-    background-color: #E32A42;
-    border-radius: 10px 10px 0px 0px;
-    
-}
+
 .obj-item{
     justify-content: flex-start;
-}
-.direction{
-    margin-right: 1em;
 }
 
 @media only screen and (orientation: portrait) {

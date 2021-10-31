@@ -1,0 +1,23 @@
+.task-title{
+    background-color: #E32A42;
+    margin-bottom: 1em;
+    border-radius: 10px 10px 0px 0px;
+    min-width: 100%;
+    text-align: center;
+    color: white;
+    font-size: large;
+    height: 1em;
+}
+.goals-name{
+    text-align: center;
+    min-width: 100%;
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: center;
+    background-color: #E32A42;
+    border-radius: 10px 10px 0px 0px;
+    margin: 0;
+    padding: 0;
+    height: auto;
+}

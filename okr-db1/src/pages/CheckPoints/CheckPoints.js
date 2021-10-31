@@ -12,7 +12,9 @@ export default function CheckPoints(){
         <Form classname="form-refresh">
             <section className="box">
                 <Box classname="points">
-                    <TitleBox classname="task-title" titleText="OKR's"/>
+                    <TitleBox classname="task-title" >
+                        OkR's
+                    </TitleBox>
                     <CheckPointsList>
 
                     </CheckPointsList>
