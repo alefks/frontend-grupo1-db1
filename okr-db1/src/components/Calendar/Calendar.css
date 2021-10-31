@@ -1,10 +1,10 @@
 .calendar{
-    display: none;
+    display: block;
     z-index: -1;
     margin: 0;
     padding: 0;
     width: 100%;
-    transition-duration: 2s;
+    transition-duration: 5s;
     transform: translateY(-70%);
 }
 .calendar-avaliations{
@@ -27,6 +27,7 @@
     height: auto;
 }
 .calendar-list .check{
+    
     display: flex;
     justify-content: center;
     align-items: center;

@@ -8,7 +8,7 @@ export default function RegisterUserEmployee(){
     return (
         <Form>
             <Title classname="title">Register New User Employee</Title>
-            <Input inputType="text" inputName="inputEmployeeName" inputHolder="Employee Name" inputRequired="true"></Input>
+            <Input inputType="text" inputName="inputEmployeeName" inputHolder="Employee Name" inputRequired={ true }></Input>
             <Button>Register</Button>
         </Form>
     );

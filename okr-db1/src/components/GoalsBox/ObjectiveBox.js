@@ -2,7 +2,7 @@ import React from "react";
 import './ObjectiveBox.css';
 export default function ObjectiveBox(props){
     return (
-        <section class="goals-box">
+        <section className="goals-box">
             {props.children}
         </section>
     );

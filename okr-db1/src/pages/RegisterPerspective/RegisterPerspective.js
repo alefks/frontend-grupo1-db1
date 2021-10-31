@@ -8,8 +8,8 @@ export default function RegisterPerspective(){
     return (
         <Form>
             <Title classname="title">Register New Perspective</Title>
-            <Input inputType="text" inputName="inputPerspectiveTitle" inputHolder="Perspective Title" inputRequired="true"></Input>
-            <Input inputType="number" inputName="inputPerspectiveValue" inputHolder="Perspective Percentage" inputRequired="true"></Input>
+            <Input inputType="text" inputName="inputPerspectiveTitle" inputHolder="Perspective Title" inputRequired={ true }></Input>
+            <Input inputType="number" inputName="inputPerspectiveValue" inputHolder="Perspective Percentage" inputRequired={ true }></Input>
             <Button>Register</Button>
         </Form>
     );
