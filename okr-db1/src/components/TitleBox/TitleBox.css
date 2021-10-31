@@ -1,5 +1,5 @@
 .task-title{
-    background-color: #E32A42;
+    background-color: #00335E;
     margin-bottom: 1em;
     border-radius: 10px 10px 0px 0px;
     min-width: 100%;
@@ -15,7 +15,7 @@
     flex-direction:row;
     align-items: center;
     justify-content: center;
-    background-color: #E32A42;
+    background-color: #00335E;
     border-radius: 10px 10px 0px 0px;
     margin: 0;
     padding: 0;

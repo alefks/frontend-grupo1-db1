@@ -6,7 +6,7 @@ import Login from './pages/Login/Login';
 import Goals from './pages/Goals/Goals';
 import RegisterDepartment from './pages/RegisterDepartment/RegisterDepartment';
 import RegiterKeyResult from './pages/RegisterKeyResult/RegisterKeyResult';
-import RegisterObjective from './pages/RegisterObjective/RegisterObjective';
+import RegisterGoals from './pages/RegisterGoals/RegisterGoals';
 import RegisterPerspective from './pages/RegisterPerspective/RegisterPerspective';
 import RegisterUserEmployee from './pages/RegisterUserEmployee/RegisterUserEmployee';
 export default function Routes(){
@@ -18,7 +18,7 @@ export default function Routes(){
             <Route exact path="/goals" component={ Goals } />
             <Route exact path="/registerdepartment" component={ RegisterDepartment } />
             <Route exact path="/registerkeyresult" component={ RegiterKeyResult } />
-            <Route exact path="/registerobjective" component={ RegisterObjective } />
+            <Route exact path="/registergoals" component={ RegisterGoals } />
             <Route exact path="/registerperspective" component={ RegisterPerspective } />
             <Route exact path="/registeruseremployee" component={ RegisterUserEmployee } />
         </Switch>

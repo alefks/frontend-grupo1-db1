@@ -6,9 +6,9 @@
     height: auto;
     padding-top: 1em;
     padding-bottom: 1em;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(148, 160, 160, 0.8);
     border-radius: 5px;
-    box-shadow: 0px 0px 2px 1px black;
+    box-shadow: 0px 0px 3px 1px #00335E;
 }
 @media only screen and (orientation: landscape) {
 @media (min-width: 901px) {

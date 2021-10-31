@@ -1,11 +1,12 @@
 import React from "react";
 import Box from "../Box/Box";
+import TitleBox from "../TitleBox/TitleBox";
 export default function NoteBlock(props){
     return(
         <Box classname={props.boxClassName}>
-            <label className={props.titleClassName}>
+            <TitleBox classname={props.titleClassName}>
                 {props.titleText}
-            </label>
+            </TitleBox>
             <textarea name="inputNoteBlock" className="note">
 
             </textarea>

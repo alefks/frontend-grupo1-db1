@@ -20,7 +20,7 @@ export default function CheckPoints(){
                     </CheckPointsList>
                 </Box>
                 <Box classname="box-block">
-                    <NoteBlock boxClassName="note-block" titleClassName="note-title" titleText="Note Block">
+                    <NoteBlock boxClassName="note-block" titleClassName="task-title" titleText="Note Block">
                     
                     </NoteBlock>
                     <Button classname="button-refresh">
