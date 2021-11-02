@@ -1,6 +1,5 @@
 import React from "react";
 import Form from './../../components/Form/Form';
-import Input from './../../components/Input/Input';
 import Button from './../../components/Button/Button';
 import TitleBox from "../../components/TitleBox/TitleBox";
 import NoteBlock from "../../components/NoteBlock/NoteBlock";
