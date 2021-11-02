@@ -1,12 +1,17 @@
 import React from "react";
 import './Home.css';
 import ListDepartments from "../../components/ListDepartments/ListDepartments";
-import MenuOptions from "./../../components/MenuOptions/MenuOptions";
+import Menu from "./../../components/Menu/Menu";
 
 export default function Home(){
+    const menuOptions = [{
+        route:"/registerdepartment",
+        routeText:"New Department"
+    },
+    ]
     return (
         <div className="body">
-            <MenuOptions route="/registerdepartment" textRoute="New Department" />            
+            <Menu options={menuOptions} hasLogo={false} />            
             <ListDepartments/>
         </div>
     )  ; 

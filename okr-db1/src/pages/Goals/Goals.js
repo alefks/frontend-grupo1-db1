@@ -5,22 +5,32 @@ import Menu from "../../components/Menu/Menu";
 import TitleBox from "../../components/TitleBox/TitleBox";
 import './Goals.css';
 export default function Goals(){
-    const [show,setshow] = useState({"height":0,transform:"translateY(-70%)"});
-    const showTable = ()=>{
-        if(JSON.stringify(show)===JSON.stringify({"height":0,transform:"translateY(-70%)"})){
-            setshow({"height":"auto",transform:"translateY(0%)"});
+    const [showTable,setshow] = useState([{display:"none",transform:"translateY(-70%)"},{transform:"rotate(0deg)"}]);
+    const showTableChange = ()=>{
+        if(JSON.stringify(showTable)===JSON.stringify([{display:"none",transform:"translateY(-70%)"},{transform:"rotate(0deg)"}])){
+            setshow([{display:"block",transform:"translateY(0%)"},{transform:"rotate(90deg)"}]);
         }else{
-            setshow({"height":0,transform:"translateY(-70%)"});
+            setshow([{display:"none",transform:"translateY(-70%)"},{transform:"rotate(0deg)"}]);
         }
     };
+    const optionsMenu = [
+        {
+            route:"/registergoals",
+            routeText:"New Goal"
+        },
+        {
+            route:"/registeruseremployee",
+            routeText:"New Team Partner"
+        }
+    ]
     return (
         <div className="body"> 
-            <Menu route="/registergoals" routeText="New Goal">
+            <Menu options={optionsMenu}  hasLogo={true}>
 
             </Menu>
             <section className="goals-box">
-                <TitleBox classname="task-title goals-name" clickevent={showTable}>
-                    <DirectionBox />
+                <TitleBox classname="task-title goals-name" clickevent={showTableChange}>
+                    <DirectionBox style={showTable[1]} />
                    {"Objective Name"}
                 </TitleBox>
                 <div className="goals-list">
@@ -75,8 +85,8 @@ export default function Goals(){
                             </div>
                         </div>
                         
-                    </div>
-                    <Calendar styleCalendar={show}/>                
+                    </div>  
+                    <Calendar styleCalendar={showTable[0]}/>                
                 </div>
             </section>
         </div>
