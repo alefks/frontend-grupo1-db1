@@ -24,7 +24,7 @@ export default function Goals(){
         }
     ]
     return (
-        <div className="body"> 
+        <div className="goalbody"> 
             <Menu options={optionsMenu}  hasLogo={true}>
 
             </Menu>
