@@ -1,8 +1,8 @@
 import React from "react";
 import './DirectionBox.css';
-export default function DirectionBox(){
+export default function DirectionBox(props){
     return (
-        <div className="direction">
+        <div className="direction" style={props.style}>
             { ">" }
         </div>
     );

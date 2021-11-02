@@ -7,7 +7,7 @@ import Button from '../../components/Button/Button';
 export default function RegisterGoals(){
     return (
         <Form>
-            <Title classname="title">Register New Objective</Title>
+            <Title classname="title">Register New Goal</Title>
             <Input inputType="text" inputName="inputName" inputHolder="Objective Name" inputRequired={ true }></Input>
             <Input inputType="text" inputName="inputDescription" inputHolder="Objective Description" inputRequired={ true }></Input>
             <Title classname="sub-title">Objective Start Date</Title>
