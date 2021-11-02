@@ -1,5 +1,4 @@
 import React from "react";
-import './CheckPoints.css';
 import Form from './../../components/Form/Form';
 import Input from './../../components/Input/Input';
 import Button from './../../components/Button/Button';
@@ -7,6 +6,8 @@ import TitleBox from "../../components/TitleBox/TitleBox";
 import NoteBlock from "../../components/NoteBlock/NoteBlock";
 import Box from "../../components/Box/Box";
 import CheckPointsList from "../../components/CheckPointsList/CheckPointsList";
+import './CheckPoints.css';
+import CheckPointItem from "../../components/CheckPointItem/CheckPointItem";
 export default function CheckPoints(){
     return (
         <Form classname="form-refresh">
@@ -16,7 +17,7 @@ export default function CheckPoints(){
                         OkR's
                     </TitleBox>
                     <CheckPointsList>
-
+                        <CheckPointItem okr={"okr name"} name={"name person"} />
                     </CheckPointsList>
                 </Box>
                 <Box classname="box-block">
