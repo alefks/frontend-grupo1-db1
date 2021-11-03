@@ -9,6 +9,7 @@ import RegiterKeyResult from './pages/RegisterKeyResult/RegisterKeyResult';
 import RegisterGoals from './pages/RegisterGoals/RegisterGoals';
 import RegisterPerspective from './pages/RegisterPerspective/RegisterPerspective';
 import RegisterUserEmployee from './pages/RegisterUserEmployee/RegisterUserEmployee';
+import NotFound from "./pages/NotFound/NotFound";
 export default function Routes(){
     return(
         <Switch>
@@ -21,6 +22,7 @@ export default function Routes(){
             <Route exact path="/registergoals" component={ RegisterGoals } />
             <Route exact path="/registerperspective" component={ RegisterPerspective } />
             <Route exact path="/registeruseremployee" component={ RegisterUserEmployee } />
+            <Route path="*" component={ NotFound } />
         </Switch>
     );
 }
