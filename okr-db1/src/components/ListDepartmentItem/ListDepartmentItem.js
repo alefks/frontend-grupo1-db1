@@ -1,9 +1,12 @@
 import React from "react";
 import './ListDepartmentItem.css';
-export default function ListDepartmentItem(){
+export default function ListDepartmentItem(props){
     return (
         <article className="department">
-            department Name
+                {props.department.departmentName}
+            <div className="level">
+                {props.department.totalValue} %
+            </div>
         </article>
     );
 }

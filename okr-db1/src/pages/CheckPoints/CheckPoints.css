@@ -29,11 +29,9 @@
 }
 .points{
     min-width: 70%;
-    
+    height: auto;
 }
-.task{
-    height: 20em;
-}
+
 .box-block{
     min-width: 20%;
     display: flex;

@@ -3,6 +3,9 @@ import Calendar from './../../components/Calendar/Calendar';
 import DirectionBox from "../../components/DirectionBox/DirectionBox";
 import Menu from "../../components/Menu/Menu";
 import TitleBox from "../../components/TitleBox/TitleBox";
+import GoalsTable from "../../components/GoalsTable/GoalsTable";
+import Button from "../../components/Button/Button";
+import configImg from '../../img/config.png';
 import './Goals.css';
 export default function Goals(){
     const [showTable,setshow] = useState([{display:"none",transform:"translateY(-70%)"},{transform:"rotate(0deg)"}]);
@@ -22,9 +25,20 @@ export default function Goals(){
             route:"/registeruseremployee",
             routeText:"New Team Partner"
         }
+    ];
+    const listOfDates=[
+        {
+            date: "21/08"
+        },
+        {
+            date: "23/08"
+        }, 
+        {
+            date: "25/08"
+        }
     ]
     return (
-        <div className="body"> 
+        <div className="goalbody"> 
             <Menu options={optionsMenu}  hasLogo={true}>
 
             </Menu>
@@ -34,59 +48,11 @@ export default function Goals(){
                    {"Objective Name"}
                 </TitleBox>
                 <div className="goals-list">
-                    <div className="goals">
-                        <div className="column">
-                            <div className="title">
-                                KR'S
-                            </div>
-                            <div className="obj-item">
-                            </div>
-                        </div>
-                        <div className="column">
-                            <div className="title">
-                                KEY RESULTS
-                            </div>
-                            <div className="obj-item">
-                            </div>
-                        </div>
-                        <div className="column">
-                            <div className="title">
-                                OBJECTIVE OWNER
-                            </div>
-                            <div className="obj-item">
-                            </div>
-                        </div>
-                        <div className="column">
-                            <div className="title">
-                                FREQUENCE TIME
-                            </div>
-                            <div className="obj-item">
-                            </div>
-                        </div>
-                        <div className="column">
-                            <div className="title">
-                                OBJECTIVE TYPE
-                            </div>
-                            <div className="obj-item">
-                            </div>
-                        </div>
-                        <div className="column">
-                            <div className="title">
-                                START DATE
-                            </div>
-                            <div className="obj-item">
-                            </div>
-                        </div>
-                        <div className="column">
-                            <div className="title">
-                                FINAL DATE
-                            </div>
-                            <div className="obj-item">
-                            </div>
-                        </div>
-                        
-                    </div>  
-                    <Calendar styleCalendar={showTable[0]}/>                
+                    <Button>
+                       <img className="config" src={configImg} alt="config" />
+                   </Button>
+                    <GoalsTable></GoalsTable>
+                    <Calendar styleCalendar={showTable[0]} listOfDates={listOfDates}/>                
                 </div>
             </section>
         </div>
