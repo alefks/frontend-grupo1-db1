@@ -13,6 +13,16 @@
     align-items: center;
     justify-content: space-between;
     max-width: 95%;
+    background-color: rgba(000, 109, 153, 0.8);
+    border-radius: 10px;
+    padding: 1em;
+    max-height: 1em;
+    color: white;
+    margin-bottom: 0.5em;
+
+}
+.checkPointItem:hover{
+    background-color: rgba(0, 51, 94, 0.8);
 }
 .checkPointItem .input{
     max-width: 3em;
