@@ -6,7 +6,7 @@ export default function CheckPointItem(props){
         <div className="checkPointItem">
             <label>{props.okr}</label>
             <label>{props.name}</label>
-            <Input inputType="number" inputName="inputPoint" inputHolder="LV" inputRequired="true"></Input>
+            <Input inputType="number" inputName="inputPoint" inputHolder="LV" inputRequired={true}></Input>
         </div>
     );
 }

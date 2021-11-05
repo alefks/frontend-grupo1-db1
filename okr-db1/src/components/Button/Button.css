@@ -42,3 +42,6 @@
     align-self: flex-end;
     max-width: 10em;
 }
+.cancel {
+    background-color: red;
+}
