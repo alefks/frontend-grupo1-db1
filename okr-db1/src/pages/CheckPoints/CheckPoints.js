@@ -15,10 +15,10 @@ export default function CheckPoints(){
             <section className="box">
                 <Box classname="points">
                     <TitleBox classname="task-title" >
-                        OkR's
+                        kR's
                     </TitleBox>
                     <CheckPointsList>
-                        <CheckPointItem okr={"okr name"} name={"name person"} />
+                        <CheckPointItem okr={"kr name"} name={"name person"} />
                     </CheckPointsList>
                 </Box>
                 <Box classname="box-block">
