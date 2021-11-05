@@ -18,27 +18,24 @@ export default function TableColumn(props){
                 :
             <tbody className='table'>
                 {props.lineValues.map((value,index)=>(
-                    <tr className={"line"} key={index}>
+                    <tr className={"line"} key={value.id}>
                         <td className={"column"}>
-                            {value.okr}
+                            {value.name}
                         </td>
                         <td className={"column"}>
-                            {value.keyResult} %
+                            {value.description}
                         </td>
                         <td className={"column"}>
-                            {value.goalOwner}
+                            {value.goal}
                         </td>
                         <td className={"column"}>
-                            {value.frequenceTime}
+                            {value.responsibleId}
                         </td>
                         <td className={"column"}>
-                            {value.goalType}
+                            {value.frequency}
                         </td>
                         <td className={"column"}>
-                            {value.startDate}
-                        </td>
-                        <td className={"column"}>
-                            {value.finalDate}
+                            {value.achieved} %
                         </td>
                     </tr>
                 ))}

@@ -25,3 +25,7 @@
     background-color: rgba(0, 51, 94, 0.8);
 
 }
+.table td,.table th{
+    display: flex;
+    min-width: 16.66%;
+}
