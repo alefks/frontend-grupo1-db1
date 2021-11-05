@@ -4,7 +4,7 @@ import notFoundImage from "../../img/pageerror.png";
 export default function NotFound(){
     return (
         <div className="notfound">
-            <img src={notFoundImage} alt="not found" />
+            <img src={notFoundImage} className="notFoundImage" alt="not found" />
         </div>
     );
 }
