@@ -7,7 +7,7 @@ import './Login.css';
 export default function Login(){
     return (
         <Form>
-            <img src={Logo} className="logo" />
+            <img src={Logo} className="logo" alt="logo" />
             <Input inputType="text" inputName="inputUserName" inputHolder="User Name"></Input>
             <Input inputType="password" inputName="inputUserPass" inputHolder="User Password"></Input>
             <Button>Login</Button>
