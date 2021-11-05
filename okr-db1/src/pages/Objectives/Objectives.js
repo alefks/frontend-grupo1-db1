@@ -80,6 +80,8 @@ export default function Objectives(){
                             <div className="cleanSpace" />
                             <p className="description">
                                 {objective.description}
+                                <br/>
+                                {"Period from: "+objective.startDate+" to: "+objective.endDate}
                             </p>
                             <Button>
                                 <img className="config" src={configImg} alt="config" />
