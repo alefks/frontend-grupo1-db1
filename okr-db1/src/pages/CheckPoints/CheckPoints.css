@@ -59,7 +59,7 @@
     min-width: 95%;
     width: 95%;
 }
-.button-refresh,.cancel{
+.form-refresh .box-button .button-refresh,.form-refresh .box-button .cancel{
     max-width: 20%;
     width: 20%;
 }
