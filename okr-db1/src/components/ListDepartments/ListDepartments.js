@@ -8,12 +8,17 @@ export default function ListDepartments(props){
         <section className="list-departments">
             <TitleBox classname="task-title">
                 Departments
+                {props.children}
             </TitleBox>
-            <div className="list">
-                {props.departments.map((department,index)=>(
-                    <ListDepartmentItem key={department.id} department={department}/>
-                ))}
-            </div>
+            <fieldset>
+                <legend>{props.year}</legend>
+                <div className="list">
+                    
+                    {props.departments.map((department,index)=>(
+                        <ListDepartmentItem key={department.id} department={department}/>
+                    ))}
+                </div>
+            </fieldset>
         </section>
     );
 }

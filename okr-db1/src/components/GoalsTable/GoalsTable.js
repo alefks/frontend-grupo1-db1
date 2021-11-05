@@ -2,70 +2,84 @@ import React from "react";
 import TableLine from "./../TableLine/TableLine";
 import './GoalsTable.css';
 export default function GoalsTable(props){
-    const tableTitles = ["Okr","KEY RESULT","GOAL OWNER","FREQUENCE TIME","GOAL TYPE","START DATE","FINAL DATE"]
+    const tableTitles = ["Key-R NAME","Description","GOAL","GOAL OWNER","FREQUENCE TIME","Achivied"]
     const tableValues = [
         {
-            okr: "new okr",
-            keyResult: 30,
-            goalOwner: "leandro",
-            frequenceTime: "1 week",
-            goalType: "win",
-            startDate: "25/01/2020",
-            finalDate: "27/08/2022"
+            id            :1,
+            name          :"gogogo",
+            description   :"going",
+            goal          :null,
+            achieved      :0,
+            frequency     :"weak",
+            responsibleId :1,
+            objectiveId   :1,
+            checkinDates  :[]
         },
         {
-            okr: "new okr",
-            keyResult: 30,
-            goalOwner: "leandro",
-            frequenceTime: "1 week",
-            goalType: "win",
-            startDate: "25/01/2020",
-            finalDate: "27/08/2022"
+            id            :2,
+            name          :"gogogo",
+            description   :"going",
+            goal          :null,
+            achieved      :0,
+            frequency     :"weak",
+            responsibleId :1,
+            objectiveId   :1,
+            checkinDates  :[]
         },
         {
-            okr: "new okr",
-            keyResult: 30,
-            goalOwner: "leandro",
-            frequenceTime: "1 week",
-            goalType: "win",
-            startDate: "25/01/2020",
-            finalDate: "27/08/2022"
+            id            :3,
+            name          :"gogogo",
+            description   :"going",
+            goal          :null,
+            achieved      :0,
+            frequency     :"weak",
+            responsibleId :1,
+            objectiveId   :1,
+            checkinDates  :[]
         },
         {
-            okr: "new okr",
-            keyResult: 30,
-            goalOwner: "leandro",
-            frequenceTime: "1 week",
-            goalType: "win",
-            startDate: "25/01/2020",
-            finalDate: "27/08/2022"
+            id            :4,
+            name          :"gogogo",
+            description   :"going",
+            goal          :null,
+            achieved      :0,
+            frequency     :"weak",
+            responsibleId :1,
+            objectiveId   :1,
+            checkinDates  :[]
         },
         {
-            okr: "new okr",
-            keyResult: 30,
-            goalOwner: "leandro",
-            frequenceTime: "1 week",
-            goalType: "win",
-            startDate: "25/01/2020",
-            finalDate: "27/08/2022"
+            id            :5,
+            name          :"gogogo",
+            description   :"going",
+            goal          :null,
+            achieved      :0,
+            frequency     :"weak",
+            responsibleId :1,
+            objectiveId   :1,
+            checkinDates  :[]
         },
         {
-            okr: "new okr",
-            keyResult: 30,
-            goalOwner: "leandro",
-            frequenceTime: "1 week",
-            goalType: "win",
-            startDate: "25/01/2020",
-            finalDate: "27/08/2022"
+            id            :6,
+            name          :"gogogo",
+            description   :"going",
+            goal          :null,
+            achieved      :0,
+            frequency     :"weak",
+            responsibleId :1,
+            objectiveId   :1,
+            checkinDates  :[]
         },
         {
-            okr: "new okr",
-            keyResult: 30,
-            goalOwner: "leandro",
-            frequenceTime: "1 week",
-            goalType: "win",
-            startDate: "25/01/2020",
-            finalDate: "27/08/2022"
+            id            :7,
+            name          :"gogogo",
+            description   :"going",
+            goal          :null,
+            achieved      :0,
+            frequency     :"weak",
+            responsibleId :1,
+            objectiveId   :1,
+            checkinDates  :[]
         },
     ]
     return (

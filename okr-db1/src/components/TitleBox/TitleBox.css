@@ -6,7 +6,7 @@
     text-align: center;
     color: white;
     font-size: large;
-    height: 1em;
+    min-height: 1em;
 }
 .goals-name{
     text-align: center;
@@ -20,4 +20,10 @@
     margin: 0;
     padding: 0;
     height: auto;
+}
+.cleanSpace{
+    width: 5em;
+    border: none;
+    margin-left: 2em;
+    background-color: transparent;
 }

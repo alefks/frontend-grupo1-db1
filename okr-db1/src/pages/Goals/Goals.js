@@ -37,24 +37,59 @@ export default function Goals(){
             date: "25/08"
         }
     ]
+    const objectives = [
+        {
+            id                   :0,
+            name                 :"contruir um prédio",
+            description          :"criar estrutura predial",
+            startDate            :"21/08/2020",
+            endDate              :"23/04/2021",
+            keyResults           :[
+                                    {
+
+                                    },
+                                  ],
+            teamId               :2,
+            relationalObjectives :[
+                                    {
+
+                                    },
+                                  ],
+            quarters             :[
+                                    {
+
+                                    },
+                                  ],
+            managerId            :0,
+            objectiveId          :0,
+          },
+    ];
     return (
         <div className="goalbody"> 
             <Menu options={optionsMenu}  hasLogo={true}>
 
             </Menu>
-            <section className="goals-box">
-                <TitleBox classname="task-title goals-name" clickevent={showTableChange}>
-                    <DirectionBox style={showTable[1]} />
-                   {"Objective Name"}
-                </TitleBox>
-                <div className="goals-list">
-                    <Button>
-                       <img className="config" src={configImg} alt="config" />
-                   </Button>
-                    <GoalsTable></GoalsTable>
-                    <Calendar styleCalendar={showTable[0]} listOfDates={listOfDates}/>                
-                </div>
-            </section>
+            {objectives.map((objective)=>(
+                <section className="goals-box" key={objective.id}>
+                    <TitleBox classname="task-title goals-name" clickevent={showTableChange}>
+                        <DirectionBox style={showTable[1]} />
+                        {objective.name}
+                    </TitleBox>
+                    <div className="goals-list">
+                        <div className="config-item">
+                            <div className="cleanSpace" />
+                            <p className="description">
+                                {objective.description}
+                            </p>
+                            <Button>
+                                <img className="config" src={configImg} alt="config" />
+                            </Button>
+                        </div>
+                        <GoalsTable keyResults={objective.keyResults}></GoalsTable>
+                        <Calendar styleCalendar={showTable[0]} listOfDates={listOfDates}/>                
+                    </div>
+                </section>
+            ))}
         </div>
     );
 }
