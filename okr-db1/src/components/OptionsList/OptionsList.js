@@ -1,4 +1,4 @@
-import react from "react";
+import React from "react";
 import "./OptionsList.css";
 
 export default function OptionsList(props){

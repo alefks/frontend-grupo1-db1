@@ -1,13 +1,13 @@
 import React,{ useState } from "react";
-import Calendar from './../../components/Calendar/Calendar';
+import Calendar from '../../components/Calendar/Calendar';
 import DirectionBox from "../../components/DirectionBox/DirectionBox";
 import Menu from "../../components/Menu/Menu";
 import TitleBox from "../../components/TitleBox/TitleBox";
-import GoalsTable from "../../components/GoalsTable/GoalsTable";
+import ObjectiveTable from "../../components/ObjectiveTable/ObjectiveTable";
 import Button from "../../components/Button/Button";
 import configImg from '../../img/config.png';
-import './Goals.css';
-export default function Goals(){
+import './Objectives.css';
+export default function Objectives(){
     const [showTable,setshow] = useState([{display:"none",transform:"translateY(-70%)"},{transform:"rotate(0deg)"}]);
     const showTableChange = ()=>{
         if(JSON.stringify(showTable)===JSON.stringify([{display:"none",transform:"translateY(-70%)"},{transform:"rotate(0deg)"}])){
@@ -85,7 +85,7 @@ export default function Goals(){
                                 <img className="config" src={configImg} alt="config" />
                             </Button>
                         </div>
-                        <GoalsTable keyResults={objective.keyResults}></GoalsTable>
+                        <ObjectiveTable keyResults={objective.keyResults}></ObjectiveTable>
                         <Calendar styleCalendar={showTable[0]} listOfDates={listOfDates}/>                
                     </div>
                 </section>

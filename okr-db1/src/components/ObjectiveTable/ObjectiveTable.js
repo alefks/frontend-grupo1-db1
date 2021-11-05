@@ -1,6 +1,6 @@
 import React from "react";
-import TableLine from "./../TableLine/TableLine";
-import './GoalsTable.css';
+import TableLine from "../TableLine/TableLine";
+import './ObjectiveTable.css';
 export default function GoalsTable(props){
     const tableTitles = ["Key-R NAME","Description","GOAL","GOAL OWNER","FREQUENCE TIME","Achivied"]
     const tableValues = [
