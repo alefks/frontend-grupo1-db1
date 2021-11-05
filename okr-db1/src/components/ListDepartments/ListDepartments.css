@@ -39,3 +39,15 @@
     background-color: #E32A42;
 
 }
+fieldset{
+    border: 0.1em solid white;
+    display: flex;
+    min-width: 98%;
+    margin: 0.5em;
+    padding: 0;
+    height: auto;
+}
+legend{
+    color: white;
+    font-weight: bolder;
+}
