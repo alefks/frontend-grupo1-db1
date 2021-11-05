@@ -74,6 +74,7 @@ export default function Objectives(){
                     <TitleBox classname="task-title goals-name" clickevent={showTableChange}>
                         <DirectionBox style={showTable[1]} />
                         {objective.name}
+                        <div className="cleanSpace" />
                     </TitleBox>
                     <div className="goals-list">
                         <div className="config-item">
@@ -83,6 +84,7 @@ export default function Objectives(){
                                 <br/>
                                 {"Period from: "+objective.startDate+" to: "+objective.endDate}
                             </p>
+                            
                             <Button>
                                 <img className="config" src={configImg} alt="config" />
                             </Button>
