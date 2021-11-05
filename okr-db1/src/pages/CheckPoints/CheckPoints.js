@@ -5,8 +5,10 @@ import TitleBox from "../../components/TitleBox/TitleBox";
 import NoteBlock from "../../components/NoteBlock/NoteBlock";
 import Box from "../../components/Box/Box";
 import CheckPointsList from "../../components/CheckPointsList/CheckPointsList";
-import './CheckPoints.css';
 import CheckPointItem from "../../components/CheckPointItem/CheckPointItem";
+import BoxButton from "../../components/BoxButton/BoxButton";
+import './CheckPoints.css';
+
 export default function CheckPoints(){
     return (
         <Form classname="form-refresh">
@@ -23,12 +25,17 @@ export default function CheckPoints(){
                     <NoteBlock boxClassName="note-block" titleClassName="task-title" titleText="Note Block">
                     
                     </NoteBlock>
-                    <Button classname="button-refresh">
-                        Save
-                    </Button>
+                    
                 </Box>
             </section>
-        
+            <BoxButton>
+                <Button classname="button cancel">
+                    Cancel
+                </Button>
+                <Button classname="button-refresh">
+                    Save
+                </Button>
+            </BoxButton>
         </Form>
     );
 }
