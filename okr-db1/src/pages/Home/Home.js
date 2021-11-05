@@ -6,8 +6,8 @@ import './Home.css';
 
 export default function Home(){
     const menuOptions = [{
-        route:"/registerdepartment",
-        routeText:"New Department"
+        route:"/registerteam",
+        routeText:"New Team"
     },
     ];
     const testListDepartments=[
