@@ -99,8 +99,25 @@
     max-width: auto;
     max-height: 100%;
 }
+.config-item .cleanSpace{
+    width: 2em;
+}
+.config-item{
+    min-width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 .goalbody{
     min-height: 100%;
+}
+.description{
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-self: flex-start;
+    width: 50%;
+    max-height: 1em;
 }
 @media only screen and (orientation: portrait) {
     @media (max-width:640px){
