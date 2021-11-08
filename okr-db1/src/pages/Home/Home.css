@@ -22,9 +22,7 @@
     transform: translateX(-25%);
 }
 @media only screen and (orientation: landscape) {
-    .homeBody{
-        max-width: 10vw;
-    }  
+ 
 }
 @media only screen and (orientation: portrait) {
     .homeBody{
