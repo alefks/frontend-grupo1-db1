@@ -1,0 +1,13 @@
+.team-item{
+    width: 100%;
+    color: black;
+    font-weight: bold;
+    background-color: rgba(14, 109, 187, 0.5);
+}
+.team-item:nth-child(even){
+    background-color: rgba(0, 51, 94, 0.5);
+}
+.team-item:hover,.team-item:nth-child(even):hover{
+    background-color: rgba(50, 86, 248, 0.8);
+}
+

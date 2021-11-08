@@ -36,7 +36,7 @@ export default function Objectives(){
         {
             date: "25/08"
         }
-    ]
+    ];
     const objectives = [
         {
             id                   :0,
