@@ -161,7 +161,7 @@
         min-width: 5%;
         max-width: 10%;
     }
-    .goalbody .goals-box,.task-title{
+    .goalbody .goals-box,.goalbody .goals-box .task-title{
         width: 100%;
         margin: 0;
         border: 0;
