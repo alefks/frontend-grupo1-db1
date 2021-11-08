@@ -63,3 +63,22 @@
     max-width: 20%;
     width: 20%;
 }
+@media only screen and (orientation: landscape) {
+    
+}
+@media only screen and (orientation: portrait) {
+   
+    .form-refresh .box {
+        display: flex;
+        flex-direction: column;
+    }
+    .form-refresh .box .points, .form-refresh .box .box-block{
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+    .form-refresh .box-button button{
+        min-width: 40%;
+    }
+
+}
