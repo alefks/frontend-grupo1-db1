@@ -1,7 +1,7 @@
 import React from 'react';
 import Box from '../../components/Box/Box';
 import Menu from '../../components/Menu/Menu';
-import TeamPartnerItem from '../../components/TeamPartnerItem/TeamPartnerItem';
+import TeamItem from '../../components/TeamItem/TeamItem';
 import TitleBox from '../../components/TitleBox/TitleBox';
 import "./Team.css";
 export default function Team(){
@@ -30,14 +30,20 @@ export default function Team(){
                         Team Partners 
                         <div className="add" onClick={addTeamPartner}>+</div>
                     </TitleBox>
-                    <TeamPartnerItem></TeamPartnerItem>
+                    <Box classname="box-items">
+                        <TeamItem>{"balalou"}</TeamItem>
+                        <TeamItem>{"balala"}</TeamItem>
+                    </Box>
                 </Box>
                 <Box classname="box-quarters">
                     <TitleBox classname="goals-name"> 
                         Quarters 
                         <div className="add" onClick={addQuarter}>+</div>
                     </TitleBox>
-
+                    <Box classname="box-items">
+                        <TeamItem>{"balalou"}</TeamItem>
+                        <TeamItem>{"balala"}</TeamItem>
+                    </Box>
                 </Box>
             </Box>
         </div>
