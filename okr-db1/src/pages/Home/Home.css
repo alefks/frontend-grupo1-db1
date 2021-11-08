@@ -21,3 +21,34 @@
 .homeBody .bar{
     transform: translateX(-25%);
 }
+@media only screen and (orientation: landscape) {
+    .homeBody{
+        max-width: 10vw;
+    }  
+}
+@media only screen and (orientation: portrait) {
+    .homeBody{
+        margin: 0;
+        padding: 0;
+    }
+    fieldset{
+       width: 98%;
+
+    }
+    .department{
+       min-width: 96.8%;
+    }
+    .list-departments{
+       margin: 0;
+       width: 90%;
+       min-width: 90%;
+       align-self: center;
+    }
+    .homeBody .bar,.homeBody .bar .menu{
+        margin-right: 0;
+    }
+    .homeBody .options .option,.homeBody .bar,.homeBody .bar .menu{
+        transform: translateX(0px);
+        padding: 0;
+    }    
+}

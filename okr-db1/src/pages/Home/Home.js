@@ -40,6 +40,7 @@ export default function Home(){
             departmentName: "developer",
             totalValue: 100
         },
+        
     ];
     const options = [
         {
