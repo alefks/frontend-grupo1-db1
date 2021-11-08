@@ -7,7 +7,7 @@ import Objectives from './pages/Objectives/Objectives';
 import RegisterTeam from './pages/RegisterTeam/RegisterTeam';
 import RegiterKeyResult from './pages/RegisterKeyResult/RegisterKeyResult';
 import RegisterObjectives from './pages/RegisterObjectives/RegisterObjectives';
-import RegisterPerspective from './pages/RegisterPerspective/RegisterPerspective';
+import RegisterQuarter from './pages/RegisterQuarter/RegisterQuarter';
 import RegisterTeamPartner from './pages/RegisterTeamPartner/RegisterTeamPartner';
 import Team from "./pages/Team/Team";
 import NotFound from "./pages/NotFound/NotFound";
@@ -21,7 +21,7 @@ export default function Routes(){
             <Route exact path="/registerteam" component={ RegisterTeam } />
             <Route exact path="/registerkeyresult" component={ RegiterKeyResult } />
             <Route exact path="/registerobjectives" component={ RegisterObjectives } />
-            <Route exact path="/registerperspective" component={ RegisterPerspective } />
+            <Route exact path="/registerquarter" component={ RegisterQuarter } />
             <Route exact path="/registerteampartner" component={ RegisterTeamPartner } />
             <Route exact path="/team" component={ Team } />
             <Route path="*" component={ NotFound } />
