@@ -120,30 +120,71 @@
     max-height: 1em;
 }
 @media only screen and (orientation: portrait) {
-    @media (max-width:640px){
-       
+    .goalbody{
+        min-width: none;
+        width:100vw;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
     }
-    @media (max-width:500px){
-       
+    .goalbody .bar .logo-squad{
+        min-width: 100px;
+        min-height: 100px;
+    }
+    .goalbody .bar{
+        padding: 0;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: flex-start;
+        margin-right: 0;
+    }
+    .goalbody .bar .menu .options{
+        width: 100%;
+    }
+    .goalbody .bar .menu .options .option{
+        transform: translateX(0);
+        width: none;
+        min-width: 20%;
+        max-width:30%;
+        margin: 0;
+        padding: 0;
+    }
+    .goalbody .bar .menu{
+       transform: translateX(10%);
+       min-width: 0%;
+       width: 70%;
+       max-width: 70%;
+       padding: 0;
+    }
+    .goalbody .bar .menu .options .cls {
+        min-width: 5%;
+        max-width: 10%;
+    }
+    .goalbody .goals-box,.task-title{
+        width: 100%;
+        margin: 0;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        border: 2px solid #00335E;
+    }
+    .goalbody .config-item .description{
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    .goalbody .table{
+        width: 100%;
+    }
+    .goalbody .table .title,.goalbody .table .line{
+        font-size: 11px;
+        font-weight: bold;
     }
    
 }
 @media only screen and (orientation: landscape) {
-    @media (max-width:1030px){
-       
-   }
-   @media (max-width:980px){}
-        
-    @media (max-width:860px){}
-   @media (max-width:771px){
-    }
-    @media (max-width:690px){}
-   @media (max-width:640px){
-        
-    }
-    @media (max-width:500px){
-       
-    }
+   
 }
 
    
