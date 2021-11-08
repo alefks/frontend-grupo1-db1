@@ -10,7 +10,7 @@ export default function MenuOptions(props){
                         <Link to={option.route}>{option.routeText}</Link>
                     </li>
                 ))}
-                {!!props.show?<li className="option"/>:""}                
+                {!!props.show?<li className="option cls"/>:""}                
             </ul>
         </nav>
     );

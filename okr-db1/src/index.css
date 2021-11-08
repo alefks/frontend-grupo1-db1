@@ -11,11 +11,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #0099B7;
-  background-image: url("./img/maxresdefault.png");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: left bottom;
-  background-size: auto 100%;
+  
 }
 
 code {
@@ -43,6 +39,11 @@ code {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-image: url("./img/maxresdefault.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: left bottom;
+  background-size: auto 100%;
 
 }
 @media only screen and (orientation: portrait) {
