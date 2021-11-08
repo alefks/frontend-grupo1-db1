@@ -9,7 +9,7 @@ import BoxButton from "../../components/BoxButton/BoxButton";
 export default function RegisterQuarter(){
     return (
         <Form>
-            <Title classname="title">Register New Quarter</Title>
+            <Title classname="title">New Quarter</Title>
             <Input inputType="text" inputName="inputQuarterName" inputHolder="Quarter Name" inputRequired={ true }></Input>
             <BoxButton>
                 <Button classname="button cancel">Cancel</Button>
