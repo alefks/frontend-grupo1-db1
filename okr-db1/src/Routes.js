@@ -17,7 +17,7 @@ export default function Routes(){
             <Route exact path="/" component={ Home } />
             <Route exact path="/checkpoint" component={ CheckPoints } />
             <Route exact path="/login" component={ Login } />
-            <Route exact path="/objectives" component={ Objectives } />
+            <Route exact path="/objectives/:teamId/:quarterId" component={ Objectives } />
             <Route exact path="/registerteam/:id" component={ RegisterTeam } />
             <Route exact path="/registerkeyresult/:id" component={ RegiterKeyResult } />
             <Route exact path="/registerobjectives/:id" component={ RegisterObjectives } />
