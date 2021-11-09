@@ -9,7 +9,7 @@ import BoxButton from "../../components/BoxButton/BoxButton";
 export default function RegisterKeyResult(){
     return (
         <Form>
-            <Title classname="title">Register New Key Result</Title>
+            <Title classname="title">New Key Result</Title>
             <Input inputType="text" inputName="inputName" inputHolder="Key Result Name" inputRequired={ true }></Input>
             <Input inputType="text" inputName="inputDescription" inputHolder="key Result Description" inputRequired={ true }></Input>
             <Input inputType="number" inputName="inputGoal" inputHolder="key Result Goal" inputRequired={ false }></Input>

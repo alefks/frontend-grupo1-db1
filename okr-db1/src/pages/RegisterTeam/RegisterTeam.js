@@ -8,8 +8,9 @@ import BoxButton from "../../components/BoxButton/BoxButton";
 export default function RegisterTeam(){
     return (
         <Form>
-            <Title classname="title">Register New Team</Title>
-            <Input inputType="text" inputName="inputDepartmentName" inputHolder="Team Name" inputRequired={ true }></Input>
+            <Title classname="title">New Team</Title>
+            <Input inputType="text" inputName="inputTeamName" inputHolder="Team Name" inputRequired={ true }></Input>
+            <Input inputType="text" inputName="inputYear" inputHolder="Year" inputRequired={ true }></Input>
             <BoxButton>
                 <Button classname="button cancel">Cancel</Button>
                 <Button>Register</Button>
