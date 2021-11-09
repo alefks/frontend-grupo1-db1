@@ -21,6 +21,11 @@
 .homeBody .bar{
     transform: translateX(-25%);
 }
+.homeBody .task-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 @media only screen and (orientation: landscape) {
  
 }
