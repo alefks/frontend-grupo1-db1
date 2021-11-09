@@ -18,11 +18,11 @@ export default function Objectives(){
     };
     const optionsMenu = [
         {
-            route:"/registergoals",
+            route:"/registerobjectives/new",
             routeText:"New Objective"
         },
         {
-            route:"/registeruseremployee",
+            route:"/registerteampartner/new",
             routeText:"New Team Partner"
         }
     ];
