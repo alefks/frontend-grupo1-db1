@@ -87,7 +87,7 @@ export default function Team(){
                     </TitleBox>
                     <Box classname="box-items">
                         {quartersTeam.map((quarter)=>(
-                            <TeamItem locationpage="registerquarter" id={quarter.id} key={quarter.id}>{quarter.name}</TeamItem>
+                            <TeamItem locationpage={"objectives/"+teamId} id={quarter.id} key={quarter.id}>{quarter.name}</TeamItem>
                         ))}
                     </Box>
                 </Box>
