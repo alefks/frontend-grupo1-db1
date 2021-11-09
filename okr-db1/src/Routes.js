@@ -18,12 +18,12 @@ export default function Routes(){
             <Route exact path="/checkpoint" component={ CheckPoints } />
             <Route exact path="/login" component={ Login } />
             <Route exact path="/objectives" component={ Objectives } />
-            <Route exact path="/registerteam" component={ RegisterTeam } />
-            <Route exact path="/registerkeyresult" component={ RegiterKeyResult } />
-            <Route exact path="/registerobjectives" component={ RegisterObjectives } />
-            <Route exact path="/registerquarter" component={ RegisterQuarter } />
-            <Route exact path="/registerteampartner" component={ RegisterTeamPartner } />
-            <Route exact path="/team" component={ Team } />
+            <Route exact path="/registerteam/:id" component={ RegisterTeam } />
+            <Route exact path="/registerkeyresult/:id" component={ RegiterKeyResult } />
+            <Route exact path="/registerobjectives/:id" component={ RegisterObjectives } />
+            <Route exact path="/registerquarter/:id" component={ RegisterQuarter } />
+            <Route exact path="/registerteampartner/:teamId/:id" component={ RegisterTeamPartner } />
+            <Route exact path="/team/:teamId" component={ Team } />
             <Route path="*" component={ NotFound } />
         </Switch>
     );

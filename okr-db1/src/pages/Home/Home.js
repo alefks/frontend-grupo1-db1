@@ -1,16 +1,16 @@
 import React from "react";
-import ListDepartments from "../../components/ListDepartments/ListDepartments";
+import ListTeams from "../../components/ListTeams/ListTeams";
 import Menu from "./../../components/Menu/Menu";
 import OptionsList from "../../components/OptionsList/OptionsList";
 import './Home.css';
 
 export default function Home(){
     const menuOptions = [{
-        route:"/registerteam",
+        route:"/registerteam/new",
         routeText:"New Team"
     },
     ];
-    const testListDepartments=[
+    const testListTeams=[
         {
             id: 1,
             departmentName: "financial",
@@ -54,11 +54,11 @@ export default function Home(){
     return (
         <div className="homeBody">
             <Menu options={menuOptions} hasLogo={false} />            
-            <ListDepartments departments={testListDepartments} year="2021">
+            <ListTeams teams={testListTeams} year="2021">
                 <OptionsList options={options}>
 
                 </OptionsList>
-            </ListDepartments>
+            </ListTeams>
         </div>
     )  ; 
 }

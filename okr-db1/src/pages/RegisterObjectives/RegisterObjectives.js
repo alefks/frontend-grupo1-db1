@@ -9,7 +9,7 @@ import BoxButton from "../../components/BoxButton/BoxButton";
 export default function RegisterObjectives(){
     return (
         <Form>
-            <Title classname="title">Register New Objective</Title>
+            <Title classname="title">New Objective</Title>
             <Input inputType="text" inputName="inputName" inputHolder="Objective Name" inputRequired={ true }></Input>
             <Input inputType="text" inputName="inputDescription" inputHolder="Objective Description" inputRequired={ true }></Input>
             <Title classname="sub-title">Objective Start Date</Title>
