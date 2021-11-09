@@ -4,3 +4,7 @@
     justify-content: center;
     align-items: center;
 }
+.notFoundImage{
+    max-width: 80%;
+    height: auto;
+}

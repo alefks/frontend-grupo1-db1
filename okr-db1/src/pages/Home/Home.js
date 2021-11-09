@@ -1,12 +1,13 @@
 import React from "react";
 import ListDepartments from "../../components/ListDepartments/ListDepartments";
 import Menu from "./../../components/Menu/Menu";
+import OptionsList from "../../components/OptionsList/OptionsList";
 import './Home.css';
 
 export default function Home(){
     const menuOptions = [{
-        route:"/registerdepartment",
-        routeText:"New Department"
+        route:"/registerteam",
+        routeText:"New Team"
     },
     ];
     const testListDepartments=[
@@ -39,11 +40,25 @@ export default function Home(){
             departmentName: "developer",
             totalValue: 100
         },
+        
+    ];
+    const options = [
+        {
+            name:"2020",
+            value:2020
+        },{
+            name:"2021",
+            value:2021
+        },
     ]
     return (
         <div className="homeBody">
             <Menu options={menuOptions} hasLogo={false} />            
-            <ListDepartments departments={testListDepartments}/>
+            <ListDepartments departments={testListDepartments} year="2021">
+                <OptionsList options={options}>
+
+                </OptionsList>
+            </ListDepartments>
         </div>
     )  ; 
 }

@@ -4,6 +4,8 @@ import Title from './../../components/Title/Title';
 import Form from './../../components/Form/Form';
 import Input from './../../components/Input/Input';
 import Button from './../../components/Button/Button';
+import BoxButton from "../../components/BoxButton/BoxButton";
+
 export default function RegisterKeyResult(){
     return (
         <Form>
@@ -13,7 +15,10 @@ export default function RegisterKeyResult(){
             <Input inputType="number" inputName="inputGoal" inputHolder="key Result Goal" inputRequired={ false }></Input>
             <Input inputType="text" inputName="inputArchieved" inputHolder="key Result Archieved" inputRequired={ false }></Input>
             <Input inputType="text" inputName="inputFrequency" inputHolder="key Result Frequency" inputRequired={ true }></Input>
-            <Button>Register</Button>
+            <BoxButton>
+                <Button classname="button cancel">Cancel</Button>
+                <Button>Register</Button>
+            </BoxButton>
         </Form>
     );
 }

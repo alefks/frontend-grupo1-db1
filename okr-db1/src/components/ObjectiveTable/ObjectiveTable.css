@@ -16,12 +16,16 @@
     background-color: rgba(0, 51, 94, 0.5);
 }
 .table .line:nth-child(even) {
-    background: #00335E;
+    background-color: #00335E;
   }
 .table .line:hover{
-    background: #0384ec;
+    background-color: #0384ec;
   }
 .table .title{
     background-color: rgba(0, 51, 94, 0.8);
 
+}
+.table td,.table th{
+    display: flex;
+    min-width: 16.66%;
 }

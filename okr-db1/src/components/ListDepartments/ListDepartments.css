@@ -39,3 +39,18 @@
     background-color: #E32A42;
 
 }
+fieldset{
+    border: 0.1em solid white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    min-width: 98%;
+    margin: 0;
+    padding: 0;
+    height: auto;
+}
+legend{
+    color: white;
+    font-weight: bolder;
+}
