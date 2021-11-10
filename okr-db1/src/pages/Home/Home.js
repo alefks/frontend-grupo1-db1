@@ -2,9 +2,22 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Box from './../../components/Box/Box';
 import './Home.css';
+import { Api } from '../../api/api'
 
 export default function Home(){
-    const teamsList = [
+    const [teams, setTeams] = useState(undefined);
+
+    const fetchGetTeams = async () => {
+        const response = await Api.getAll("team");
+        const result = await response.json();
+        setTeams(result);
+    };
+
+    useEffect(() => {
+        fetchGetTeams();
+    }, []);
+    
+    const testTeamsList = [
         {
             id : 1,
             name : "financeiro",
@@ -16,7 +29,7 @@ export default function Home(){
     return (
         <div className="body">
             <Box classname="teams-list">
-                {teamsList.map((teamItem)=>(
+                {testTeamsList.map((teamItem)=>(
                     <Box classname="teams-item" key={teamItem.id}>
                         <Link to={"/team/"+teamItem.id}>
                             <label className="team-name">
