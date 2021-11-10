@@ -6,6 +6,7 @@ import { Api } from '../../api/api'
 
 export default function Home(){
     const [teams, setTeams] = useState(undefined);
+    const [years, setYears] = useState(undefined);
 
     const fetchGetTeams = async () => {
         const response = await Api.getAll("team");
@@ -13,8 +14,15 @@ export default function Home(){
         setTeams(result);
     };
 
+    const fetchGetYears = async () => {
+        const response = await Api.getAll("years");
+        const result = await response.json();
+        setYears(result);
+    }
+
     useEffect(() => {
         fetchGetTeams();
+        fetchGetYears();
     }, []);
     
     const testTeamsList = [
