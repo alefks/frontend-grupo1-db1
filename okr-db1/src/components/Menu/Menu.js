@@ -1,17 +1,18 @@
-import React from "react";
-import LogoSquad from './../LogoSquad/LogoSquad';
-import MenuOptions from './../MenuOptions/MenuOptions';
+import React from 'react';
+import MenuItem from '../MenuItem/MenuItem';
 import './Menu.css';
+import Logo from './../../img/db1-logo.png';
 export default function Menu(props){
+
     return (
-        <div className="bar">
-            {!!props.hasLogo?
-                <LogoSquad logoText={props.logoText}/>
-                :""}
-            {!!props.hasLogo?
-                <MenuOptions options={props.options} show={true}/>:
-                <MenuOptions options={props.options} />
-            }
+        <div className="menu">
+            <img className="logo" src={Logo}/>
+            {props.options.map((option,index)=>(
+                option.routeText!==''?
+                    <MenuItem option={option} key={index} />
+                :
+                    <MenuItem returnPage={true} key={index} />
+            ))}
         </div>
     );
 }

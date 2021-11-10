@@ -1,0 +1,17 @@
+.add{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 20%;
+}
+.add .cancel{
+    align-self: flex-end;
+    background-color: transparent;
+    margin-right: 5%;
+}
+.select-item{
+    background-color: var(--colorThird);
+    padding: 5px;
+}

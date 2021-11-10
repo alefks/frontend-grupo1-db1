@@ -1,17 +1,20 @@
-.bar{
-    margin-top: 1em;
-    margin-right: 2em;
-    background-color: transparent;
+.menu{
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
-    justify-content: flex-end;
-    margin-bottom: 1em;
+    z-index: 2;
+    margin: 0;
+    padding-top: 0.2%;
+    background-color: var(--colorFirst);
+    box-shadow: 1px 0px 2px 0px var(--colorShadow);
+    height: 99.6%;
+    width: 20%; 
 }
-.division{
-    display:block;
-    text-align: center;
-}
-.line{
-    display: none;
+.logo{
+    height: auto;
+    width: 80%;
+    margin: 0;
+    border: none;
+    margin-bottom: 2em;
 }

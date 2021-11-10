@@ -17,12 +17,12 @@ export default function Routes(){
             <Route exact path="/" component={ Home } />
             <Route exact path="/checkpoint" component={ CheckPoints } />
             <Route exact path="/login" component={ Login } />
-            <Route exact path="/objectives" component={ Objectives } />
+            <Route exact path="/objectives/:teamId/:quarterId" component={ Objectives } />
             <Route exact path="/registerteam/:id" component={ RegisterTeam } />
             <Route exact path="/registerkeyresult/:id" component={ RegiterKeyResult } />
             <Route exact path="/registerobjectives/:id" component={ RegisterObjectives } />
             <Route exact path="/registerquarter/:id" component={ RegisterQuarter } />
-            <Route exact path="/registerteampartner/:teamId/:id" component={ RegisterTeamPartner } />
+            <Route exact path="/registerteampartner/:id" component={ RegisterTeamPartner } />
             <Route exact path="/team/:teamId" component={ Team } />
             <Route path="*" component={ NotFound } />
         </Switch>
