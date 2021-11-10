@@ -1,10 +1,10 @@
 import React from "react";
 import './Box.css';
+
 export default function Box(props){
-    return(
-        <article className={props.classname}>
+    return (
+        <div className={"box "+props.classname}>
             {props.children}
-        </article>
-    );
-    
+        </div>
+    )
 }

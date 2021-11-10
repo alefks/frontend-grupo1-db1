@@ -1,11 +1,11 @@
 .box-button{
-    min-width: 90%;
+    width: 90%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
 }
 .box-button .button{
-    max-width: 40%;
+    width: 47%;
     min-width: none;
 }

@@ -4,21 +4,23 @@ import Title from './../../components/Title/Title';
 import Form from './../../components/Form/Form';
 import Input from './../../components/Input/Input';
 import Button from './../../components/Button/Button';
-import BoxButton from "../../components/BoxButton/BoxButton";
+import CancelLabel from "../../components/CancelLabel/CancelLabel";
 
 export default function RegisterKeyResult(){
     return (
-        <Form>
-            <Title classname="title">New Key Result</Title>
-            <Input inputType="text" inputName="inputName" inputHolder="Key Result Name" inputRequired={ true }></Input>
-            <Input inputType="text" inputName="inputDescription" inputHolder="key Result Description" inputRequired={ true }></Input>
-            <Input inputType="number" inputName="inputGoal" inputHolder="key Result Goal" inputRequired={ false }></Input>
-            <Input inputType="text" inputName="inputArchieved" inputHolder="key Result Archieved" inputRequired={ false }></Input>
-            <Input inputType="text" inputName="inputFrequency" inputHolder="key Result Frequency" inputRequired={ true }></Input>
-            <BoxButton>
-                <Button classname="button cancel">Cancel</Button>
+        <div className="body">
+            <Form>
+                <Title classname="title">
+                    New Key Result 
+                    <CancelLabel/>
+                </Title>
+                <Input inputType="text" inputName="inputName" inputHolder="Key Result Name" inputRequired={ true }></Input>
+                <Input inputType="text" inputName="inputDescription" inputHolder="key Result Description" inputRequired={ true }></Input>
+                <Input inputType="number" inputName="inputGoal" inputHolder="key Result Goal" inputRequired={ false }></Input>
+                <Input inputType="text" inputName="inputArchieved" inputHolder="key Result Archieved" inputRequired={ false }></Input>
+                <Input inputType="text" inputName="inputFrequency" inputHolder="key Result Frequency" inputRequired={ true }></Input>
                 <Button>Register</Button>
-            </BoxButton>
-        </Form>
+            </Form>
+        </div>
     );
 }

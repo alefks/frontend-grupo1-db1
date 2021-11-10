@@ -1,0 +1,6 @@
+.box{
+    background-color: var(--colorBkTransp);
+    box-shadow: var(--boxShadow);
+    border-radius: var(--defaultRadius);
+    padding: 1%;
+}

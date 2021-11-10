@@ -3,15 +3,16 @@
     padding: 0;
     margin-top:0.5em;
     margin-bottom: 0.5em;
-    background-color: #00335E;
+    background-color: var(--colorSecond);
     width: 90%;
     height: 2.5em;
     border:none;
-    border-radius: 5px;
+    border-radius: var(--defaultRadius);
     box-shadow: 0px 0px 2px 1px black;
-    color:#d0b7b0;
+    color:var(--colorFourth);
     font-size: large;
     font-weight: bolder;
+    cursor: pointer;
 }
 @media only screen and (orientation: portrait) {
     @media (min-width: 901px) {
@@ -43,5 +44,5 @@
     max-width: 10em;
 }
 .cancel {
-    background-color: red;
+    background-color: var(--colorAlert);
 }

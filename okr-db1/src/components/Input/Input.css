@@ -2,7 +2,7 @@
     width: 90%;
     margin-top:0.5em;
     margin-bottom: 0.5em;
-    border-radius: 5px;
+    border-radius: var(--defaultRadius);
     height:2.5em;
     box-shadow: 0px 0px 2px 1px #442c61;
     border: none;

@@ -4,7 +4,7 @@ import Title from '../../components/Title/Title';
 import Form from '../../components/Form/Form';
 import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
-import BoxButton from "../../components/BoxButton/BoxButton";
+import CancelLabel from "../../components/CancelLabel/CancelLabel";
 import {useParams} from "react-router-dom";
 export default function RegisterQuarter(){
     const [editable,setEditable] = useState(false);
@@ -24,17 +24,20 @@ export default function RegisterQuarter(){
         console.log(quarter);
     };
     return (
-        <Form submitAction={getInputValues}>
-            <Title classname="title">New Quarter</Title>
-            <Input inputType="text" inputName="inputQuarterName" inputHolder="Quarter Name" inputRequired={ true }></Input>
-            <BoxButton>
-                <Button classname="button cancel">Cancel</Button>
-                {editable?
+        <div className="body">
+            <Form submitAction={getInputValues}>
+                <Title classname="title">
+                    New Quarter
+                    <CancelLabel/>    
+                </Title>
+                <Input inputType="text" inputName="inputQuarterName" inputHolder="Quarter Name" inputRequired={ true }></Input>
+               {editable?
                     <Button>Save</Button>
                 :
                     <Button>Register</Button>
                 }
-            </BoxButton>
-        </Form>
+                
+            </Form>
+        </div>
     );
 }
