@@ -25,7 +25,7 @@ export default function Home(){
                             <label className="team-score">
                                 {teamItem.score}%
                             </label>
-                            <hr className={"team-score-color "+"alert"} />
+                            <hr className={"team-score-color alert"} />
                         </Link>
                     </Box>
                 ))}

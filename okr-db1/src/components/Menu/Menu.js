@@ -6,7 +6,7 @@ export default function Menu(props){
 
     return (
         <div className="menu">
-            <img className="logo" src={Logo}/>
+            <img className="logo" src={Logo} alt="logo"/>
             {props.options.map((option,index)=>(
                 option.routeText!==''?
                     <MenuItem option={option} key={index} />
