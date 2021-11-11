@@ -11,7 +11,29 @@ export default function Home(){
             objectives : [],
             teamPartners : [],
             score : 50
-        }
+        },
+        {
+            id : 2,
+            name : "financeiro",
+            objectives : [],
+            teamPartners : [],
+            score : 50
+        },
+        {
+            id : 3,
+            name : "financeiro",
+            objectives : [],
+            teamPartners : [],
+            score : 50
+        },
+        {
+            id : 4,
+            name : "financeiro",
+            objectives : [],
+            teamPartners : [],
+            score : 50
+        },
+    
     ];
     return (
         <div className="body">
