@@ -7,6 +7,7 @@
   --colorAlert     : #fc4848;
   --colorOk        : #00b894;
   --colorAtention  : #fdcb6e;
+  --colorSelection : #aeb6bb;
   --colorShadow    : #000000;
   --boxShadow      : 0px 0px 1px 0.1px var(--colorShadow);
   --colorBkTransp  : rgba(255, 255, 255, 0.5);
@@ -42,4 +43,24 @@ code {
     height:auto;
     min-height: 100vh;
     font-family: 'Roboto', sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 0px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--colorThird);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--colorSecond);
 }

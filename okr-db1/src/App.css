@@ -7,7 +7,7 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-  color: var(--colorFourth);
+  color: #ffffff;
 }
 .body{
   left: 0;
