@@ -1,0 +1,37 @@
+.box-table{
+    width: 90%;
+    height: auto;
+    max-height: 90%;
+    overflow: auto;
+}
+.box-table .table{
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    color: var(--colorFirst);
+}
+.table th,.table tbody td {
+    text-align: center;
+    border: none;
+    height: 3em;
+    border-right: 0.1em solid black;
+    border-bottom: 0.1em solid black;
+    border-color: var(--colorThird);
+    margin: 0;
+    padding: 0;
+}
+.table tbody td{
+    height: 2em;
+}
+.table th:last-child,.table tbody td:last-child {
+    border-right: none;
+}
+.table tbody tr:last-child td{
+    border-bottom: none;
+}
+.table tbody tr:hover > td{
+    background-color: var(--colorSelection);
+}
+.table thead tr:hover{
+    background-color: transparent;
+}
