@@ -25,6 +25,20 @@ const menuItems = {
             modal: false,
         }
     ],
+    objective:[
+        {
+            route: '',
+            routeText: '',
+            modal: false,
+        }
+    ],
+    keyResults:[
+        {
+            route: '',
+            routeText: '',
+            modal: false,
+        }
+    ],
     team:[
         {
             route: '',
