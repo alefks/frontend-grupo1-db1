@@ -32,7 +32,29 @@ export default function Home(){
             objectives : [],
             teamPartners : [],
             score : 50
-        }
+        },
+        {
+            id : 2,
+            name : "financeiro",
+            objectives : [],
+            teamPartners : [],
+            score : 50
+        },
+        {
+            id : 3,
+            name : "financeiro",
+            objectives : [],
+            teamPartners : [],
+            score : 50
+        },
+        {
+            id : 4,
+            name : "financeiro",
+            objectives : [],
+            teamPartners : [],
+            score : 50
+        },
+    
     ];
     return (
         <div className="body">
@@ -46,7 +68,7 @@ export default function Home(){
                             <label className="team-score">
                                 {teamItem.score}%
                             </label>
-                            <hr className={"team-score-color "+"alert"} />
+                            <hr className={"team-score-color alert"} />
                         </Link>
                     </Box>
                 ))}

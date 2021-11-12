@@ -22,18 +22,18 @@ export default function MenuItem(props){
                 !props.option.modal?
                     <div className="menu-item">
                         <Link to={props.option.route}>
-                            <img src={props.option.icon} className="icon"></img>
+                            <img src={props.option.icon} alt="icon" className="icon"></img>
                             {props.option.routeText}
                         </Link>
                     </div>
                 :
                     <div className="menu-item" onClick={openModal}>
-                        <img src={props.option.icon} className="icon"></img>
+                        <img src={props.option.icon} alt="icon" className="icon"></img>
                         {props.option.routeText}
                     </div>
             :
                 <div className="menu-item" onClick={history.goBack}>
-                        <img src={Arrow} className="icon"></img>
+                        <img src={Arrow} alt="icon" className="icon"></img>
                         Turn Back
                 </div>
             } 

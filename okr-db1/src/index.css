@@ -1,3 +1,19 @@
+:root {
+  --colorFirst     : #2d3436;
+  --colorSecond    : #636e72;
+  --colorThird     : #b2bec3;
+  --colorFourth    : #dfe6e9;
+  --colorMargin    : #525c5f;
+  --colorAlert     : #fc4848;
+  --colorOk        : #00b894;
+  --colorAtention  : #fdcb6e;
+  --colorSelection : #aeb6bb;
+  --colorShadow    : #000000;
+  --boxShadow      : 0px 0px 1px 0.1px var(--colorShadow);
+  --colorBkTransp  : rgba(255, 255, 255, 0.5);
+  --defaultFont    : 'Roboto', sans-serif;
+  --defaultRadius  : 2px;
+}
 
 body {
   width: 100vw;
@@ -10,7 +26,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #0099B7;
+  background-color: var(--colorFourth);
   
 }
 
@@ -19,51 +35,32 @@ code {
     monospace;
 }
 /* App custom css */
-@import url('https://fonts.googleapis.com/css2?family=Qahiri&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Qahiri&family=Roboto&display=swap');
 #root{
     padding: 0;
     margin: 0;
-    width:100%;
+    width:100vw;
     height:auto;
     min-height: 100vh;
-}
-.App{
     font-family: 'Roboto', sans-serif;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    height: auto;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-image: url("./img/maxresdefault.png");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: left bottom;
-  background-size: auto 100%;
+}
 
+::-webkit-scrollbar {
+  width: 5px;
+  height: 0px;
 }
-@media only screen and (orientation: portrait) {
-    
-  .App{
-        justify-content: flex-start;
-        background-size:  100% auto;
-    }
-   
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
 }
-@media only screen and (orientation: landscape) {
-   
-  .App{
-       background-size: auto 100%;
-    }
-   
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--colorThird);
 }
-@media (max-aspect-ratio:1/1)
-{
-  .App{
-        background-size: 50% auto;
-    }
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--colorSecond);
 }
