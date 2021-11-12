@@ -1,6 +1,6 @@
 import {JwtHandler} from '../local-storage/jwt-handler'
 
-export const Api = {
+export default Api = {
     baseUrl: "http://localhost:3000",
     getAll: (tableName, auth) => fetch(Api.baseUrl + `/${tableName}`, getRequest(auth)),
     getById: (tableName, id, auth) => fetch(Api.baseUrl + `/${tableName}/${id}`, getRequest(auth)),
