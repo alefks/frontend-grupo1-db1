@@ -1,6 +1,6 @@
 import {JwtHandler} from '../local-storage/jwt-handler'
 
-export default Api = {
+const Api = {
     baseUrl: "http://localhost:3000",
     getAll: (tableName, auth) => fetch(Api.baseUrl + `/${tableName}`, getRequest(auth)),
     getById: (tableName, id, auth) => fetch(Api.baseUrl + `/${tableName}/${id}`, getRequest(auth)),
@@ -40,3 +40,5 @@ const deleteRequest = (auth) => ({
     method: "DELETE",
     headers: auth ? new Headers() : undefined,
 })
+
+export default Api;
