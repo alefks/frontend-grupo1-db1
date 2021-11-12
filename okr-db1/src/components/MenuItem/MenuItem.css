@@ -1,12 +1,13 @@
 .menu-item{
-    width: 99.5%;
+    width: 90%;
     height: 3em;
     box-shadow: 0 0 0px 0.6px var(--colorMargin);
     display: flex;
     justify-content: flex-start;
     align-items: center;
     cursor:pointer;
-    
+    padding-left: 5%;
+    padding-right: 5%;
 }
 .menu-item:hover{
     background-color: var(--colorSecond);
@@ -14,8 +15,8 @@
 .menu-item .icon{
     width: auto;
     height: 2em;
+    margin: 0;
     margin-right: 1.5em;
-    margin-left: 1em;
 }
 .menu-item a{
     display: flex;
