@@ -27,7 +27,11 @@ export default function RegisterTeamPartner(){
         <div className="body">
             <Form submitAction={getInputValues}>
                 <Title classname="title">
-                    New Team Partner
+                    {editable?
+                        'Edit Team Partner'
+                    :
+                        'New Team Partner'
+                    }
                     <CancelLabel/>   
                 </Title>
                 <Input inputType="text" inputName="inputTeamPartnerName" inputHolder="Team Partner Name" inputRequired={ true }></Input>
