@@ -19,7 +19,12 @@ const menuItems = {
     ],
     objectives:[
         {
-            route: '/registerobjectives/new',
+            route: '',
+            routeText: '',
+            modal: false,
+        },
+        {
+            route: '/registerobjectives/',
             routeText: 'Create New Objective',
             icon: Objective,
             modal: false,
