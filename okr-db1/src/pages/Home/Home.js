@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Box from './../../components/Box/Box';
 import './Home.css';
-import { Api } from '../../api/api'
+import Api from '../../api/api'
 
 export default function Home(){
     const [teams, setTeams] = useState(undefined);
