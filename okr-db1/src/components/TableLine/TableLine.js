@@ -29,7 +29,7 @@ export default function TableLine(props){
                             </span>
                         </Link>
                         
-                        <Link to={"/registerobjectives/"+props.values.id}>
+                        <Link to={"/registerobjectives/"+props.idTeam+"/"+props.values.id}>
                             <img src={Pencil} className="edit" alt="edit" />
                             <span className="legend legend-conect">
                                 Edit this objective

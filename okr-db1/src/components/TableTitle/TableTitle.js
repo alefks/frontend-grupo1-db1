@@ -7,6 +7,7 @@ export default function TableTitle(props){
                 {props.titles.map((title,index)=>(
                     <th key={index}>{title}</th>
                 ))}
+                <th></th>
             </tr>
         </thead>
     );
