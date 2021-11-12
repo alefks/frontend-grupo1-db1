@@ -2,6 +2,7 @@ import React,{useState,useEffect} from "react";
 import { Link } from "react-router-dom";
 import Box from './../../components/Box/Box';
 import './Home.css';
+import Api from '../../api/api'
 
 export default function Home(){
     const [Year,setYear] = useState(0);
@@ -10,7 +11,28 @@ export default function Home(){
             setYear((new Date()).getFullYear());
         }
     }, [Year])
-    const teamsList = [
+
+    const [teams, setTeams] = useState(testTeamsList);
+    const [years, setYears] = useState(undefined);
+
+    const fetchGetTeams = async () => {
+        const response = await Api.getAll("team");
+        const result = await response.json();
+        setTeams(result);
+    };
+
+    const fetchGetYears = async () => {
+        const response = await Api.getAll("years");
+        const result = await response.json();
+        setYears(result);
+    }
+
+    useEffect(() => {
+        fetchGetTeams();
+        fetchGetYears();
+    }, []);
+    
+    const testTeamsList = [
         {
             id : 1,
             name : "financeiro",
@@ -68,7 +90,7 @@ export default function Home(){
                 </select>
             </div>
             <Box classname="teams-list">
-                {teamsList.map((teamItem)=>(
+                {testTeamsList.map((teamItem)=>(
                     <Box classname="teams-item" key={teamItem.id}>
                         <Link to={"/team/"+teamItem.id}>
                             <label className="team-name">
