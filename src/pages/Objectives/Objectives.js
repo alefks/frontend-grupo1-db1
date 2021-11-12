@@ -7,17 +7,6 @@ import "./Objectives.css";
 import Api from "../../api/api";
 
 export default function Objectives() {
-    const [objectives, setObjectives] = useState(testObjectives);
-
-    const { id, startDate, endDate } = useParams();
-    const titles = ["Name", "Description", "Start Date", "End Date", "Manager"];
-    const newDate = new Date();
-    const date =
-        newDate.getDay() +
-        "-" +
-        (newDate.getMonth() + 1) +
-        "-" +
-        newDate.getFullYear();
     const testObjectives = [
         {
             id: 1,
@@ -116,6 +105,17 @@ export default function Objectives() {
             manager: "",
         },
     ];
+    const [objectives, setObjectives] = useState(testObjectives);
+
+    const { id, startDate, endDate } = useParams();
+    const titles = ["Name", "Description", "Start Date", "End Date", "Manager"];
+    const newDate = new Date();
+    const date =
+        newDate.getDay() +
+        "-" +
+        (newDate.getMonth() + 1) +
+        "-" +
+        newDate.getFullYear();
 
     const fetchGetObjectives = async () => {
         const response = await Api.getAll("objective");

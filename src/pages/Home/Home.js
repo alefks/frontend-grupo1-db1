@@ -5,33 +5,6 @@ import './Home.css';
 import Api from '../../api/api'
 
 export default function Home(){
-    const [Year,setYear] = useState(0);
-    useEffect(() => {
-        if(Year===0){
-            setYear((new Date()).getFullYear());
-        }
-    }, [Year])
-
-    const [teams, setTeams] = useState(testTeamsList);
-    const [years, setYears] = useState(undefined);
-
-    const fetchGetTeams = async () => {
-        const response = await Api.getAll("team");
-        const result = await response.json();
-        setTeams(result);
-    };
-
-    const fetchGetYears = async () => {
-        const response = await Api.getAll("years");
-        const result = await response.json();
-        setYears(result);
-    }
-
-    useEffect(() => {
-        fetchGetTeams();
-        fetchGetYears();
-    }, []);
-    
     const testTeamsList = [
         {
             id : 1,
@@ -63,6 +36,33 @@ export default function Home(){
         },
     
     ];
+    const [Year,setYear] = useState(0);
+    useEffect(() => {
+        if(Year===0){
+            setYear((new Date()).getFullYear());
+        }
+    }, [Year])
+
+    const [teams, setTeams] = useState(testTeamsList);
+    const [years, setYears] = useState(undefined);
+
+    const fetchGetTeams = async () => {
+        const response = await Api.getAll("team");
+        const result = await response.json();
+        setTeams(result);
+    };
+
+    const fetchGetYears = async () => {
+        const response = await Api.getAll("years");
+        const result = await response.json();
+        setYears(result);
+    }
+
+    useEffect(() => {
+        fetchGetTeams();
+        fetchGetYears();
+    }, []);
+    
     const changeYear = (event)=>{
         const selectElement = event.target;
         const selectValue = selectElement.childNodes[selectElement.selectedIndex].value;
