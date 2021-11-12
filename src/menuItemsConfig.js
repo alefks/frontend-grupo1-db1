@@ -1,7 +1,7 @@
 import Team from './img/icons/team.png';
 import TeamPartner from './img/icons/team-partner.png';
 import Objective from './img/icons/objective.png';
-import AddPartner from './components/AddPartner/AddPartner';
+import Key from './img/icons/key.png'
 const menuItems = {
     home:[
         {
@@ -42,7 +42,13 @@ const menuItems = {
             route: '',
             routeText: '',
             modal: false,
-        }
+        },
+        {
+            route: '/registerkeyresult/new',
+            routeText: 'New Key Result',
+            icon: Key,
+            modal: false,
+        },
     ],
     team:[
         {
@@ -55,7 +61,6 @@ const menuItems = {
             routeText: 'Add New Team Partner',
             icon: TeamPartner,
             modal: true,
-            component: AddPartner,
         }
     ],
     checkPoints:[

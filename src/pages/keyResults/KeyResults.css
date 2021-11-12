@@ -1,3 +1,31 @@
 .keyresults .box-table{
     max-height: 50%;
 }
+.check-points{
+    width: 90%;
+    height: auto;
+    padding: 1%;
+    background-color: balck;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.check-date{
+    background-color: var(--colorFourth);
+    width: 9.5%;
+    height: 3em;
+    margin: 0.5%;
+}
+.check-date:hover{
+    cursor: pointer;
+    background-color: var(--colorThird);
+}
+.keyresults .title{
+    width: 90%;
+    text-align: center;
+    color: var(--colorFirst);
+}
+.title2{
+    margin-top: 1em;
+}
