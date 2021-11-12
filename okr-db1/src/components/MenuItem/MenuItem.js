@@ -4,8 +4,10 @@ import Modal from './../Modal/Modal';
 import Arrow from './../../img/icons/arrow.png';
 import './MenuItem.css';
 import AddPartner from '../AddPartner/AddPartner';
+import { useParams } from 'react-router-dom';
 
 export default function MenuItem(props){
+    const params = useParams();
     const history = useHistory();
     const [showModal,setShowModal] = useState({display:"none"});
     const openModal = ()=>{
@@ -21,7 +23,7 @@ export default function MenuItem(props){
             !props.returnPage?
                 !props.option.modal?
                     <div className="menu-item">
-                        <Link to={props.option.route}>
+                        <Link to={props.option.route==='/registerobjectives/'?props.option.route+params.id + "/new":props.option.route}>
                             <img src={props.option.icon} alt="icon" className="icon"></img>
                             {props.option.routeText}
                         </Link>

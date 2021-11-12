@@ -18,94 +18,7 @@ export default function Objectives(){
             endDate     : date,
             manager:"",  
         },
-        {
-            id:2,
-            name:"go test",
-            description: "testing table",
-            startDate   : date,
-            endDate     : date,
-            manager:"",  
-        },
-        {
-            id:1,
-            name:"go test",
-            description: "testing table",
-            startDate   : date,
-            endDate     : date,
-            manager:"",  
-        },
-        {
-            id:2,
-            name:"go test",
-            description: "testing table",
-            startDate   : date,
-            endDate     : date,
-            manager:"",  
-        },
-        {
-            id:1,
-            name:"go test",
-            description: "testing table",
-            startDate   : date,
-            endDate     : date,
-            manager:"",  
-        },
-        {
-            id:2,
-            name:"go test",
-            description: "testing table",
-            startDate   : date,
-            endDate     : date,
-            manager:"",  
-        },
-        {
-            id:1,
-            name:"go test",
-            description: "testing table",
-            startDate   : date,
-            endDate     : date,
-            manager:"",  
-        },
-        {
-            id:2,
-            name:"go test",
-            description: "testing table",
-            startDate   : date,
-            endDate     : date,
-            manager:"",  
-        },
-        {
-            id:1,
-            name:"go test",
-            description: "testing table",
-            startDate   : date,
-            endDate     : date,
-            manager:"",  
-        },
-        {
-            id:2,
-            name:"go test",
-            description: "testing table",
-            startDate   : date,
-            endDate     : date,
-            manager:"",  
-        },
-        {
-            id:1,
-            name:"go test",
-            description: "testing table",
-            startDate   : date,
-            endDate     : date,
-            manager:"",  
-        },
-        {
-            id:2,
-            name:"go test",
-            description: "testing table",
-            startDate   : date,
-            endDate     : date,
-            manager:"",  
-        },
+        
     ];
     return (
         <div className="body objectives">
@@ -113,7 +26,7 @@ export default function Objectives(){
                 <TableTitle titles={titles} />
                 <tbody className="tbody">
                     {objecives.map((objective)=>(
-                        <TableLine values={objective} key={objective.id} objectName={"objective"}/>
+                        <TableLine values={objective} idTeam={id} key={objective.id} objectName={"objective"}/>
                     ))}
                 </tbody>
             </Table>

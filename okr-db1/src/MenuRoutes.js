@@ -9,7 +9,7 @@ export default function Routes(){
             <Route exact path="/" children={ <Menu options={menuItemsConfig.home}/> } />
             <Route exact path="/checkpoint" children={ <Menu options={menuItemsConfig.checkPoints}/> } />
             <Route exact path="/login" children={ <Menu options={menuItemsConfig.others} /> } />
-            <Route exact path="/objectives/:teamId/:quarterId" children={ <Menu options={menuItemsConfig.objectives}/> } />
+            <Route exact path="/objectives/:id/:startDate/:endDate" children={ <Menu options={menuItemsConfig.objectives}/> } />
             <Route exact path="/objective/:id" children={ <Menu options={menuItemsConfig.objective}/> } />
             <Route exact path="/keyresults/:id" children={ <Menu options={menuItemsConfig.keyResults}/> } />
             <Route exact path="/registerteam/:id" children={ <Menu options={menuItemsConfig.others}/> } />
