@@ -37,3 +37,34 @@
 .atention{
     background-color: var(--colorAtention);
 }
+.select{
+    width: 90%;
+    padding: 1%;
+    display: flex;
+    justify-content: flex-end;
+    background-color: var(--colorBkTransp);
+    box-shadow: var(--boxShadow);
+}
+.select-item{
+    font-size: 1em;
+    height: 2em;
+    width: auto;
+    margin-right:1em;
+    border: none;
+    outline: none;
+    background-color:var(--colorFourth);
+    color: var(--colorFirst);
+    font-weight: 600;
+}
+.select-item option{
+    background-color:var(--colorFourth);
+    color: var(--colorFirst);
+}
+.select-item:focus{
+    border:none;
+    outline: none;
+    outline-offset: none;
+}
+.select-item{
+    margin-right: 1em;
+}
