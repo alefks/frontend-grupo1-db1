@@ -23,7 +23,7 @@ export default function Routes(){
             <Route exact path="/keyresults/:objectiveId" component={ KeyResults } />
             <Route exact path="/registerteam/:id" component={ RegisterTeam } />
             <Route exact path="/registerkeyresult/:id" component={ RegiterKeyResult } />
-            <Route exact path="/registerobjectives/:id" component={ RegisterObjectives } />
+            <Route exact path="/registerobjectives/:teamId/:id" component={ RegisterObjectives } />
             <Route exact path="/registerteampartner/:id" component={ RegisterTeamPartner } />
             <Route exact path="/team/:teamId" component={ Team } />
             <Route path="*" component={ NotFound } />
