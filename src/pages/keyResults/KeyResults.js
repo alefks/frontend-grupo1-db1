@@ -9,7 +9,7 @@ import Api from "../../api/api";
 
 export default function KeyResults() {
     const { objectiveId } = useParams();
-    const [keyResults, setKeyResults] = useState(testKeyResults);
+    
     const testKeyResults = [
         {
             id: 1,
@@ -192,6 +192,8 @@ export default function KeyResults() {
             checkinDates: [],
         },
     ];
+
+    const [keyResults, setKeyResults] = useState(testKeyResults);
 
     const fetchGetKeyResults = async () => {
         const response = await Api.getById("objective", objectiveId);
