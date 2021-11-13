@@ -11,7 +11,7 @@ import { useParams } from "react-router-dom";
 export default function RegisterKeyResult({ history }) {
     const { id } = useParams();
     const [editable, setEditable] = useState(false);
-    const [team, setTeam] = useState({ 
+    const [keyResult, setKeyResult] = useState({ 
         name: "",
         description: "",
         goal: "",
@@ -32,13 +32,13 @@ export default function RegisterKeyResult({ history }) {
     const fetchTeamById = async () => {
         const response = await Api.getById("team", id);
         const result = await response.json();
-        setTeam(result);
+        setKeyResult(result);
     };
 
     const getInputValues = async (event) => {
         event.preventDefault();
 
-        const payload = { ...team };
+        const payload = { ...keyResult };
 
         payload.name = event.target.inputName.value;
         payload.description = event.target.inputDescription.value;
