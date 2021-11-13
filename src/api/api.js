@@ -4,9 +4,9 @@ const Api = {
     baseUrl: "http://localhost:3000",
     getAll: (tableName, auth) => fetch(Api.baseUrl + `/${tableName}`, getRequest(auth)),
     getById: (tableName, id, auth) => fetch(Api.baseUrl + `/${tableName}/${id}`, getRequest(auth)),
-    post: (tableName, body, auth) => fetch(Api.baseUrl + `/${tableName}`, postRequest(body, auth)),
-    patch: (tableName, body, auth) => fetch(Api.baseUrl + `/${tableName}`, patchRequest(body, auth)),
-    delete: (tableName, id, auth) => fetch(Api.baseUrl + `/${tableName}/${id}`, deleteRequest(auth)),
+    post: (tableName, body, auth) => fetch(Api.baseUrl + `/${tableName}/create`, postRequest(body, auth)),
+    patch: (tableName, id, body, auth) => fetch(Api.baseUrl + `/${tableName}/update/${id}`, patchRequest(body, auth)),
+    delete: (tableName, id, auth) => fetch(Api.baseUrl + `/${tableName}/delete/${id}`, deleteRequest(auth)),
 
     authHeader: () => ({
         Authorization: "Bearer " + JwtHandler.getJwt()

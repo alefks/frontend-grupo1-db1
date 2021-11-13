@@ -43,24 +43,26 @@ export default function Home(){
         }
     }, [Year])
 
+    const testYears = [2019,2018,2021,2017,2016].sort().reverse();
+
     const [teams, setTeams] = useState(testTeamsList);
-    const [years, setYears] = useState(undefined);
+    const [years, setYears] = useState(testYears);
 
     const fetchGetTeams = async () => {
         const response = await Api.getAll("team");
         const result = await response.json();
-        setTeams(result);
+        result !== [] && setTeams(result);
     };
 
     const fetchGetYears = async () => {
         const response = await Api.getAll("years");
         const result = await response.json();
-        setYears(result);
+        result !== [] && setYears(result);
     }
 
     useEffect(() => {
         fetchGetTeams();
-        fetchGetYears();
+        //fetchGetYears();
     }, []);
     
     const changeYear = (event)=>{
@@ -74,12 +76,11 @@ export default function Home(){
         setYear(parseInt(selectValue));
     }
     console.log(Year);
-    const Years = [2019,2018,2021,2017,2016].sort().reverse();
     return (
         <div className="body">
             <div className="select">
                 <select name="year" className="select-item" onChange={changeYear}>
-                {Years.map((year,index)=>(
+                {years.map((year,index)=>(
                     <option value={year} key={index}>{year}</option>
                 ))}                 
                 </select>
@@ -90,7 +91,7 @@ export default function Home(){
                 </select>
             </div>
             <Box classname="teams-list">
-                {testTeamsList.map((teamItem)=>(
+                {teams.map((teamItem)=>(
                     <Box classname="teams-item" key={teamItem.id}>
                         <Link to={"/team/"+teamItem.id}>
                             <label className="team-name">
