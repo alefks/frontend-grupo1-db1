@@ -1,0 +1,16 @@
+.form .title{
+    font-size: larger;
+    font-weight: bolder;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+}
+.form .sub-title{
+    font-weight: bolder;
+    font-size: larger;
+}
+.title .clean-space{
+    width: 1em;
+}

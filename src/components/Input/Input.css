@@ -1,0 +1,43 @@
+.input{
+    width: 90%;
+    margin-top:0.5em;
+    margin-bottom: 0.5em;
+    border-radius: var(--defaultRadius);
+    height:2.5em;
+    box-shadow: 0px 0px 2px 1px #442c61;
+    border: none;
+    outline: none;
+    text-align: center;
+    font-size: large;
+}
+.input:focus{
+    box-shadow: 0px 0px 2px 1px #a59391;
+}
+@media only screen and (orientation: portrait) {
+    @media (min-width: 901px) {
+        .input{
+            margin-top:1em;
+            margin-bottom: 1em;
+            height:2em;
+            font-size: 3em;
+        }
+        .input:focus{
+            box-shadow: 0px 0px 10px 8px #a59391;
+        }
+    }
+    @media (max-width: 900px){
+        .input{
+            height:2.5em;
+        } 
+     }
+    @media (max-width: 600px){
+       .input{
+            height:2.5em;
+       } 
+    }
+    @media (max-width: 400px){
+        .input{
+            height:2.5em;
+        } 
+     }
+}
