@@ -25,14 +25,17 @@ export default function Team(){
           {
             id         :1,
             name       :"julia",
+            teamId     :1
           },
           {
             id         :2,
             name       :"pedro",
+            teamId     :2
           },
           {
             id         :3,
             name       :"livia",
+            teamId     :1
           },
           
         ],
@@ -45,7 +48,7 @@ export default function Team(){
             {
               team.teamPartners.map((partner)=>(
                 <BoxItem key={partner.id}>
-                  <Link to={"/registerteampartner/"+partner.id}>
+                  <Link to={`/registerteampartner/${partner.teamId}/${partner.id}`}>
                     {partner.name}
                     <img className="icon" src={Pencil} alt="edit" />  
                   </Link>
