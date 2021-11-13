@@ -6,6 +6,7 @@ import Input from "./../../components/Input/Input";
 import Button from "./../../components/Button/Button";
 import CancelLabel from "../../components/CancelLabel/CancelLabel";
 import Api from "../../api/api";
+import { useParams } from "react-router-dom";
 
 export default function RegisterKeyResult({ history }) {
     const { id } = useParams();
