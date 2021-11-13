@@ -6,8 +6,9 @@ import Form from "../../components/Form/Form";
 import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
 import CancelLabel from "../../components/CancelLabel/CancelLabel";
+import Api from '../../api/api'
 
-export default function RegisterObjectives() {
+export default function RegisterObjectives({ history }) {
     const [editable, setEditable] = useState(false);
     const { teamId, id } = useParams();
     const [objective, setObjective] = useState({
