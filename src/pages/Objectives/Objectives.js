@@ -3,10 +3,13 @@ import { useParams } from "react-router-dom";
 import Table from "../../components/Table/Table";
 import TableLine from "../../components/TableLine/TableLine";
 import TableTitle from "../../components/TableTitle/TableTitle";
-import "./Objectives.css";
+import KeyResultsList from "../../components/KeyResultsList/KeyResultsList";
+import Box from "../../components/Box/Box";
 import Api from "../../api/api";
+import "./Objectives.css";
 
 export default function Objectives() {
+    // 
     const newDate = new Date();
     const date =
         newDate.getDay() +
@@ -131,7 +134,10 @@ export default function Objectives() {
 
     return (
         <div className="body objectives">
-            <Table>
+            <Box classname="boxtitle">
+                Objectives
+            </Box>
+            <Table className="objectives-list">
                 <TableTitle titles={titles} />
                 <tbody className="tbody">
                     {objectives.map((objective) => (
@@ -143,6 +149,7 @@ export default function Objectives() {
                     ))}
                 </tbody>
             </Table>
+            <KeyResultsList classname="boxtitle2"></KeyResultsList>
         </div>
     );
 }

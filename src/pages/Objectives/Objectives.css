@@ -1,0 +1,9 @@
+.objectives .box-table{
+    max-height: 40%;
+}
+.objectives .key-results-list .box-table{
+    max-height: 100%;
+}
+.objectives-list{
+    height: none;
+}
