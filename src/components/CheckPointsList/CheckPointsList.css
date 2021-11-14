@@ -1,0 +1,29 @@
+.check-points-box{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.check-points{
+    width: 90%;
+    height: auto;
+    padding: 1%;
+    background-color: balck;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.check-date{
+    background-color: var(--colorFourth);
+    width: 9.5%;
+    height: 3em;
+    margin: 0.5%;
+}
+.check-date:hover{
+    cursor: pointer;
+    background-color: var(--colorThird);
+}
