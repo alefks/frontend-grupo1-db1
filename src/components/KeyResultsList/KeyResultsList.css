@@ -1,0 +1,25 @@
+.key-results-list{
+    display: flex;
+    height: auto;
+    max-height: 40%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    background-color: transparent;
+}
+.key-results-list .box-table{
+    max-height: 100%;
+    margin: 0;
+    padding: 1%;
+    height: auto;
+    width: 90%;
+}
+.key-results-list .box-table .table{
+    max-height: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
