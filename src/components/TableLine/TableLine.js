@@ -10,13 +10,13 @@ export default function TableLine(props){
         values = values.slice(0,-1)
     }
     return (
-            <tr>
+            <tr onClick={props.select?props.select:undefined} className={props.select?"selected":""} style={props.style} objectiveid={props.values.id?props.values.id:0}>
                 {values.map((value,index)=>(
                     <td key={index}>{value}</td>
                 ))}
                 {props.objectName!=="objective"?"":
                     <td key={5} className="icons">
-                        <Link to={"/objective/"+props.values.id}>
+                        <Link to={"/relations/"+props.values.id}>
                             <img src={Relation} className="list-relations" alt="relations" />
                             <span className="legend legend-conect">
                                 Go to related Objetives
@@ -29,7 +29,7 @@ export default function TableLine(props){
                             </span>
                         </Link>
                         
-                        <Link to={"/registerobjectives/"+props.idTeam+"/"+props.values.id}>
+                        <Link to={"/registerobjectives/"+props.teamId+"/"+props.values.id}>
                             <img src={Pencil} className="edit" alt="edit" />
                             <span className="legend legend-conect">
                                 Edit this objective
@@ -39,7 +39,7 @@ export default function TableLine(props){
                 }
                 {props.objectName!=="keyresult"?"":
                     <td key={5} className="icons">
-                         <Link to={"/registerkeyresult/"+props.values.id}>
+                         <Link to={"/registerkeyresult/"+props.objectiveId+"/"+props.values.id}>
                             <img src={Pencil} className="edit" alt="edit" />
                             <span className="legend legend-conect">
                                 Edit this keyResult

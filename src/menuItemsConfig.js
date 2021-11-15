@@ -1,6 +1,8 @@
 import Team from './img/icons/team.png';
 import TeamPartner from './img/icons/team-partner.png';
+import Relations from './img/icons/menu-relations.png';
 import Objective from './img/icons/objective.png';
+import Home from './img/icons/home.png';
 import Key from './img/icons/key.png'
 const menuItems = {
     home:[
@@ -10,17 +12,12 @@ const menuItems = {
             icon: Team,
             modal: false,
         },
-        {
-            route: '/registerteampartner/new',
-            routeText: 'Create Team Partner',
-            icon: TeamPartner,
-            modal: false,
-        }
     ],
     objectives:[
         {
-            route: '',
-            routeText: '',
+            route: '/',
+            routeText: 'Home',
+            icon:Home,
             modal: false,
         },
         {
@@ -28,9 +25,27 @@ const menuItems = {
             routeText: 'Create New Objective',
             icon: Objective,
             modal: false,
-        }
+        },
+        {
+            route: '',
+            routeText: '',
+            modal: false,
+        },
+
     ],
-    objective:[
+    relations:[
+        {
+            route: '/',
+            routeText: 'Home',
+            icon:Home,
+            modal: false,
+        },
+        {
+            route: '',
+            routeText: 'Add New Relation',
+            icon: Relations,
+            modal: true,
+        },
         {
             route: '',
             routeText: '',
@@ -39,21 +54,28 @@ const menuItems = {
     ],
     keyResults:[
         {
-            route: '',
-            routeText: '',
+            route: '/',
+            routeText: 'Home',
+            icon:Home,
             modal: false,
         },
         {
-            route: '/registerkeyresult/new',
+            route: '/registerkeyresult/',
             routeText: 'New Key Result',
             icon: Key,
+            modal: false,
+        },
+        {
+            route: '',
+            routeText: '',
             modal: false,
         },
     ],
     team:[
         {
-            route: '',
-            routeText: '',
+            route: '/',
+            routeText: 'Home',
+            icon:Home,
             modal: false,
         },
         {
@@ -61,9 +83,26 @@ const menuItems = {
             routeText: 'Add New Team Partner',
             icon: TeamPartner,
             modal: true,
-        }
+        },
+        {
+            route: '/registerteampartner/',
+            routeText: 'Create Team Partner',
+            icon: TeamPartner,
+            modal: false,
+        },
+        {
+            route: '',
+            routeText: '',
+            modal: false,
+        },
     ],
     checkPoints:[
+        {
+            route: '/',
+            routeText: 'Home',
+            icon:Home,
+            modal: false,
+        },
         {
             route: '',
             routeText: '',
@@ -71,6 +110,12 @@ const menuItems = {
         }
     ],
     others:[
+        {
+            route: '/',
+            routeText: 'Home',
+            icon:Home,
+            modal: false,
+        },
         {
             route: '',
             routeText: '',

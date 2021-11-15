@@ -1,7 +1,8 @@
 import React from "react";
 import Form from './../Form/Form';
 import Button from './../Button/Button';
-import CancelLabel from "../CancelLabel/CancelLabel";
+import CancelLabel from '../CancelLabel/CancelLabel';
+import Title from '../Title/Title';
 import './AddPartner.css';
 
 export default function AddPartner(props){
@@ -17,9 +18,10 @@ export default function AddPartner(props){
     ]
     return (
         <Form classname={"form add"}>
-            <CancelLabel action={props.closeButton} closeButton={true}>
-
-            </CancelLabel>
+            <Title classname="title">
+                Add new Team Partner
+                <CancelLabel action={props.closeButton} closeButton={true}/>
+            </Title>
             <select name="partner" id="cars" className="input">
                 {partners.map((value)=>(
                     <option className="select-item" value={value.id} key={value.id}>{value.name}</option>

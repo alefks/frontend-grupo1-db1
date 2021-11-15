@@ -5,6 +5,7 @@ import Arrow from './../../img/icons/arrow.png';
 import './MenuItem.css';
 import AddPartner from '../AddPartner/AddPartner';
 import { useParams } from 'react-router-dom';
+import AddRelation from '../AddRelation/AddRelation';
 
 export default function MenuItem(props){
     const params = useParams();
@@ -23,7 +24,8 @@ export default function MenuItem(props){
             !props.returnPage?
                 !props.option.modal?
                     <div className="menu-item">
-                        <Link to={props.option.route==='/registerobjectives/'?props.option.route+params.id + "/new":props.option.route}>
+                        <Link to={props.option.route==='/registerobjectives/'||props.option.route==='/registerkeyresult/'||props.option.route==='/registerteampartner/'
+                                ?props.option.route+(params.objectiveId?params.objectiveId:params.teamId) + "/new":props.option.route}>
                             <img src={props.option.icon} alt="icon" className="icon"></img>
                             {props.option.routeText}
                         </Link>
@@ -40,7 +42,12 @@ export default function MenuItem(props){
                 </div>
             } 
             <Modal style={showModal}>
-               <AddPartner closeButton={openModal}></AddPartner>
+                {params.teamId?
+                    <AddPartner closeButton={openModal}></AddPartner>
+                :
+                    <AddRelation closeButton={openModal}></AddRelation>
+                }
+              
             </Modal>  
         </div>
     )

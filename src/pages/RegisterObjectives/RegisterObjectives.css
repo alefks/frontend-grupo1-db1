@@ -1,3 +1,36 @@
 .title{
     background-color: transparent;
 }
+.register .form {
+    width: 80%;
+    max-width: 80%;
+    height: 80%;
+    max-height: 80%;
+}
+.form fieldset{
+    width: 90%;
+    height: 60%;
+    border:none;
+}
+.form fieldset .input,.form fieldset .select-item{
+    width: 45%;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 0.5em;
+}
+.form fieldset{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0;
+    margin: 5%;
+}
+.form fieldset .sub-title{
+    display: block;
+    width: 45%;
+    text-align: center;
+    margin-top:0.5em;
+    margin-bottom: 0.5em;
+}

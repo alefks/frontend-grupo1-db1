@@ -6,6 +6,7 @@ import TableLine from '../TableLine/TableLine';
 import './KeyResultsList.css';
 
 export default function KeyResultsList(props){
+    const objectiveId = props.objectiveId;
     const keyResultMap = [
         {
             id: 0,
@@ -26,8 +27,7 @@ export default function KeyResultsList(props){
             description: "testesando",
             goal: 20,
             achieved: 30,
-            frequency: "",
-            responsibleId: 1,
+            responsible: "name",
             checkinDates: [],
         },
         {
@@ -36,8 +36,7 @@ export default function KeyResultsList(props){
             description: "testesando",
             goal: 20,
             achieved: 30,
-            frequency: "",
-            responsibleId: 1,
+            responsible:  "name",
             checkinDates: [],
         },
         {
@@ -46,8 +45,7 @@ export default function KeyResultsList(props){
             description: "testesando",
             goal: 20,
             achieved: 30,
-            frequency: "",
-            responsibleId: 1,
+            responsible: "name",
             checkinDates: [],
         },
         {
@@ -56,8 +54,7 @@ export default function KeyResultsList(props){
             description: "testesando",
             goal: 20,
             achieved: 30,
-            frequency: "",
-            responsibleId: 1,
+            responsible: "name",
             checkinDates: [],
         },
         {
@@ -66,8 +63,7 @@ export default function KeyResultsList(props){
             description: "testesando",
             goal: 20,
             achieved: 30,
-            frequency: "",
-            responsibleId: 1,
+            responsible: "name",
             checkinDates: [],
         },
         {
@@ -76,8 +72,7 @@ export default function KeyResultsList(props){
             description: "testesando",
             goal: 20,
             achieved: 30,
-            frequency: "",
-            responsibleId: 1,
+            responsible: "name",
             checkinDates: [],
         },
         {
@@ -86,8 +81,7 @@ export default function KeyResultsList(props){
             description: "testesando",
             goal: 20,
             achieved: 30,
-            frequency: "",
-            responsibleId: 1,
+            responsible: "name",
             checkinDates: [],
         },
         {
@@ -96,8 +90,7 @@ export default function KeyResultsList(props){
             description: "testesando",
             goal: 20,
             achieved: 30,
-            frequency: "",
-            responsibleId: 1,
+            responsible: "name",
             checkinDates: [],
         },
         {
@@ -106,8 +99,7 @@ export default function KeyResultsList(props){
             description: "testesando",
             goal: 20,
             achieved: 30,
-            frequency: "",
-            responsibleId: 1,
+            responsible: "name",
             checkinDates: [],
         },
         {
@@ -116,8 +108,7 @@ export default function KeyResultsList(props){
             description: "testesando",
             goal: 20,
             achieved: 30,
-            frequency: "",
-            responsibleId: 1,
+            responsible: "name",
             checkinDates: [],
         },
         {
@@ -126,8 +117,7 @@ export default function KeyResultsList(props){
             description: "testesando",
             goal: 20,
             achieved: 30,
-            frequency: "",
-            responsibleId: 1,
+            responsible: "name",
             checkinDates: [],
         },
         {
@@ -136,8 +126,7 @@ export default function KeyResultsList(props){
             description: "testesando",
             goal: 20,
             achieved: 30,
-            frequency: "",
-            responsibleId: 1,
+            responsible: "name",
             checkinDates: [],
         },
         {
@@ -146,8 +135,7 @@ export default function KeyResultsList(props){
             description: "testesando",
             goal: 20,
             achieved: 30,
-            frequency: "",
-            responsibleId: 1,
+            responsible: "name",
             checkinDates: [],
         },
         {
@@ -156,8 +144,7 @@ export default function KeyResultsList(props){
             description: "testesando",
             goal: 20,
             achieved: 30,
-            frequency: "",
-            responsibleId: 1,
+            responsible: "name",
             checkinDates: [],
         },
         {
@@ -166,8 +153,7 @@ export default function KeyResultsList(props){
             description: "testesando",
             goal: 20,
             achieved: 30,
-            frequency: "",
-            responsibleId: 1,
+            responsible: "name",
             checkinDates: [],
         },
         {
@@ -176,8 +162,7 @@ export default function KeyResultsList(props){
             description: "testesando",
             goal: 20,
             achieved: 30,
-            frequency: "",
-            responsibleId: 1,
+            responsible: "name",
             checkinDates: [],
         },
         {
@@ -186,8 +171,7 @@ export default function KeyResultsList(props){
             description: "testesando",
             goal: 20,
             achieved: 30,
-            frequency: "",
-            responsibleId: 1,
+            responsible: "name",
             checkinDates: [],
         },
         {
@@ -196,8 +180,7 @@ export default function KeyResultsList(props){
             description: "testesando",
             goal: 20,
             achieved: 30,
-            frequency: "",
-            responsibleId: 1,
+            responsible: "name",
             checkinDates: [],
         },
     ];
@@ -218,7 +201,6 @@ export default function KeyResultsList(props){
         "Description",
         "Goal",
         "Achieved",
-        "Frequency",
         "Responsible",
     ];
     return (
@@ -227,10 +209,11 @@ export default function KeyResultsList(props){
             <Table>
                 <TableTitle titles={titles} />
                 <tbody className="tbody">
-                    {keyResults.map((keyResult) => (
+                    {keyResults.map((keyResult,index) => (
                         <TableLine
+                            objectiveId={objectiveId}
                             values={keyResult}
-                            key={keyResult.id}
+                            key={index}
                             objectName={"keyresult"}
                         />
                     ))}

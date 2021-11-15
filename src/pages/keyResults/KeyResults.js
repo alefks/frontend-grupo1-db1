@@ -9,7 +9,7 @@ export default function KeyResults() {
     return (
         <div className="body keyresults">
             <KeyResultsList objectiveId={objectiveId}></KeyResultsList>
-            <CheckPointsList></CheckPointsList>
+            <CheckPointsList objectiveId={objectiveId}></CheckPointsList>
         </div>
     );
 }

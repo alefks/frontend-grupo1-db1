@@ -7,6 +7,7 @@ import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
 import CancelLabel from "../../components/CancelLabel/CancelLabel";
 import Api from '../../api/api'
+import Select from "../../components/Select/Select";
 
 export default function RegisterObjectives({ history }) {
     const [editable, setEditable] = useState(false);
@@ -37,8 +38,8 @@ export default function RegisterObjectives({ history }) {
         payload.startDate = event.target.inputStartDate.value;
         payload.endDate = event.target.inputFinalDate.value;
         payload.team = teamId;
-        payload.relationalObjectives = '' // FALTA INPUT DO FRONT
-        payload.manager = '' // FALTA INPUT DO FRONT
+        payload.relationalObjectives = event.target.inputObjectives.value;
+        payload.manager = event.target.inputManager.value;
 
         if (editable) {
             await Api.patch("objective", id, payload);
@@ -49,38 +50,52 @@ export default function RegisterObjectives({ history }) {
         history.push("/team/" + teamId);
     };
     return (
-        <div className="body">
+        <div className="body register">
             <Form submitAction={getInputValues}>
                 <Title classname="title">
                     {editable ? "Edit Objective" : "New Objective"}
                     <CancelLabel />
                 </Title>
-                <Input
-                    inputType="text"
-                    inputName="inputName"
-                    inputHolder="Objective Name"
-                    inputRequired={true}
-                ></Input>
-                <Input
-                    inputType="text"
-                    inputName="inputDescription"
-                    inputHolder="Objective Description"
-                    inputRequired={true}
-                ></Input>
-                <Title classname="sub-title">Objective Start Date</Title>
-                <Input
-                    inputType="date"
-                    inputName="inputStartDate"
-                    inputHolder=""
-                    inputRequired={true}
-                ></Input>
-                <Title classname="sub-title">Objective End Date</Title>
-                <Input
-                    inputType="date"
-                    inputName="inputFinalDate"
-                    inputHolder=""
-                    inputRequired={true}
-                ></Input>
+                <fieldset>
+                    <Input
+                        inputType="text"
+                        inputName="inputName"
+                        inputHolder="Objective Name"
+                        inputRequired={true}
+                    ></Input>
+                    <Input
+                        inputType="text"
+                        inputName="inputDescription"
+                        inputHolder="Objective Description"
+                        inputRequired={true}
+                    ></Input>
+                    <Title classname="sub-title" htmlfor="inputManager">Objective Manager</Title>
+                    <Select 
+                        name="inputManager"
+                        values={[]} 
+                        eventAction={false}
+                    ></Select>
+                    <Title classname="sub-title" htmlfor="inputObjectives">Objective Relations</Title>
+                    <Select 
+                        name="inputObjectives"
+                        values={[]} 
+                        eventAction={false}
+                    ></Select>
+                    <Title classname="sub-title" htmlfor="inputStartDate">Objective Start Date</Title>
+                    <Input
+                        inputType="date"
+                        inputName="inputStartDate"
+                        inputHolder=""
+                        inputRequired={true}
+                    ></Input>
+                    <Title classname="sub-title" htmlfor="inputFinalDate">Objective End Date</Title>
+                    <Input
+                        inputType="date"
+                        inputName="inputFinalDate"
+                        inputHolder=""
+                        inputRequired={true}
+                    ></Input>
+                </fieldset>
                 {editable ? <Button>Save</Button> : <Button>Register</Button>}
             </Form>
         </div>
