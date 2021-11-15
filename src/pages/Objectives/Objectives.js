@@ -11,7 +11,7 @@ import "./Objectives.css";
 export default function Objectives() {
     const [selection,setSelection] = useState(undefined); 
     const select = (event)=>{
-        setSelection(parseInt(event.target.parentElement.getAttribute('objectiveId')));
+        setSelection(parseInt(event.target.parentElement.getAttribute('objectiveid')));
     }
     const newDate = new Date();
     const date =
