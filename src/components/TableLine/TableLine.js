@@ -10,7 +10,7 @@ export default function TableLine(props){
         values = values.slice(0,-1)
     }
     return (
-            <tr>
+            <tr onClick={props.select?props.select:""} className={props.select?"selected":""} style={props.style} objectiveId={props.values.id}>
                 {values.map((value,index)=>(
                     <td key={index}>{value}</td>
                 ))}
