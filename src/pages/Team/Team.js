@@ -62,7 +62,7 @@ export default function Team(){
             {
               team.objectives.map((objective,index)=>(
                 <BoxItem key={index}>
-                  <Link to={"/objectives/"+team.id+"/"+objective.startDate+"/"+objective.endDate}>{"quarter " + (index+1)}</Link>
+                  <Link to={"/objectives/"+params.teamId+"/"+objective.startDate+"/"+objective.endDate}>{"quarter " + (index+1)}</Link>
                 </BoxItem>
               ))
             }
