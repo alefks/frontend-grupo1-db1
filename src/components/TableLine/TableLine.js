@@ -16,7 +16,7 @@ export default function TableLine(props){
                 ))}
                 {props.objectName!=="objective"?"":
                     <td key={5} className="icons">
-                        <Link to={"/objective/"+props.values.id}>
+                        <Link to={"/relations/"+props.values.id}>
                             <img src={Relation} className="list-relations" alt="relations" />
                             <span className="legend legend-conect">
                                 Go to related Objetives
