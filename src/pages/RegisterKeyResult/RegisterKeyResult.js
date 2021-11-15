@@ -7,9 +7,10 @@ import Button from "./../../components/Button/Button";
 import CancelLabel from "../../components/CancelLabel/CancelLabel";
 import Api from "../../api/api";
 import { useParams } from "react-router-dom";
+import Select from "../../components/Select/Select";
 
 export default function RegisterKeyResult({ history }) {
-    const { id } = useParams();
+    const { objectiveId,id } = useParams();
     const [editable, setEditable] = useState(false);
     const [keyResult, setKeyResult] = useState({ 
         name: "",
@@ -45,8 +46,8 @@ export default function RegisterKeyResult({ history }) {
         payload.goal = event.target.inputGoal.value;
         payload.achieved = event.target.inputAchieved.value;
         payload.frequency = event.target.inputFrequency.value;
-        payload.responsible = ''; // FALTA INPUT
-        payload.objective = ''; // FALTA INPUT
+        payload.responsible = '';
+        payload.objective = objectiveId; 
         payload.chekinDates = ''; // FALTA VERIFICAR COMO SERÁ FEITO
 
         if (editable) {
@@ -98,6 +99,12 @@ export default function RegisterKeyResult({ history }) {
                     inputHolder="key Result Frequency"
                     inputRequired={true}
                 ></Input>
+                <Title classname="sub-title" htmlfor="inputResponsible">key Result Responsible</Title>
+                    <Select 
+                        name="inputResponsible"
+                        values={[]} 
+                        eventAction={false}
+                    ></Select>
                 <Button>{editable ? "Save" : "Register"}</Button>
             </Form>
         </div>
