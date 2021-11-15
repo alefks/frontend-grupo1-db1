@@ -9,6 +9,8 @@
     height: auto;
     max-height: 100%;
     color: var(--colorFirst);
+    margin: 0;
+    padding: 0;
 }
 .table th,.table tbody td {
     text-align: center;
