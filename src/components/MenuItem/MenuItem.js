@@ -5,6 +5,7 @@ import Arrow from './../../img/icons/arrow.png';
 import './MenuItem.css';
 import AddPartner from '../AddPartner/AddPartner';
 import { useParams } from 'react-router-dom';
+import AddRelation from '../AddRelation/AddRelation';
 
 export default function MenuItem(props){
     const params = useParams();
@@ -41,7 +42,12 @@ export default function MenuItem(props){
                 </div>
             } 
             <Modal style={showModal}>
-               <AddPartner closeButton={openModal}></AddPartner>
+                {params.teamId?
+                    <AddPartner closeButton={openModal}></AddPartner>
+                :
+                    <AddRelation closeButton={openModal}></AddRelation>
+                }
+              
             </Modal>  
         </div>
     )

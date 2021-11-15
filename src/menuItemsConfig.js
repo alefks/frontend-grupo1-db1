@@ -1,5 +1,6 @@
 import Team from './img/icons/team.png';
 import TeamPartner from './img/icons/team-partner.png';
+import Relations from './img/icons/menu-relations.png';
 import Objective from './img/icons/objective.png';
 import Home from './img/icons/home.png';
 import Key from './img/icons/key.png'
@@ -38,6 +39,12 @@ const menuItems = {
             routeText: 'Home',
             icon:Home,
             modal: false,
+        },
+        {
+            route: '',
+            routeText: 'Add New Relation',
+            icon: Relations,
+            modal: true,
         },
         {
             route: '',
