@@ -1,0 +1,62 @@
+.check-points .form{
+    width: 90%;
+    height: 90%;
+    background-color: transparent;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 5%;
+}
+.check-point-box{
+    width: 67%;
+    height: 89%;
+    max-height: 89%;
+    padding: 3%;
+}
+.column{
+    width: 20%;
+    height: 95%;
+    background-color: transparent;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0;
+}
+.note-block{
+    width: 100%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.column button{
+    width: 100%;
+    margin: 0;
+}
+.item-check{
+    display:inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 2em;
+    color:var(--colorFirst);
+}
+.item-check input{
+    height: 100%;
+    border: 0;
+    box-shadow: var(--boxShadow);
+}
+.note{
+    display: block;
+    min-width: 90%;
+    min-height: 90%;
+    max-width: 90%;
+    max-height: 90%;
+    border: none;
+    outline: none;
+}
+.note:focus{
+    outline: none;
+}
