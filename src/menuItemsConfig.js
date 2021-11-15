@@ -32,7 +32,7 @@ const menuItems = {
         },
 
     ],
-    objective:[
+    relations:[
         {
             route: '/',
             routeText: 'Home',

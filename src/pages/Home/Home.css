@@ -42,8 +42,9 @@
     padding: 1%;
     display: flex;
     justify-content: flex-end;
-    background-color: var(--colorBkTransp);
+    background-color: var(--colorFourth);
     box-shadow: var(--boxShadow);
+    opacity: 0.8;
 }
 .select-item{
     font-size: 1em;

@@ -1,7 +1,7 @@
 import React from 'react';
-import './Objective.css';
+import './Relations.css';
 
-export default function Objective(){
+export default function Relations(){
     return (
         <div className="body">
             objective
