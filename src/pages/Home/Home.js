@@ -75,7 +75,6 @@ export default function Home(){
         const selectValue = selectElement.childNodes[selectElement.selectedIndex].value;
         setYear(parseInt(selectValue));
     }
-    console.log(Year);
     return (
         <div className="body">
             <div className="select">

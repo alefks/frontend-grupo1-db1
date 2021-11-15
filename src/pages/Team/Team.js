@@ -1,10 +1,12 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import BoxItem from '../../components/BoxItem/BoxItem';
 import Box from './../../components/Box/Box';
 import Pencil from './../../img/icons/pencil.png';
 import "./Team.css";
 export default function Team(){
+  const params = useParams();
   const date = (new Date());
     const team = {
         id           :1,
@@ -48,7 +50,7 @@ export default function Team(){
             {
               team.teamPartners.map((partner)=>(
                 <BoxItem key={partner.id}>
-                  <Link to={`/registerteampartner/${partner.teamId}/${partner.id}`}>
+                  <Link to={`/registerteampartner/${params.teamId}/${partner.id}`}>
                     {partner.name}
                     <img className="icon" src={Pencil} alt="edit" />  
                   </Link>

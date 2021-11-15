@@ -9,7 +9,7 @@ import Api from "../../api/api";
 import "./Objectives.css";
 
 export default function Objectives() {
-    // 
+    const [selection,setSelection] = useState(undefined); 
     const newDate = new Date();
     const date =
         newDate.getDay() +
@@ -117,6 +117,7 @@ export default function Objectives() {
         },
     ];
     const [objectives, setObjectives] = useState(testObjectives);
+    
 
     const { id, startDate, endDate } = useParams();
     
@@ -126,11 +127,13 @@ export default function Objectives() {
         const response = await Api.getAll("objective");
         const result = await response.json();
         setObjectives(result);
+        setSelection(result[0].id)
     };
 
     useEffect(() => {
-        fetchGetObjectives();
-    }, []);
+        setSelection(objectives[0].id); // temporário até liberar o fetch
+        // fetchGetObjectives(); // comentei para poder utilisar o useEffect sem erro
+    }, [JSON.stringify(objectives)]);
 
     return (
         <div className="body objectives">
@@ -140,16 +143,17 @@ export default function Objectives() {
             <Table className="objectives-list">
                 <TableTitle titles={titles} />
                 <tbody className="tbody">
-                    {objectives.map((objective) => (
+                    {objectives.map((objective,index) => (
                         <TableLine
+                            teamId={id}
                             values={objective}
-                            key={objective.id}
+                            key={index}
                             objectName={"objective"}
                         />
                     ))}
                 </tbody>
             </Table>
-            <KeyResultsList classname="boxtitle2"></KeyResultsList>
+            <KeyResultsList classname="boxtitle2" objectiveId={selection}></KeyResultsList>
         </div>
     );
 }
