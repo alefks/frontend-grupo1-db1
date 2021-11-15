@@ -27,8 +27,7 @@ export default function KeyResultsList(props){
             description: "testesando",
             goal: 20,
             achieved: 30,
-            frequency: "",
-            responsibleId: 1,
+            responsible: "name",
             checkinDates: [],
         },
         {
@@ -37,8 +36,7 @@ export default function KeyResultsList(props){
             description: "testesando",
             goal: 20,
             achieved: 30,
-            frequency: "",
-            responsibleId: 1,
+            responsible:  "name",
             checkinDates: [],
         },
         {
@@ -47,8 +45,7 @@ export default function KeyResultsList(props){
             description: "testesando",
             goal: 20,
             achieved: 30,
-            frequency: "",
-            responsibleId: 1,
+            responsible: "name",
             checkinDates: [],
         },
         {
@@ -57,8 +54,7 @@ export default function KeyResultsList(props){
             description: "testesando",
             goal: 20,
             achieved: 30,
-            frequency: "",
-            responsibleId: 1,
+            responsible: "name",
             checkinDates: [],
         },
         {
@@ -67,8 +63,7 @@ export default function KeyResultsList(props){
             description: "testesando",
             goal: 20,
             achieved: 30,
-            frequency: "",
-            responsibleId: 1,
+            responsible: "name",
             checkinDates: [],
         },
         {
@@ -77,8 +72,7 @@ export default function KeyResultsList(props){
             description: "testesando",
             goal: 20,
             achieved: 30,
-            frequency: "",
-            responsibleId: 1,
+            responsible: "name",
             checkinDates: [],
         },
         {
@@ -87,8 +81,7 @@ export default function KeyResultsList(props){
             description: "testesando",
             goal: 20,
             achieved: 30,
-            frequency: "",
-            responsibleId: 1,
+            responsible: "name",
             checkinDates: [],
         },
         {
@@ -97,8 +90,7 @@ export default function KeyResultsList(props){
             description: "testesando",
             goal: 20,
             achieved: 30,
-            frequency: "",
-            responsibleId: 1,
+            responsible: "name",
             checkinDates: [],
         },
         {
@@ -107,8 +99,7 @@ export default function KeyResultsList(props){
             description: "testesando",
             goal: 20,
             achieved: 30,
-            frequency: "",
-            responsibleId: 1,
+            responsible: "name",
             checkinDates: [],
         },
         {
@@ -117,8 +108,7 @@ export default function KeyResultsList(props){
             description: "testesando",
             goal: 20,
             achieved: 30,
-            frequency: "",
-            responsibleId: 1,
+            responsible: "name",
             checkinDates: [],
         },
         {
@@ -127,8 +117,7 @@ export default function KeyResultsList(props){
             description: "testesando",
             goal: 20,
             achieved: 30,
-            frequency: "",
-            responsibleId: 1,
+            responsible: "name",
             checkinDates: [],
         },
         {
@@ -137,8 +126,7 @@ export default function KeyResultsList(props){
             description: "testesando",
             goal: 20,
             achieved: 30,
-            frequency: "",
-            responsibleId: 1,
+            responsible: "name",
             checkinDates: [],
         },
         {
@@ -147,8 +135,7 @@ export default function KeyResultsList(props){
             description: "testesando",
             goal: 20,
             achieved: 30,
-            frequency: "",
-            responsibleId: 1,
+            responsible: "name",
             checkinDates: [],
         },
         {
@@ -157,8 +144,7 @@ export default function KeyResultsList(props){
             description: "testesando",
             goal: 20,
             achieved: 30,
-            frequency: "",
-            responsibleId: 1,
+            responsible: "name",
             checkinDates: [],
         },
         {
@@ -167,8 +153,7 @@ export default function KeyResultsList(props){
             description: "testesando",
             goal: 20,
             achieved: 30,
-            frequency: "",
-            responsibleId: 1,
+            responsible: "name",
             checkinDates: [],
         },
         {
@@ -177,8 +162,7 @@ export default function KeyResultsList(props){
             description: "testesando",
             goal: 20,
             achieved: 30,
-            frequency: "",
-            responsibleId: 1,
+            responsible: "name",
             checkinDates: [],
         },
         {
@@ -187,8 +171,7 @@ export default function KeyResultsList(props){
             description: "testesando",
             goal: 20,
             achieved: 30,
-            frequency: "",
-            responsibleId: 1,
+            responsible: "name",
             checkinDates: [],
         },
         {
@@ -197,8 +180,7 @@ export default function KeyResultsList(props){
             description: "testesando",
             goal: 20,
             achieved: 30,
-            frequency: "",
-            responsibleId: 1,
+            responsible: "name",
             checkinDates: [],
         },
     ];
@@ -219,7 +201,6 @@ export default function KeyResultsList(props){
         "Description",
         "Goal",
         "Achieved",
-        "Frequency",
         "Responsible",
     ];
     return (
