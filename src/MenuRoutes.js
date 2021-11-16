@@ -16,7 +16,7 @@ export default function Routes(){
             <Route exact path="/registerkeyresult/:objectiveId/:id" children={ <Menu options={menuItemsConfig.others}/> } />
             <Route exact path="/registerobjectives/:teamId/:id" children={ <Menu options={menuItemsConfig.others}/> } />
             <Route exact path="/registerteampartner/:teamId/:id" children={ <Menu options={menuItemsConfig.others}/> } />
-            <Route exact path="/team/:teamId" children={ <Menu options={menuItemsConfig.team}/> } />
+            <Route exact path="/team/:teamId/:year" children={ <Menu options={menuItemsConfig.team}/> } />
             <Route path="*" children={ <Menu options={menuItemsConfig.others}/> } />
         </Switch>
     );

@@ -36,12 +36,12 @@ export default function Home(){
         },
     
     ];
-    const [Year,setYear] = useState(0);
+    const [selectedYear,setSelectedYear] = useState(0);
     useEffect(() => {
-        if(Year===0){
-            setYear((new Date()).getFullYear());
+        if(selectedYear===0){
+            setSelectedYear((new Date()).getFullYear());
         }
-    }, [Year])
+    }, [selectedYear])
 
     const testYears = [2019,2018,2021,2017,2016].sort().reverse();
 
@@ -68,12 +68,12 @@ export default function Home(){
     const changeYear = (event)=>{
         const selectElement = event.target;
         const selectValue = selectElement.childNodes[selectElement.selectedIndex].value;
-        setYear(parseInt(selectValue));
+        setSelectedYear(parseInt(selectValue));
     }
     const changeQuarter = (event)=>{
         const selectElement = event.target;
         const selectValue = selectElement.childNodes[selectElement.selectedIndex].value;
-        setYear(parseInt(selectValue));
+        setSelectedYear(parseInt(selectValue));
     }
     return (
         <div className="body">
@@ -92,7 +92,7 @@ export default function Home(){
             <Box classname="teams-list">
                 {teams.map((teamItem)=>(
                     <Box classname="teams-item" key={teamItem.id}>
-                        <Link to={"/team/"+teamItem.id}>
+                        <Link to={"/team/"+teamItem.id+"/"+selectedYear}>
                             <label className="team-name">
                                 {teamItem.name}
                             </label>
