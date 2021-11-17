@@ -29,6 +29,8 @@ export default function KeyResultsList(props){
             achieved: 30,
             responsible: "name",
             checkinDates: [],
+            lastStatus: 0,
+            lastFeeling:""
         },
         {
             id: 1,
@@ -38,6 +40,8 @@ export default function KeyResultsList(props){
             achieved: 30,
             responsible:  "name",
             checkinDates: [],
+            lastStatus: 0,
+            lastFeeling:""
         },
         {
             id: 1,
@@ -47,6 +51,8 @@ export default function KeyResultsList(props){
             achieved: 30,
             responsible: "name",
             checkinDates: [],
+            lastStatus: 0,
+            lastFeeling:""
         },
         {
             id: 1,
@@ -56,6 +62,8 @@ export default function KeyResultsList(props){
             achieved: 30,
             responsible: "name",
             checkinDates: [],
+            lastStatus: 0,
+            lastFeeling:""
         },
         {
             id: 1,
@@ -65,6 +73,8 @@ export default function KeyResultsList(props){
             achieved: 30,
             responsible: "name",
             checkinDates: [],
+            lastStatus: 0,
+            lastFeeling:""
         },
         {
             id: 1,
@@ -74,6 +84,8 @@ export default function KeyResultsList(props){
             achieved: 30,
             responsible: "name",
             checkinDates: [],
+            lastStatus: 0,
+            lastFeeling:""
         },
         {
             id: 1,
@@ -83,6 +95,8 @@ export default function KeyResultsList(props){
             achieved: 30,
             responsible: "name",
             checkinDates: [],
+            lastStatus: 0,
+            lastFeeling:""
         },
         {
             id: 1,
@@ -92,6 +106,8 @@ export default function KeyResultsList(props){
             achieved: 30,
             responsible: "name",
             checkinDates: [],
+            lastStatus: 0,
+            lastFeeling:""
         },
         {
             id: 1,
@@ -101,6 +117,8 @@ export default function KeyResultsList(props){
             achieved: 30,
             responsible: "name",
             checkinDates: [],
+            lastStatus: 0,
+            lastFeeling:""
         },
         {
             id: 1,
@@ -110,6 +128,8 @@ export default function KeyResultsList(props){
             achieved: 30,
             responsible: "name",
             checkinDates: [],
+            lastStatus: 0,
+            lastFeeling:""
         },
         {
             id: 1,
@@ -119,6 +139,8 @@ export default function KeyResultsList(props){
             achieved: 30,
             responsible: "name",
             checkinDates: [],
+            lastStatus: 0,
+            lastFeeling:""
         },
         {
             id: 1,
@@ -128,6 +150,8 @@ export default function KeyResultsList(props){
             achieved: 30,
             responsible: "name",
             checkinDates: [],
+            lastStatus: 0,
+            lastFeeling:""
         },
         {
             id: 1,
@@ -137,6 +161,8 @@ export default function KeyResultsList(props){
             achieved: 30,
             responsible: "name",
             checkinDates: [],
+            lastStatus: 0,
+            lastFeeling:""
         },
         {
             id: 1,
@@ -146,6 +172,8 @@ export default function KeyResultsList(props){
             achieved: 30,
             responsible: "name",
             checkinDates: [],
+            lastStatus: 0,
+            lastFeeling:""
         },
         {
             id: 1,
@@ -155,6 +183,8 @@ export default function KeyResultsList(props){
             achieved: 30,
             responsible: "name",
             checkinDates: [],
+            lastStatus: 0,
+            lastFeeling:""
         },
         {
             id: 1,
@@ -164,6 +194,8 @@ export default function KeyResultsList(props){
             achieved: 30,
             responsible: "name",
             checkinDates: [],
+            lastStatus: 0,
+            lastFeeling:""
         },
         {
             id: 1,
@@ -173,6 +205,8 @@ export default function KeyResultsList(props){
             achieved: 30,
             responsible: "name",
             checkinDates: [],
+            lastStatus: 0,
+            lastFeeling:""
         },
         {
             id: 1,
@@ -182,6 +216,8 @@ export default function KeyResultsList(props){
             achieved: 30,
             responsible: "name",
             checkinDates: [],
+            lastStatus: 0,
+            lastFeeling:""
         },
     ];
 
@@ -202,6 +238,8 @@ export default function KeyResultsList(props){
         "Goal",
         "Achieved",
         "Responsible",
+        "Last Status",
+        "Last Feeling"
     ];
     return (
         <div className="key-results-list">
