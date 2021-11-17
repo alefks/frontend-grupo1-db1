@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./RegisterObjectives.css";
+import Box from "../../components/Box/Box";
 import Title from "../../components/Title/Title";
 import Form from "../../components/Form/Form";
 import Input from "../../components/Input/Input";
@@ -49,6 +50,32 @@ export default function RegisterObjectives({ history }) {
 
         history.push("/team/" + teamId);
     };
+    const [selectedObjectives, setSelectedObjectives] = useState([]);
+    const [showObjectives,setShowObjectives] = useState({display:"none"});
+    const teamObjectives=(event)=>{
+        const selectElement = event.target;
+        if(selectElement.childNodes[selectElement.selectedIndex].value!=="0"){
+            setSelectedObjectives(["item1","item2"]);
+            setShowObjectives({display:"flex"});
+        }else{
+            setSelectedObjectives([]);
+            setShowObjectives({display:"none"});
+        }
+    }
+    const teamList = [
+        {
+            id:0,
+            name:" "
+        },
+        {
+            id:1,
+            name:"team1"
+        },
+        {
+            id:2,
+            name:"team2"
+        },
+    ]
     return (
         <div className="body register">
             <Form submitAction={getInputValues}>
@@ -69,18 +96,30 @@ export default function RegisterObjectives({ history }) {
                         inputHolder="Objective Description"
                         inputRequired={true}
                     ></Input>
-                    <Title classname="sub-title" htmlfor="inputManager">Objective Manager</Title>
+                     <Title classname="sub-title" htmlfor="inputManager">Objective Manager</Title>
                     <Select 
                         name="inputManager"
                         values={[]} 
                         eventAction={false}
                     ></Select>
-                    <Title classname="sub-title" htmlfor="inputObjectives">Objective Relations</Title>
+                    <Title classname="sub-title" htmlfor="inputTeam">Teams</Title>
                     <Select 
-                        name="inputObjectives"
-                        values={[]} 
-                        eventAction={false}
+                        name="inputManager"
+                        values={teamList} 
+                        eventAction={teamObjectives}
                     ></Select>
+                    <Box 
+                        classname="relations"
+                        style={showObjectives}
+                    >
+                        <Title classname="sub-title" htmlfor="inputObjectives">Objective Relations</Title>
+                        <Select 
+                            style={showObjectives}
+                            name="inputObjectives"
+                            values={selectedObjectives} 
+                            eventAction={false}
+                        ></Select>
+                    </Box>
                     <Title classname="sub-title" htmlfor="inputStartDate">Objective Start Date</Title>
                     <Input
                         inputType="date"
