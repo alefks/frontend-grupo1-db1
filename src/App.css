@@ -34,3 +34,16 @@ a{
 a:hover{
   background-color: var(--colorSecond);
 }
+@media only screen and (orientation: landscape) {
+  @media only screen and (max-width: 900px) {
+    .menu{
+      width: 0%;
+    }
+    .menu .menu-options{
+      display: none;
+    }
+    .body{
+      width: 100%;
+    }
+  }
+}
