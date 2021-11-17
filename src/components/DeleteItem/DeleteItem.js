@@ -8,7 +8,12 @@ import './DeleteItem.css';
 export default function DeleteItem(props){
     const deleteItem =(event)=>{
         event.preventDefault();
-        console.log("delted "+props.idItem);
+        if(props.table === "objective"){
+            console.log("delted objective"+props.idItem);
+        }else if(props.table === "keyresult"){
+            console.log("delted keyresult "+props.idItem);
+            
+        }
     }
     return(
         <Form submitAction={deleteItem} classname="form delete" >
