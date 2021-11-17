@@ -8,12 +8,14 @@ import DeleteItem from "../DeleteItem/DeleteItem";
 import Modal from '../Modal/Modal';
 import './TableLine.css';
 export default function TableLine(props){
+    const [table,setTable] = useState(undefined);
     const [showModal,setShowModal] = useState({display:"none"});
     let values = Object.values(props.values).slice(1);
     if(props.objectName==="keyresult"){
         values = values.slice(0,-1)
     };
     const openModal = ()=>{
+        setTable(props.objectName);
         if(JSON.stringify(showModal)===JSON.stringify({display:"none"})){
             setShowModal({display:"flex"});
         }else{
@@ -62,10 +64,16 @@ export default function TableLine(props){
                                 Edit this keyResult
                             </span>
                         </Link>
+                        <div classsName="trash" onClick={openModal}>
+                            <img src={Trash} className="trash-icon" alt="trash" />
+                            <span className="legend legend-conect">
+                                Delete this Objective
+                            </span>
+                        </div>
                     </td>
                 }
                 <Modal style={showModal}>
-                        <DeleteItem closeButton={openModal} idItem={props.values.id}></DeleteItem>
+                        <DeleteItem closeButton={openModal} idItem={props.values.id} table={table}></DeleteItem>
                 </Modal> 
             </tr>
     );
