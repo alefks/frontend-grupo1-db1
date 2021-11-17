@@ -1,14 +1,25 @@
-import React from "react";
+import React,{useState} from 'react';
 import { Link } from "react-router-dom";
 import Pencil from './../../img/icons/pencilBk.png';
 import List from './../../img/icons/list.png';
 import Relation from './../../img/icons/relations.png';
+import Trash from './../../img/icons/trash.png';
+import DeleteItem from "../DeleteItem/DeleteItem";
+import Modal from '../Modal/Modal';
 import './TableLine.css';
 export default function TableLine(props){
+    const [showModal,setShowModal] = useState({display:"none"});
     let values = Object.values(props.values).slice(1);
     if(props.objectName==="keyresult"){
         values = values.slice(0,-1)
-    }
+    };
+    const openModal = ()=>{
+        if(JSON.stringify(showModal)===JSON.stringify({display:"none"})){
+            setShowModal({display:"flex"});
+        }else{
+            setShowModal({display:"none"});
+        }
+    };
     return (
             <tr onClick={props.select?props.select:undefined} className={props.select?"selected":""} style={props.style} objectiveid={props.values.id?props.values.id:0}>
                 {values.map((value,index)=>(
@@ -35,6 +46,12 @@ export default function TableLine(props){
                                 Edit this objective
                             </span>
                         </Link>
+                        <div classsName="trash" onClick={openModal}>
+                            <img src={Trash} className="trash-icon" alt="trash" />
+                            <span className="legend legend-conect">
+                                Delete this Objective
+                            </span>
+                        </div>
                     </td>
                 }
                 {props.objectName!=="keyresult"?"":
@@ -47,6 +64,9 @@ export default function TableLine(props){
                         </Link>
                     </td>
                 }
+                <Modal style={showModal}>
+                        <DeleteItem closeButton={openModal} idItem={props.values.id}></DeleteItem>
+                </Modal> 
             </tr>
     );
 }
