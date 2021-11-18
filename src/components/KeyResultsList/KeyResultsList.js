@@ -1,11 +1,12 @@
-import React,{ useState, useEffect } from 'react';
-import Box from '../Box/Box';
-import Table from '../Table/Table';
-import TableTitle from '../TableTitle/TableTitle';
-import TableLine from '../TableLine/TableLine';
-import './KeyResultsList.css';
+import React, { useState, useEffect } from "react";
+import Box from "../Box/Box";
+import Table from "../Table/Table";
+import TableTitle from "../TableTitle/TableTitle";
+import TableLine from "../TableLine/TableLine";
+import "./KeyResultsList.css";
+import Api from "../../api/api";
 
-export default function KeyResultsList(props){
+export default function KeyResultsList(props) {
     const objectiveId = props.objectiveId;
     const keyResultMap = [
         {
@@ -17,7 +18,7 @@ export default function KeyResultsList(props){
             frequency: "",
             responsibleId: 0,
             checkinDates: [],
-        }
+        },
     ];
     const [keyResults, setKeyResults] = useState(keyResultMap);
     const testKeyResults = [
@@ -29,17 +30,7 @@ export default function KeyResultsList(props){
             responsible: "name",
             checkinDates: [],
             lastStatus: 0,
-            lastFeeling:""
-        },
-        {
-            id: 1,
-            name: "key teste",
-            description: "testesando",
-            goal: 20,
-            responsible:  "name",
-            checkinDates: [],
-            lastStatus: 0,
-            lastFeeling:""
+            lastFeeling: "",
         },
         {
             id: 1,
@@ -49,7 +40,7 @@ export default function KeyResultsList(props){
             responsible: "name",
             checkinDates: [],
             lastStatus: 0,
-            lastFeeling:""
+            lastFeeling: "",
         },
         {
             id: 1,
@@ -59,7 +50,7 @@ export default function KeyResultsList(props){
             responsible: "name",
             checkinDates: [],
             lastStatus: 0,
-            lastFeeling:""
+            lastFeeling: "",
         },
         {
             id: 1,
@@ -69,7 +60,7 @@ export default function KeyResultsList(props){
             responsible: "name",
             checkinDates: [],
             lastStatus: 0,
-            lastFeeling:""
+            lastFeeling: "",
         },
         {
             id: 1,
@@ -79,7 +70,7 @@ export default function KeyResultsList(props){
             responsible: "name",
             checkinDates: [],
             lastStatus: 0,
-            lastFeeling:""
+            lastFeeling: "",
         },
         {
             id: 1,
@@ -89,7 +80,7 @@ export default function KeyResultsList(props){
             responsible: "name",
             checkinDates: [],
             lastStatus: 0,
-            lastFeeling:""
+            lastFeeling: "",
         },
         {
             id: 1,
@@ -99,7 +90,7 @@ export default function KeyResultsList(props){
             responsible: "name",
             checkinDates: [],
             lastStatus: 0,
-            lastFeeling:""
+            lastFeeling: "",
         },
         {
             id: 1,
@@ -109,7 +100,7 @@ export default function KeyResultsList(props){
             responsible: "name",
             checkinDates: [],
             lastStatus: 0,
-            lastFeeling:""
+            lastFeeling: "",
         },
         {
             id: 1,
@@ -119,7 +110,7 @@ export default function KeyResultsList(props){
             responsible: "name",
             checkinDates: [],
             lastStatus: 0,
-            lastFeeling:""
+            lastFeeling: "",
         },
         {
             id: 1,
@@ -129,7 +120,7 @@ export default function KeyResultsList(props){
             responsible: "name",
             checkinDates: [],
             lastStatus: 0,
-            lastFeeling:""
+            lastFeeling: "",
         },
         {
             id: 1,
@@ -139,7 +130,7 @@ export default function KeyResultsList(props){
             responsible: "name",
             checkinDates: [],
             lastStatus: 0,
-            lastFeeling:""
+            lastFeeling: "",
         },
         {
             id: 1,
@@ -149,7 +140,7 @@ export default function KeyResultsList(props){
             responsible: "name",
             checkinDates: [],
             lastStatus: 0,
-            lastFeeling:""
+            lastFeeling: "",
         },
         {
             id: 1,
@@ -159,7 +150,7 @@ export default function KeyResultsList(props){
             responsible: "name",
             checkinDates: [],
             lastStatus: 0,
-            lastFeeling:""
+            lastFeeling: "",
         },
         {
             id: 1,
@@ -169,7 +160,7 @@ export default function KeyResultsList(props){
             responsible: "name",
             checkinDates: [],
             lastStatus: 0,
-            lastFeeling:""
+            lastFeeling: "",
         },
         {
             id: 1,
@@ -179,7 +170,7 @@ export default function KeyResultsList(props){
             responsible: "name",
             checkinDates: [],
             lastStatus: 0,
-            lastFeeling:""
+            lastFeeling: "",
         },
         {
             id: 1,
@@ -189,7 +180,7 @@ export default function KeyResultsList(props){
             responsible: "name",
             checkinDates: [],
             lastStatus: 0,
-            lastFeeling:""
+            lastFeeling: "",
         },
         {
             id: 1,
@@ -199,15 +190,24 @@ export default function KeyResultsList(props){
             responsible: "name",
             checkinDates: [],
             lastStatus: 0,
-            lastFeeling:""
+            lastFeeling: "",
+        },
+        {
+            id: 1,
+            name: "key teste",
+            description: "testesando",
+            goal: 20,
+            responsible: "name",
+            checkinDates: [],
+            lastStatus: 0,
+            lastFeeling: "",
         },
     ];
 
     const fetchGetKeyResults = async () => {
-        // const response = await Api.getById("objective", objectiveId);
-        // const result = await response.json().keyResults;
-        // setKeyResults(result);
-        setKeyResults(testKeyResults)
+        //const response = await Api.getById("objective", objectiveId);
+        //const result = await response.json();
+        setKeyResults(testKeyResults);
     };
 
     useEffect(() => {
@@ -220,15 +220,23 @@ export default function KeyResultsList(props){
         "Goal",
         "Responsible",
         "Last Status",
-        "Last Feeling"
+        "Last Feeling",
     ];
     return (
         <div className="key-results-list">
-            <Box classname={!props.classname?"boxtitle":"boxtitle "+props.classname}>Key Results</Box>
+            <Box
+                classname={
+                    !props.classname
+                        ? "boxtitle"
+                        : "boxtitle " + props.classname
+                }
+            >
+                Key Results
+            </Box>
             <Table>
                 <TableTitle titles={titles} />
                 <tbody className="tbody">
-                    {keyResults.map((keyResult,index) => (
+                    {keyResults.map((keyResult, index) => (
                         <TableLine
                             objectiveId={objectiveId}
                             values={keyResult}

@@ -35,7 +35,7 @@ export default function AddPartner(props) {
     const getInputValues = async (event) => {
         event.preventDefault();
         const payload = {
-            teamPartners: +event.target.partner.value,
+            teamPartners: [+event.target.partner.value],
         };
 
         await Api.patch('team', teamId, payload)

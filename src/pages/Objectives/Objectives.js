@@ -122,20 +122,20 @@ export default function Objectives() {
     const [objectives, setObjectives] = useState(testObjectives);
     
 
-    const { id, startDate, endDate } = useParams();
+    const { id, year, quarter } = useParams();
     
     const titles = ["Name", "Description", "Start Date", "End Date", "Manager"];
     
     const fetchGetObjectives = async () => {
-        const response = await Api.getAll("objective");
+        const response = await Api.getAll(`objective/${year}/${quarter}`);
         const result = await response.json();
         setObjectives(result);
         setSelection(result[0].id)
     };
 
     useEffect(() => {
-        setSelection(objectives[0].id); // temporário até liberar o fetch
-        // fetchGetObjectives(); // comentei para poder utilisar o useEffect sem erro
+        //setSelection(objectives[0].id); // temporário até liberar o fetch
+        fetchGetObjectives(); // comentei para poder utilisar o useEffect sem erro
     }, [JSON.stringify(objectives)]);
 
     return (
