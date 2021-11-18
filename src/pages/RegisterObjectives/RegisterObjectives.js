@@ -28,7 +28,8 @@ export default function RegisterObjectives({ history }) {
         if (id !== "new") {
             setEditable(true);
         }
-        getManagersList();
+        fetchGetManagersList();
+        fetchGetTeamsList()
     }, [editable]);
 
     const getInputValues = (event) => {
@@ -40,8 +41,11 @@ export default function RegisterObjectives({ history }) {
         payload.startDate = event.target.inputStartDate.value;
         payload.endDate = event.target.inputFinalDate.value;
         payload.team = teamId;
-        payload.relationalObjectives = event.target.inputObjectives.value;
         payload.manager = event.target.inputManager.value;
+        payload.relationalObjectives = event.target.inputObjectives.value;
+        if (payload.relationalObjectives === ""){
+            delete payload.relationalObjectives
+        }
 
         if (editable) {
             //await Api.patch("objective", id, payload);
@@ -54,7 +58,7 @@ export default function RegisterObjectives({ history }) {
         //history.push("/team/" + teamId);
     };
 
-    const getManagersList = async () => {
+    const fetchGetManagersList = async () => {
         const response = await Api.getAll("team-partner");
         const result = await response.json();
         setManagers(result);
@@ -65,6 +69,8 @@ export default function RegisterObjectives({ history }) {
     const teamObjectives=(event)=>{
         const selectElement = event.target;
         if(selectElement.childNodes[selectElement.selectedIndex].value!=="0"){
+            const teamId = selectElement.value
+            //fetchGetObjectives(teamId);
             setSelectedObjectives(["item1","item2"]);
             setShowObjectives({display:"flex"});
         }else{
@@ -72,20 +78,30 @@ export default function RegisterObjectives({ history }) {
             setShowObjectives({display:"none"});
         }
     }
-    const teamList = [
+    
+    const [teamList, setTeamList] = useState([
         {
             id:0,
             name:" "
-        },
-        {
-            id:1,
-            name:"team1"
-        },
-        {
-            id:2,
-            name:"team2"
-        },
-    ]
+        }
+    ]);
+
+    const fetchGetTeamsList = async () => {
+        const response = await Api.getAll('team')
+        const result = await response.json()
+        result.unshift({
+            id:0,
+            name:" "
+        })
+        setTeamList(result)
+    }
+
+    const fetchGetObjectives = async (teamId) => {
+        const response = await Api.getById('objective', teamId)
+        const result = await response.json()
+        setSelectedObjectives(result);
+    }
+
     return (
         <div className="body register">
             <Form submitAction={getInputValues}>
@@ -112,9 +128,9 @@ export default function RegisterObjectives({ history }) {
                         values={managers} 
                         eventAction={false}
                     ></Select>
-                    <Title classname="sub-title" htmlfor="inputTeam">Teams</Title>
+                    <Title classname="sub-title" htmlfor="inputTeam">Relational Objective (Team)</Title>
                     <Select 
-                        name="inputManager"
+                        name="inputTeam"
                         values={teamList} 
                         eventAction={teamObjectives}
                     ></Select>
@@ -122,7 +138,7 @@ export default function RegisterObjectives({ history }) {
                         classname="relations"
                         style={showObjectives}
                     >
-                        <Title classname="sub-title" htmlfor="inputObjectives">Objective Relations</Title>
+                        <Title classname="sub-title" htmlfor="inputObjectives">Relational Objective</Title>
                         <Select 
                             style={showObjectives}
                             name="inputObjectives"
