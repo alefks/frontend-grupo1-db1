@@ -117,6 +117,13 @@ export default function RegisterObjectives({ history }) {
                         inputRequired={true}
                     ></Input>
                     <Input
+                        inputType="number"
+                        inputName="inputFrequency"
+                        inputHolder="key Result Frequency"
+                        inputRequired={true}
+                    ></Input>
+                    <Input
+                        classname="objective-description"
                         inputType="text"
                         inputName="inputDescription"
                         inputHolder="Objective Description"

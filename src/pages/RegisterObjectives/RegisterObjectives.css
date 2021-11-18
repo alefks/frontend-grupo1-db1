@@ -4,8 +4,8 @@
 .register .form {
     width: 80%;
     max-width: 80%;
-    height: 80%;
-    max-height: 80%;
+    height: auto;
+    max-height: auto;
 }
 .form fieldset{
     width: 90%;
@@ -43,4 +43,7 @@
     padding: 0;
     background-color: transparent;
     box-shadow: none;
+}
+.objective-description{
+    min-width: 100%;
 }
