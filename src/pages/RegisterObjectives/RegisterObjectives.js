@@ -36,6 +36,7 @@ export default function RegisterObjectives({ history }) {
 
         payload.name = event.target.inputTeamName.value;
         payload.description = event.target.inputDescription.value;
+        payload.frequency = event.target.inputFrequency.value;
         payload.startDate = event.target.inputStartDate.value;
         payload.endDate = event.target.inputFinalDate.value;
         payload.team = teamId;
@@ -94,6 +95,12 @@ export default function RegisterObjectives({ history }) {
                         inputType="text"
                         inputName="inputDescription"
                         inputHolder="Objective Description"
+                        inputRequired={true}
+                    ></Input>
+                    <Input
+                        inputType="number"
+                        inputName="inputFrequency"
+                        inputHolder="key Result Frequency"
                         inputRequired={true}
                     ></Input>
                      <Title classname="sub-title" htmlfor="inputManager">Objective Manager</Title>

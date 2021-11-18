@@ -44,8 +44,6 @@ export default function RegisterKeyResult({ history }) {
         payload.name = event.target.inputName.value;
         payload.description = event.target.inputDescription.value;
         payload.goal = event.target.inputGoal.value;
-        payload.achieved = event.target.inputAchieved.value;
-        payload.frequency = event.target.inputFrequency.value;
         payload.responsible = '';
         payload.objective = objectiveId; 
         payload.chekinDates = ''; // FALTA VERIFICAR COMO SERÁ FEITO
@@ -86,18 +84,6 @@ export default function RegisterKeyResult({ history }) {
                     inputName="inputGoal"
                     inputHolder="key Result Goal"
                     inputRequired={false}
-                ></Input>
-                <Input
-                    inputType="text"
-                    inputName="inputAchieved"
-                    inputHolder="key Result Achieved"
-                    inputRequired={false}
-                ></Input>
-                <Input
-                    inputType="text"
-                    inputName="inputFrequency"
-                    inputHolder="key Result Frequency"
-                    inputRequired={true}
                 ></Input>
                 <Title classname="sub-title" htmlfor="inputResponsible">key Result Responsible</Title>
                     <Select 
