@@ -19,7 +19,7 @@ export default function Routes(){
             <Route exact path="/checkpoint/:objectiveId/:date" component={ CheckPoints } />
             <Route exact path="/login" component={ Login } />
             <Route exact path="/objectives/:teamId/:startDate/:endDate" component={ Objectives } />
-            <Route exact path="/Relations/:id" component={ Relations } />
+            <Route exact path="/relations/:id" component={ Relations } />
             <Route exact path="/keyresults/:objectiveId" component={ KeyResults } />
             <Route exact path="/registerteam/:id" component={ RegisterTeam } />
             <Route exact path="/registerkeyresult/:objectiveId/:id" component={ RegiterKeyResult } />
