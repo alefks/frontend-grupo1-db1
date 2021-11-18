@@ -36,12 +36,11 @@ export default function RegisterTeamPartner({ history }) {
 
         if (editable) {
             await Api.patch("teamPartner", id, payload);
-            history.push("/team/" + teamId);
         } else {
-            //await Api.post("teamPartner", payload);
-            console.log("POST", payload);
-            // AGUARDANDO ALTERAÇÃO EM HOME
+            await Api.post("teamPartner", payload);
         }
+        
+        history.push("/team/" + teamId);
     };
 
     return (
