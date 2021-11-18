@@ -1,40 +1,40 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./RegisterObjectives.css";
-import Box from "../../components/Box/Box";
 import Title from "../../components/Title/Title";
 import Form from "../../components/Form/Form";
 import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
 import CancelLabel from "../../components/CancelLabel/CancelLabel";
-import Api from '../../api/api'
+import Api from "../../api/api";
 import Select from "../../components/Select/Select";
 
 export default function RegisterObjectives({ history }) {
     const [editable, setEditable] = useState(false);
     const { teamId, id } = useParams();
     const [objective, setObjective] = useState({
-        name: '',
-        description: '',
-        startDate: '',
-        endDate: '',
-        team: '',
-        relationalObjectives: '',
-        manager: ''
-    })
+        name: "",
+        description: "",
+        startDate: "",
+        endDate: "",
+        team: "",
+        relationalObjectives: "",
+        manager: "",
+    });
+    const [managers, setManagers] = useState([]);
 
     useEffect(() => {
+        getManagersList();
         if (id !== "new") {
             setEditable(true);
         }
     }, [editable]);
 
-    const getInputValues = async (event) => {
+    const getInputValues = (event) => {
         event.preventDefault();
-
         const payload = { ...objective };
 
-        payload.name = event.target.inputTeamName.value;
+        payload.name = event.target.inputName.value;
         payload.description = event.target.inputDescription.value;
         payload.frequency = event.target.inputFrequency.value;
         payload.startDate = event.target.inputStartDate.value;
@@ -44,39 +44,21 @@ export default function RegisterObjectives({ history }) {
         payload.manager = event.target.inputManager.value;
 
         if (editable) {
-            await Api.patch("objective", id, payload);
+            //await Api.patch("objective", id, payload);
+            console.log("PATCH", payload);
         } else {
-            await Api.post("objective", payload);
+            //await Api.post("objective", payload);
+            console.log("POST", payload);
         }
 
-        history.push("/team/" + teamId);
+        //history.push("/team/" + teamId);
     };
-    const [selectedObjectives, setSelectedObjectives] = useState([]);
-    const [showObjectives,setShowObjectives] = useState({display:"none"});
-    const teamObjectives=(event)=>{
-        const selectElement = event.target;
-        if(selectElement.childNodes[selectElement.selectedIndex].value!=="0"){
-            setSelectedObjectives(["item1","item2"]);
-            setShowObjectives({display:"flex"});
-        }else{
-            setSelectedObjectives([]);
-            setShowObjectives({display:"none"});
-        }
-    }
-    const teamList = [
-        {
-            id:0,
-            name:" "
-        },
-        {
-            id:1,
-            name:"team1"
-        },
-        {
-            id:2,
-            name:"team2"
-        },
-    ]
+
+    const getManagersList = async () => {
+        const response = await Api.getAll("team-partner");
+        const result = await response.json();
+        setManagers(result);
+    };
     return (
         <div className="body register">
             <Form submitAction={getInputValues}>
@@ -97,6 +79,9 @@ export default function RegisterObjectives({ history }) {
                         inputHolder="Objective Description"
                         inputRequired={true}
                     ></Input>
+                    <Title classname="sub-title" htmlfor="inputManager">
+                        Objective Manager
+                    </Title>
                     <Input
                         inputType="number"
                         inputName="inputFrequency"
@@ -106,35 +91,29 @@ export default function RegisterObjectives({ history }) {
                      <Title classname="sub-title" htmlfor="inputManager">Objective Manager</Title>
                     <Select 
                         name="inputManager"
-                        values={[]} 
+                        values={managers.map((manager) => manager.name)}
                         eventAction={false}
                     ></Select>
-                    <Title classname="sub-title" htmlfor="inputTeam">Teams</Title>
-                    <Select 
-                        name="inputManager"
-                        values={teamList} 
-                        eventAction={teamObjectives}
+                    <Title classname="sub-title" htmlfor="inputObjectives">
+                        Objective Relations
+                    </Title>
+                    <Select
+                        name="inputObjectives"
+                        values={[]}
+                        eventAction={false}
                     ></Select>
-                    <Box 
-                        classname="relations"
-                        style={showObjectives}
-                    >
-                        <Title classname="sub-title" htmlfor="inputObjectives">Objective Relations</Title>
-                        <Select 
-                            style={showObjectives}
-                            name="inputObjectives"
-                            values={selectedObjectives} 
-                            eventAction={false}
-                        ></Select>
-                    </Box>
-                    <Title classname="sub-title" htmlfor="inputStartDate">Objective Start Date</Title>
+                    <Title classname="sub-title" htmlfor="inputStartDate">
+                        Objective Start Date
+                    </Title>
                     <Input
                         inputType="date"
                         inputName="inputStartDate"
                         inputHolder=""
                         inputRequired={true}
                     ></Input>
-                    <Title classname="sub-title" htmlfor="inputFinalDate">Objective End Date</Title>
+                    <Title classname="sub-title" htmlfor="inputFinalDate">
+                        Objective End Date
+                    </Title>
                     <Input
                         inputType="date"
                         inputName="inputFinalDate"
