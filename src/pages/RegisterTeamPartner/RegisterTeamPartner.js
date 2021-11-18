@@ -20,7 +20,7 @@ export default function RegisterTeamPartner({ history }) {
             setEditable(true);
             fetchTeamPartnerById();
         }
-    }, [teamPartner]);
+    }, []);
 
     const fetchTeamPartnerById = async () => {
         const response = await Api.getById("team-partner", id);
@@ -32,15 +32,16 @@ export default function RegisterTeamPartner({ history }) {
         const payload = { ...teamPartner };
         event.preventDefault();
         payload.name = event.target.inputTeamPartnerName.value;
-        payload.teamId = +teamId;
+        payload.team = [+teamId];
 
         if (editable) {
-            await Api.patch("teamPartner", id, payload);
+            delete payload.id;
+            await Api.patch("team-partner", id, payload);
         } else {
-            await Api.post("teamPartner", payload);
+            await Api.post("team-partner", payload);
         }
-        
-        history.push("/team/" + teamId);
+
+        history.goBack();
     };
 
     return (
