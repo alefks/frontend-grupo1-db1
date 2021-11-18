@@ -16,24 +16,22 @@ export default function RegisterKeyResult({ history }) {
         name: "",
         description: "",
         goal: "",
-        achieved: "",
-        frequency: "",
-        chekinDates: "",
         responsible: "",
         objective: ""
     });
+    const [teamPartners, setTeamPartners] = useState([])
 
     useEffect(() => {
         if (id !== "new") {
             setEditable(true);
-            fetchTeamById();
         }
+        fetchGetTeamPartners();
     }, []);
 
-    const fetchTeamById = async () => {
-        const response = await Api.getById("team", id);
+    const fetchGetTeamPartners = async () => {
+        const response = await Api.getAll("team-partner");
         const result = await response.json();
-        setKeyResult(result);
+        setTeamPartners(result);
     };
 
     const getInputValues = async (event) => {
@@ -43,20 +41,19 @@ export default function RegisterKeyResult({ history }) {
 
         payload.name = event.target.inputName.value;
         payload.description = event.target.inputDescription.value;
-        payload.goal = event.target.inputGoal.value;
-        payload.achieved = event.target.inputAchieved.value;
-        payload.frequency = event.target.inputFrequency.value;
-        payload.responsible = '';
-        payload.objective = objectiveId; 
-        payload.chekinDates = ''; // FALTA VERIFICAR COMO SERÁ FEITO
+        payload.goal = +event.target.inputGoal.value;
+        payload.responsible = +event.target.inputResponsible.value;
+        payload.objective = +objectiveId; 
 
         if (editable) {
-            await Api.patch("keyresult", id, payload);
+            //await Api.patch("keyresult", id, payload);
+            console.log('PATCH', payload)
         } else {
-            await Api.post("keyresult", payload);
+            //await Api.post("keyresult", payload);
+            console.log('POST', payload)
         }
 
-        history.push("/team/" + id);
+        //history.push("/team/" + id);
     };
     return (
         <div className="body">
@@ -102,7 +99,7 @@ export default function RegisterKeyResult({ history }) {
                 <Title classname="sub-title" htmlfor="inputResponsible">key Result Responsible</Title>
                     <Select 
                         name="inputResponsible"
-                        values={[]} 
+                        values={teamPartners} 
                         eventAction={false}
                     ></Select>
                 <Button>{editable ? "Save" : "Register"}</Button>
