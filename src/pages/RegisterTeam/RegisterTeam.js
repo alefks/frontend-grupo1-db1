@@ -28,20 +28,24 @@ export default function RegisterTeam({ history }) {
 
     const getInputValues = async (event) => {
         event.preventDefault();
-
+        let complementUrl = "";
+        const defaultYear = (new Date()).getFullYear();
         const payload = { ...team };
 
         payload.name = event.target.inputTeamName.value;
 
         if (editable) {
             await Api.patch("team", id, payload);
+            complementUrl = id + "/" + defaultYear;
         } else {
-            await Api.post("team", payload);
+            const response = await Api.post("team", payload);
+            const result = await response.json();
+            complementUrl = result.id + "/" + defaultYear;
+
         }
 
-        history.push("/team/" + id);
+       history.push("/team/" + complementUrl);
     };
-
     return (
         <div className="body">
             <Form submitAction={getInputValues}>

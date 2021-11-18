@@ -129,8 +129,24 @@ export default function Objectives() {
     const fetchGetObjectives = async () => {
         const response = await Api.getAll(`objective/${year}/${quarter}`);
         const result = await response.json();
-        setObjectives(result);
-        setSelection(result[0].id)
+        const value = [];
+        for(let i =0;result.length>i;i++){
+            value.push(
+                {
+                    id:result[i].id,
+                    name:result[i].name,
+                    description: result[i].description,
+                    start:result[i].startDate,
+                    end:result[i].endDate,
+                    manager:result[i].managerId
+                }
+            )
+        }
+        console.log(value);
+        if(value.length!==0){
+            setObjectives(value);
+            setSelection(value[0].id);
+        }
     };
 
     useEffect(() => {
