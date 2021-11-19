@@ -136,8 +136,8 @@ export default function Objectives() {
                     id:result[i].id,
                     name:result[i].name,
                     description: result[i].description,
-                    start:result[i].startDate,
-                    end:result[i].endDate,
+                    start:(result[i].startDate.substr(0, 10)).substr(8,2)+"/"+(result[i].startDate.substr(0, 10)).substr(5,2)+"/"+(result[i].startDate.substr(0, 10)).substr(0,4),
+                    end:(result[i].endDate.substr(0, 10)).substr(8,2)+"/"+(result[i].endDate.substr(0, 10)).substr(5,2)+"/"+(result[i].endDate.substr(0, 10)).substr(0,4),
                     manager:result[i].managerId
                 }
             )
