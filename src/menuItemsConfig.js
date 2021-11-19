@@ -79,6 +79,12 @@ const menuItems = {
             modal: false,
         },
         {
+            route: '/registerteam/',
+            routeText: 'Edit Team Name',
+            icon: Team,
+            modal: false,
+        },
+        {
             route: '',
             routeText: 'Add New Team Partner',
             icon: TeamPartner,
