@@ -43,9 +43,14 @@ export default function MenuItem(props){
             } 
             <Modal style={showModal}>
                 {params.teamId?
-                    <AddPartner closeButton={openModal}></AddPartner>
-                :
-                    <AddRelation closeButton={openModal}></AddRelation>
+                    JSON.stringify(showModal)!==JSON.stringify({display:"none"})?
+                        <AddPartner closeButton={openModal}></AddPartner>
+                    :
+                        ""
+                :JSON.stringify(showModal)!==JSON.stringify({display:"none"})?
+                        <AddRelation closeButton={openModal}></AddRelation>
+                    :
+                        ""  
                 }
               
             </Modal>  

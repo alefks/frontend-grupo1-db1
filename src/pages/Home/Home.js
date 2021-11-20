@@ -36,11 +36,10 @@ export default function Home(){
         },
     
     ];
-    const [selectedYear,setSelectedYear] = useState(0);
+    const [selectedYear,setSelectedYear] = useState((new Date()).getFullYear());
     useEffect(() => {
-        if(selectedYear===0){
-            setSelectedYear((new Date()).getFullYear());
-        }
+        fetchGetTeams();
+        //fetchGetYears();
     }, [selectedYear])
 
     const testYears = [2019,2018,2021,2017,2016].sort().reverse();
@@ -59,11 +58,6 @@ export default function Home(){
         const result = await response.json();
         result !== [] && setYears(result);
     }
-
-    useEffect(() => {
-        fetchGetTeams();
-        //fetchGetYears();
-    }, []);
     
     const changeYear = (event)=>{
         const selectElement = event.target;

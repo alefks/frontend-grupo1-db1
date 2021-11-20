@@ -3,10 +3,22 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Api from "../../api/api";
 import BoxItem from "../../components/BoxItem/BoxItem";
+import Modal from "../../components/Modal/Modal";
+import DeleteItem from "../../components/DeleteItem/DeleteItem";
+import Trash from "./../../img/icons/trash.png";
 import Box from "./../../components/Box/Box";
 import Pencil from "./../../img/icons/pencil.png";
 import "./Team.css";
 export default function Team() {
+    const [showModal,setShowModal] = useState({display:"none"});
+    const [ deleteId, setDeleteId ] = useState(0);
+    const openModal = ()=>{
+        if(JSON.stringify(showModal)===JSON.stringify({display:"none"})){
+            setShowModal({display:"flex"});
+        }else{
+            setShowModal({display:"none"});
+        }
+    };
     const params = useParams();
     const date = new Date();
     const testTeam = {
@@ -81,13 +93,14 @@ export default function Team() {
             <Box classname="team-box">
                 <Box classname="team-partners-list">
                     {team.teamPartners.map((partner) => (
-                        <BoxItem key={partner.id}>
+                        <BoxItem classname="team-partner-item" key={partner.id}>
+                            {partner.name}
                             <Link
                                 to={`/registerteampartner/${params.teamId}/${partner.id}`}
                             >
-                                {partner.name}
                                 <img className="icon" src={Pencil} alt="edit" />
                             </Link>
+                            <img src={Trash} className="trash-icon" alt="trash" />
                         </BoxItem>
                     ))}
                 </Box>
@@ -107,6 +120,9 @@ export default function Team() {
                     ))}
                 </Box>
             </Box>
+            <Modal style={showModal}>
+                <DeleteItem closeButton={openModal} idItem={params.teamId} ></DeleteItem>
+            </Modal> 
         </div>
     );
 }
