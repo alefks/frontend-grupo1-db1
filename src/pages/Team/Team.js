@@ -5,14 +5,15 @@ import Api from "../../api/api";
 import BoxItem from "../../components/BoxItem/BoxItem";
 import Modal from "../../components/Modal/Modal";
 import DeleteItem from "../../components/DeleteItem/DeleteItem";
-import Trash from "./../../img/icons/trash.png";
+import Trash from "./../../img/icons/white-trash.png";
 import Box from "./../../components/Box/Box";
 import Pencil from "./../../img/icons/pencil.png";
 import "./Team.css";
 export default function Team() {
     const [showModal,setShowModal] = useState({display:"none"});
     const [ deleteId, setDeleteId ] = useState(0);
-    const openModal = ()=>{
+    const openModal = (event)=>{
+        setDeleteId(event.target.id);
         if(JSON.stringify(showModal)===JSON.stringify({display:"none"})){
             setShowModal({display:"flex"});
         }else{
@@ -95,12 +96,14 @@ export default function Team() {
                     {team.teamPartners.map((partner) => (
                         <BoxItem classname="team-partner-item" key={partner.id}>
                             {partner.name}
-                            <Link
-                                to={`/registerteampartner/${params.teamId}/${partner.id}`}
-                            >
-                                <img className="icon" src={Pencil} alt="edit" />
-                            </Link>
-                            <img src={Trash} className="trash-icon" alt="trash" />
+                            <div className="options">
+                                <Link
+                                    to={`/registerteampartner/${params.teamId}/${partner.id}`}
+                                >
+                                    <img className="icon" src={Pencil} alt="edit" />
+                                </Link>
+                                <img src={Trash} className="trash-icon" alt="trash" id={partner.id} onClick={openModal} />
+                            </div>
                         </BoxItem>
                     ))}
                 </Box>
@@ -121,7 +124,11 @@ export default function Team() {
                 </Box>
             </Box>
             <Modal style={showModal}>
-                <DeleteItem closeButton={openModal} idItem={params.teamId} ></DeleteItem>
+                {JSON.stringify(showModal)!==JSON.stringify({display:"none"})?
+                    <DeleteItem closeButton={openModal} idItem={deleteId} teamId={params.teamId} table={"partner"}></DeleteItem>
+                :
+                    ""
+                }
             </Modal> 
         </div>
     );

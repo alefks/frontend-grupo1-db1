@@ -55,7 +55,7 @@
     min-height: 1em;
     height: 2em;
     padding: 0.5em;
-    width: 100%;
+    width: 96%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -65,4 +65,18 @@
     padding: 0.2em;
     width: auto;
     height: auto;
+}
+.options{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+}
+.options .trash-icon{
+    padding: 0.2em;
+    cursor: pointer;
+}
+.options .trash-icon:hover{
+    background-color: var(--colorMargin);
 }

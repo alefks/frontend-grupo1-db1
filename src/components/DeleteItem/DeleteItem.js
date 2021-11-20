@@ -12,7 +12,9 @@ export default function DeleteItem(props){
             console.log("delted objective"+props.idItem);
         }else if(props.table === "keyresult"){
             console.log("delted keyresult "+props.idItem);
-            
+        }else if(props.table === "partner"){
+            console.log(props.teamId);
+            console.log(props.idItem);
         }
     }
     return(

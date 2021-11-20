@@ -139,8 +139,8 @@ export default function Objectives() {
                     id:result[i].id,
                     name:result[i].name,
                     description: result[i].description,
-                    start:dateStart.getDate()+"/"+dateStart.getMonth()+"/"+dateStart.getFullYear(),
-                    end:dateFinal.getDate()+"/"+dateFinal.getMonth()+"/"+dateFinal.getFullYear(),
+                    start:dateStart.getDate()+"/"+(dateStart.getMonth()+1)+"/"+dateStart.getFullYear(),
+                    end:dateFinal.getDate()+"/"+(dateFinal.getMonth()+1)+"/"+dateFinal.getFullYear(),
                     manager:result[i].managerId
                 }
             )
