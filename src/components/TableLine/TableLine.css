@@ -68,3 +68,19 @@
     height: 100%;
     width: 100%;
 }
+.status{
+    width: 98%;
+    height: 100%;
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1%;
+}
+.feeling{
+    width:0.2em;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    border: none;
+}

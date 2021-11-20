@@ -19,7 +19,7 @@ export default function RegisterTeam({ history }) {
             fetchTeamById();
         }
     }, []);
-
+    console.log(editable)
     const fetchTeamById = async () => {
         const response = await Api.getById("team", id);
         const result = await response.json();
