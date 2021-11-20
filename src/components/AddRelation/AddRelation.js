@@ -17,7 +17,7 @@ export default function AddRelation(props){
             setEditable(true);
         }
         fetchGetTeamsList()
-    }, [editable]);
+    }, []);
     const [selectedObjectives, setSelectedObjectives] = useState([]);
     const [showObjectives,setShowObjectives] = useState({display:"none"});
     const teamObjectives=(event)=>{

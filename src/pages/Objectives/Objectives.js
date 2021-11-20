@@ -131,13 +131,16 @@ export default function Objectives() {
         const result = await response.json();
         const value = [];
         for(let i =0;result.length>i;i++){
+            console.log(new Date(result[i].startDate).getDate());
+            let dateStart = new Date(result[i].startDate);
+            let dateFinal = new Date(result[i].endDate);
             value.push(
                 {
                     id:result[i].id,
                     name:result[i].name,
                     description: result[i].description,
-                    start:(result[i].startDate.substr(0, 10)).substr(8,2)+"/"+(result[i].startDate.substr(0, 10)).substr(5,2)+"/"+(result[i].startDate.substr(0, 10)).substr(0,4),
-                    end:(result[i].endDate.substr(0, 10)).substr(8,2)+"/"+(result[i].endDate.substr(0, 10)).substr(5,2)+"/"+(result[i].endDate.substr(0, 10)).substr(0,4),
+                    start:dateStart.getDate()+"/"+dateStart.getMonth()+"/"+dateStart.getFullYear(),
+                    end:dateFinal.getDate()+"/"+dateFinal.getMonth()+"/"+dateFinal.getFullYear(),
                     manager:result[i].managerId
                 }
             )
@@ -152,7 +155,7 @@ export default function Objectives() {
     useEffect(() => {
         //setSelection(objectives[0].id); // temporário até liberar o fetch
         fetchGetObjectives(); // comentei para poder utilisar o useEffect sem erro
-    }, [JSON.stringify(objectives)]);
+    }, []);
 
     return (
         <div className="body objectives">

@@ -30,7 +30,7 @@ export default function RegisterObjectives({ history }) {
         }
         fetchGetManagersList();
         fetchGetTeamsList()
-    }, [editable]);
+    }, []);
 
     const getInputValues = (event) => {
         event.preventDefault();

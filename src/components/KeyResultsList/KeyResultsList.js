@@ -212,7 +212,7 @@ export default function KeyResultsList(props) {
 
     useEffect(() => {
         fetchGetKeyResults();
-    }, [JSON.stringify(keyResults)]);
+    }, []);
 
     const titles = [
         "Name",

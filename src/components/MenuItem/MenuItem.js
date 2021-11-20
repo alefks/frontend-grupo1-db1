@@ -25,7 +25,7 @@ export default function MenuItem(props){
                 !props.option.modal?
                     <div className="menu-item">
                         <Link to={props.option.route==='/registerobjectives/'||props.option.route==='/registerkeyresult/'||props.option.route==='/registerteampartner/'
-                                ?props.option.route+(params.objectiveId?params.objectiveId:params.teamId) + "/new":props.option.route}>
+                                ?props.option.route+(params.objectiveId?params.objectiveId:params.teamId) + "/new":props.option.route==='/registerteam/'?props.option.route+params.teamId:props.option.route}>
                             <img src={props.option.icon} alt="icon" className="icon"></img>
                             {props.option.routeText}
                         </Link>
@@ -43,9 +43,14 @@ export default function MenuItem(props){
             } 
             <Modal style={showModal}>
                 {params.teamId?
-                    <AddPartner closeButton={openModal}></AddPartner>
-                :
-                    <AddRelation closeButton={openModal}></AddRelation>
+                    JSON.stringify(showModal)!==JSON.stringify({display:"none"})?
+                        <AddPartner closeButton={openModal}></AddPartner>
+                    :
+                        ""
+                :JSON.stringify(showModal)!==JSON.stringify({display:"none"})?
+                        <AddRelation closeButton={openModal}></AddRelation>
+                    :
+                        ""  
                 }
               
             </Modal>  
