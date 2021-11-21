@@ -7,10 +7,13 @@ import Button from "../../components/Button/Button";
 import CancelLabel from "../../components/CancelLabel/CancelLabel";
 import { useParams } from "react-router-dom";
 import Api from "../../api/api";
+import { useHistory } from "react-router-dom";
 
-export default function RegisterTeamPartner({ history }) {
+export default function RegisterTeamPartner(props) {
     const [editable, setEditable] = useState(false);
     const { teamId, id } = useParams();
+    const lang = props.lang.RegisterTeamPartner;
+    const history = useHistory();
     const [teamPartner, setTeamPartner] = useState({
         name: "",
     });
@@ -48,17 +51,17 @@ export default function RegisterTeamPartner({ history }) {
         <div className="body">
             <Form submitAction={getInputValues}>
                 <Title classname="title">
-                    {editable ? "Edit Team Partner" : "New Team Partner"}
+                    {editable ? lang.page.form.edit.option1 : lang.page.form.register.option1}
                     <CancelLabel />
                 </Title>
                 <Input
                     inputType="text"
                     inputName="inputTeamPartnerName"
-                    inputHolder="Team Partner Name"
+                    inputHolder={lang.page.form.register.option2}
                     inputRequired={true}
                     inputDefaultValue={teamPartner.name}
                 ></Input>
-                {editable ? <Button>Save</Button> : <Button>Register</Button>}
+                {editable ? <Button>{lang.page.button.edit}</Button> : <Button>{lang.page.button.register}</Button>}
             </Form>
         </div>
     );

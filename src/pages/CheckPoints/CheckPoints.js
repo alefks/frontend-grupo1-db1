@@ -6,8 +6,9 @@ import './CheckPoints.css';
 import CheckPointItem from "../../components/CheckPointItem/CheckPointItem";
 import { useParams } from "react-router-dom";
 
-export default function CheckPoints(){
+export default function CheckPoints(props){
     const { objectiveId ,date } = useParams();
+    const lang = props.lang.CheckPoints.page;
     const [keyResults, setKeyResults] = useState([
         {
             id:1,
@@ -53,7 +54,7 @@ export default function CheckPoints(){
                         <textarea className="note" name="note"></textarea>
                     </Box>    
                     <Button>
-                        Save    
+                        {lang.button}   
                     </Button>        
                 </Box>
             </Form>

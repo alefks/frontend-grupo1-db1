@@ -10,6 +10,7 @@ import AddRelation from '../AddRelation/AddRelation';
 export default function MenuItem(props){
     const params = useParams();
     const history = useHistory();
+   
     const [showModal,setShowModal] = useState({display:"none"});
     const openModal = ()=>{
         if(JSON.stringify(showModal)===JSON.stringify({display:"none"})){
@@ -38,17 +39,17 @@ export default function MenuItem(props){
             :
                 <div className="menu-item" onClick={history.goBack}>
                         <img src={Arrow} alt="icon" className="icon"></img>
-                        Turn Back
+                        {props.lang.Notfound.menu.option2}
                 </div>
             } 
             <Modal style={showModal}>
                 {params.teamId?
                     JSON.stringify(showModal)!==JSON.stringify({display:"none"})?
-                        <AddPartner closeButton={openModal}></AddPartner>
+                        <AddPartner closeButton={openModal} lang={props.lang}></AddPartner>
                     :
                         ""
                 :JSON.stringify(showModal)!==JSON.stringify({display:"none"})?
-                        <AddRelation closeButton={openModal}></AddRelation>
+                        <AddRelation closeButton={openModal} lang={props.lang}></AddRelation>
                     :
                         ""  
                 }

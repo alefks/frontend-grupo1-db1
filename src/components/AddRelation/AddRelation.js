@@ -10,6 +10,7 @@ import './AddRelation.css';
 import { useParams } from "react-router-dom";
 
 export default function AddRelation(props){
+    const lang = props.lang.AddRelation.page;
     const [editable, setEditable] = useState(false);
     const {id} = useParams()
     useEffect(() => {
@@ -59,10 +60,10 @@ export default function AddRelation(props){
     return (
         <Form classname={"form add"}>
             <Title classname="title">
-                Add new Relation
+                {lang.form.option1}
                 <CancelLabel action={props.closeButton} closeButton={true}/>
             </Title>
-            <Title classname="sub-title" htmlfor="inputTeam">Relational Objective (Team)</Title>
+            <Title classname="sub-title" htmlfor="inputTeam">{lang.form.option2}</Title>
             <Select 
                 name="inputTeam"
                 values={teamList} 
@@ -72,7 +73,7 @@ export default function AddRelation(props){
                 classname="relations"
                 style={showObjectives}
             >
-                <Title classname="sub-title" htmlfor="inputObjectives">Relational Objective</Title>
+                <Title classname="sub-title" htmlfor="inputObjectives">{lang.form.option3}</Title>
                 <Select 
                     style={showObjectives}
                     name="inputObjectives"
@@ -81,7 +82,7 @@ export default function AddRelation(props){
                 ></Select>
             </Box>
             <Button>
-                Add
+                {lang.button}
             </Button>
         </Form>
     )

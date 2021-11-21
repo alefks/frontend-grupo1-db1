@@ -9,7 +9,8 @@ import Trash from "./../../img/icons/white-trash.png";
 import Box from "./../../components/Box/Box";
 import Pencil from "./../../img/icons/pencil.png";
 import "./Team.css";
-export default function Team() {
+export default function Team(props) {
+    const lang = props.lang.Team;
     const [showModal,setShowModal] = useState({display:"none"});
     const [ deleteId, setDeleteId ] = useState(0);
     const openModal = (event)=>{

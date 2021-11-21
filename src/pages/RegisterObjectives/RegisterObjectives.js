@@ -10,9 +10,10 @@ import CancelLabel from "../../components/CancelLabel/CancelLabel";
 import Api from '../../api/api'
 import Select from "../../components/Select/Select";
 
-export default function RegisterObjectives({ history }) {
+export default function RegisterObjectives(props,{ history }) {
     const [editable, setEditable] = useState(false);
     const { teamId, id } = useParams();
+    const lang = props.lang.RegisterObjective;
     const [objective, setObjective] = useState({
         name: '',
         description: '',
@@ -106,36 +107,36 @@ export default function RegisterObjectives({ history }) {
         <div className="body register">
             <Form submitAction={getInputValues}>
                 <Title classname="title">
-                    {editable ? "Edit Objective" : "New Objective"}
+                    {editable ? lang.page.form.register.option1 : lang.page.form.register.option1}
                     <CancelLabel />
                 </Title>
                 <fieldset>
                     <Input
                         inputType="text"
                         inputName="inputName"
-                        inputHolder="Objective Name"
+                        inputHolder={lang.page.form.register.option2}
                         inputRequired={true}
                     ></Input>
                     <Input
                         inputType="number"
                         inputName="inputFrequency"
-                        inputHolder="key Result Frequency"
+                        inputHolder={lang.page.form.register.option3}
                         inputRequired={true}
                     ></Input>
                     <Input
                         classname="objective-description"
                         inputType="text"
                         inputName="inputDescription"
-                        inputHolder="Objective Description"
+                        inputHolder={lang.page.form.register.option4}
                         inputRequired={true}
                     ></Input>
-                     <Title classname="sub-title" htmlfor="inputManager">Objective Manager</Title>
+                     <Title classname="sub-title" htmlfor="inputManager">{lang.page.form.register.option5}</Title>
                     <Select 
                         name="inputManager"
                         values={managers} 
                         eventAction={false}
                     ></Select>
-                    <Title classname="sub-title" htmlfor="inputTeam">Relational Objective (Team)</Title>
+                    <Title classname="sub-title" htmlfor="inputTeam">{lang.page.form.register.option6}</Title>
                     <Select 
                         name="inputTeam"
                         values={teamList} 
@@ -145,7 +146,7 @@ export default function RegisterObjectives({ history }) {
                         classname="relations"
                         style={showObjectives}
                     >
-                        <Title classname="sub-title" htmlfor="inputObjectives">Relational Objective</Title>
+                        <Title classname="sub-title" htmlfor="inputObjectives">{lang.page.form.register.option7}</Title>
                         <Select 
                             style={showObjectives}
                             name="inputObjectives"
@@ -153,14 +154,14 @@ export default function RegisterObjectives({ history }) {
                             eventAction={false}
                         ></Select>
                     </Box>
-                    <Title classname="sub-title" htmlfor="inputStartDate">Objective Start Date</Title>
+                    <Title classname="sub-title" htmlfor="inputStartDate">{lang.page.form.register.option8}</Title>
                     <Input
                         inputType="date"
                         inputName="inputStartDate"
                         inputHolder=""
                         inputRequired={true}
                     ></Input>
-                    <Title classname="sub-title" htmlfor="inputFinalDate">Objective End Date</Title>
+                    <Title classname="sub-title" htmlfor="inputFinalDate">{lang.page.form.register.option9}</Title>
                     <Input
                         inputType="date"
                         inputName="inputFinalDate"
@@ -168,7 +169,7 @@ export default function RegisterObjectives({ history }) {
                         inputRequired={true}
                     ></Input>
                 </fieldset>
-                {editable ? <Button>Save</Button> : <Button>Register</Button>}
+                {editable ? <Button>{lang.page.button.edit}</Button> : <Button>{lang.page.button.register}</Button>}
             </Form>
         </div>
     );

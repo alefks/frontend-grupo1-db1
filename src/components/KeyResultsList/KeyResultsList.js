@@ -196,13 +196,7 @@ export default function KeyResultsList(props) {
         fetchGetKeyResults();
     }, []);
 
-    const titles = [
-        "Name",
-        "Description",
-        "Goal",
-        "Responsible",
-        "Last Status",
-    ];
+    const titles = props.lang.table.title;
     return (
         <div className="key-results-list">
             <Box
@@ -212,7 +206,7 @@ export default function KeyResultsList(props) {
                         : "boxtitle " + props.classname
                 }
             >
-                Key Results
+                {props.lang.table.name}
             </Box>
             <Table>
                 <TableTitle titles={titles} />

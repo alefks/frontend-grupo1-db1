@@ -1,10 +1,10 @@
-import React,{ useState } from 'react';
+import React,{ useState} from 'react';
 import { BrowserRouter as Router} from 'react-router-dom';
 import Routes from './Routes';
 import MenuRoutes from './MenuRoutes';
 import MenuIcon from './img/icons/menu.png';
 import './App.css';
-
+import Language from './languages/Language';
 function App() {
   const [showMenu,setShowMenu] = useState(true);
   const openClose = ()=>{
@@ -24,8 +24,8 @@ function App() {
         <img src={MenuIcon} alt="menu-icon" />
       </div>
       <Router >
-        <MenuRoutes />
-        <Routes/>
+        <MenuRoutes lang={Language}/>
+        <Routes lang={Language}/>
       </Router>
     </div>
   );

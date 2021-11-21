@@ -8,9 +8,11 @@ import CancelLabel from "../../components/CancelLabel/CancelLabel";
 import Api from "../../api/api";
 import { useParams } from "react-router-dom";
 import Select from "../../components/Select/Select";
+import SelectLanguage from "../SelectLanguage/SelectLanguage";
 
-export default function RegisterKeyResult({ history }) {
+export default function RegisterKeyResult(props,{ history }) {
     const { objectiveId,id } = useParams();
+    const lang = props.lang.RegisterKeyResult;
     const [editable, setEditable] = useState(false);
     const [keyResult, setKeyResult] = useState({ 
         name: "",
@@ -60,31 +62,31 @@ export default function RegisterKeyResult({ history }) {
             <Form submitAction={getInputValues}>
                 <Title classname="title">
                     {editable?
-                        'Edit key Result' 
+                        lang.page.form.edit.option1
                     :
-                        'New Key Result'
+                        lang.page.form.register.option1
                     }
                     <CancelLabel/>
                 </Title>
                 <Input
                     inputType="text"
                     inputName="inputName"
-                    inputHolder="Key Result Name"
+                    inputHolder={lang.page.form.register.option2}
                     inputRequired={true}
                 ></Input>
                 <Input
                     inputType="text"
                     inputName="inputDescription"
-                    inputHolder="key Result Description"
+                    inputHolder={lang.page.form.register.option3}
                     inputRequired={true}
                 ></Input>
                 <Input
                     inputType="number"
                     inputName="inputGoal"
-                    inputHolder="key Result Goal"
+                    inputHolder={lang.page.form.register.option3}
                     inputRequired={false}
                 ></Input>
-                <Title classname="sub-title" htmlfor="inputResponsible">key Result Responsible</Title>
+                <Title classname="sub-title" htmlfor="inputResponsible">{lang.page.form.register.option4}</Title>
                     <Select 
                         name="inputResponsible"
                         values={teamPartners} 

@@ -8,6 +8,7 @@ import Api from "../../api/api";
 import { useParams } from "react-router-dom/cjs/react-router-dom";
 
 export default function AddPartner(props) {
+    const lang = props.lang.AddPartner.page;
     const { teamId } = useParams();
 
     const partnersTestList = [
@@ -45,7 +46,7 @@ export default function AddPartner(props) {
     return (
         <Form classname={"form add"} submitAction={getInputValues}>
             <Title classname="title">
-                Add new Team Partner
+                {lang.form.option1}
                 <CancelLabel action={props.closeButton} closeButton={true} />
             </Title>
             <select name="partner" id="cars" className="input">
@@ -59,7 +60,7 @@ export default function AddPartner(props) {
                     </option>
                 ))}
             </select>
-            <Button>Add</Button>
+            <Button>{lang.button}</Button>
         </Form>
     );
 }

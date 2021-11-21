@@ -4,7 +4,8 @@ import Box from './../../components/Box/Box';
 import './Home.css';
 import Api from '../../api/api'
 
-export default function Home(){
+export default function Home(props){
+    
     const testTeamsList = [
         {
             id : 1,
@@ -36,12 +37,13 @@ export default function Home(){
         },
     
     ];
+   
     const [selectedYear,setSelectedYear] = useState((new Date()).getFullYear());
     useEffect(() => {
         fetchGetTeams();
         //fetchGetYears();
     }, [selectedYear])
-
+   
     const testYears = [2019,2018,2021,2017,2016].sort().reverse();
 
     const [teams, setTeams] = useState(testTeamsList);

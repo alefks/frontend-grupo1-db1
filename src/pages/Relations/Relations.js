@@ -6,8 +6,9 @@ import { useParams } from "react-router-dom";
 import './Relations.css';
 import Box from '../../components/Box/Box';
 
-export default function Relations(){
+export default function Relations(props){
     const {id} = useParams();
+    const lang = props.lang.Relations.page;
     const [relations,setRelations] = useState([
         {
             id:1,
@@ -112,13 +113,13 @@ export default function Relations(){
         },
 
     ])
-    const titles = ['objective','Team'];
+    const titles = lang.table.title;
 
     return (
         <div className="body relations">
             <Box classname="relations-title">
                 <label>{"Objective"}</label>
-                Related to:
+                {lang.table.name}
             </Box>
             <Table className="relations-list">
                 <TableTitle titles={titles} />
