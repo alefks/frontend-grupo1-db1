@@ -10,6 +10,7 @@ import AddRelation from '../AddRelation/AddRelation';
 export default function MenuItem(props){
     const params = useParams();
     const history = useHistory();
+   
     const [showModal,setShowModal] = useState({display:"none"});
     const openModal = ()=>{
         if(JSON.stringify(showModal)===JSON.stringify({display:"none"})){
@@ -25,7 +26,7 @@ export default function MenuItem(props){
                 !props.option.modal?
                     <div className="menu-item">
                         <Link to={props.option.route==='/registerobjectives/'||props.option.route==='/registerkeyresult/'||props.option.route==='/registerteampartner/'
-                                ?props.option.route+(params.objectiveId?params.objectiveId:params.teamId) + "/new":props.option.route}>
+                                ?props.option.route+(params.objectiveId?params.objectiveId:params.teamId) + "/new":props.option.route==='/registerteam/'?props.option.route+params.teamId:props.option.route}>
                             <img src={props.option.icon} alt="icon" className="icon"></img>
                             {props.option.routeText}
                         </Link>
@@ -38,14 +39,19 @@ export default function MenuItem(props){
             :
                 <div className="menu-item" onClick={history.goBack}>
                         <img src={Arrow} alt="icon" className="icon"></img>
-                        Turn Back
+                        {props.lang.Notfound.menu.option2}
                 </div>
             } 
             <Modal style={showModal}>
                 {params.teamId?
-                    <AddPartner closeButton={openModal}></AddPartner>
-                :
-                    <AddRelation closeButton={openModal}></AddRelation>
+                    JSON.stringify(showModal)!==JSON.stringify({display:"none"})?
+                        <AddPartner closeButton={openModal} lang={props.lang}></AddPartner>
+                    :
+                        ""
+                :JSON.stringify(showModal)!==JSON.stringify({display:"none"})?
+                        <AddRelation closeButton={openModal} lang={props.lang}></AddRelation>
+                    :
+                        ""  
                 }
               
             </Modal>  

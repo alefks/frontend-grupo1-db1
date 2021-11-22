@@ -3,26 +3,34 @@ import TeamPartner from './img/icons/team-partner.png';
 import Relations from './img/icons/menu-relations.png';
 import Objective from './img/icons/objective.png';
 import Home from './img/icons/home.png';
-import Key from './img/icons/key.png'
+import Key from './img/icons/key.png';
+import LanguageIcon from './img/icons/language.png';
+import Language from './languages/Language';
 const menuItems = {
     home:[
         {
             route: '/registerteam/new',
-            routeText: 'Create New Team',
+            routeText: Language.Home.menu.option1,
             icon: Team,
+            modal: false,
+        },
+        {
+            route: '/changelanguage',
+            routeText: Language.Home.menu.option2,
+            icon: LanguageIcon,
             modal: false,
         },
     ],
     objectives:[
         {
             route: '/',
-            routeText: 'Home',
+            routeText: Language.Objectives.menu.option1,
             icon:Home,
             modal: false,
         },
         {
             route: '/registerobjectives/',
-            routeText: 'Create New Objective',
+            routeText: Language.Objectives.menu.option2,
             icon: Objective,
             modal: false,
         },
@@ -36,13 +44,13 @@ const menuItems = {
     relations:[
         {
             route: '/',
-            routeText: 'Home',
+            routeText: Language.Relations.menu.option1,
             icon:Home,
             modal: false,
         },
         {
             route: '',
-            routeText: 'Add New Relation',
+            routeText: Language.Relations.menu.option2,
             icon: Relations,
             modal: true,
         },
@@ -55,13 +63,13 @@ const menuItems = {
     keyResults:[
         {
             route: '/',
-            routeText: 'Home',
+            routeText: Language.KeyResults.menu.option1,
             icon:Home,
             modal: false,
         },
         {
             route: '/registerkeyresult/',
-            routeText: 'New Key Result',
+            routeText: Language.KeyResults.menu.option2,
             icon: Key,
             modal: false,
         },
@@ -74,19 +82,25 @@ const menuItems = {
     team:[
         {
             route: '/',
-            routeText: 'Home',
+            routeText: Language.Teams.menu.option1,
             icon:Home,
             modal: false,
         },
         {
+            route: '/registerteam/',
+            routeText: Language.Teams.menu.option2,
+            icon: Team,
+            modal: false,
+        },
+        {
             route: '',
-            routeText: 'Add New Team Partner',
+            routeText: Language.Teams.menu.option3,
             icon: TeamPartner,
             modal: true,
         },
         {
             route: '/registerteampartner/',
-            routeText: 'Create Team Partner',
+            routeText: Language.Teams.menu.option4,
             icon: TeamPartner,
             modal: false,
         },
@@ -99,7 +113,7 @@ const menuItems = {
     checkPoints:[
         {
             route: '/',
-            routeText: 'Home',
+            routeText: Language.CheckPoints.menu.option1,
             icon:Home,
             modal: false,
         },
@@ -112,7 +126,7 @@ const menuItems = {
     others:[
         {
             route: '/',
-            routeText: 'Home',
+            routeText: Language.Notfound.menu.option1,
             icon:Home,
             modal: false,
         },

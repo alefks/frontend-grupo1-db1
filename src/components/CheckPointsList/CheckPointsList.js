@@ -8,7 +8,7 @@ export default function CheckPointsList(props){
     const now =(date.getDay())+"-"+((date.getMonth())+1)+"-"+(date.getFullYear());
     return (
         <div className="check-points-box">
-            <Box classname="boxtitle boxtitle2">Checkin Dates</Box>
+            <Box classname="boxtitle boxtitle2">{props.lang.box.name}</Box>
             <Box classname="check-points">
                 <Box classname="check-date">
                     <Link to={"/checkpoint/"+props.objectiveId+"/"+now}>

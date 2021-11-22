@@ -1,0 +1,7 @@
+.delete{
+    color: var(--colorFourth);
+}
+.delete .cancel{
+   
+    background-color: transparent;
+}

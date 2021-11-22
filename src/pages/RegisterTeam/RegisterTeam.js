@@ -8,7 +8,7 @@ import CancelLabel from "../../components/CancelLabel/CancelLabel";
 import { useParams } from "react-router-dom";
 import Api from "../../api/api";
 
-export default function RegisterTeam({ history }) {
+export default function RegisterTeam(props, { history }) {
     const { id } = useParams();
     const [editable, setEditable] = useState(false);
     const [team, setTeam] = useState({ name: "" });
@@ -28,35 +28,44 @@ export default function RegisterTeam({ history }) {
 
     const getInputValues = async (event) => {
         event.preventDefault();
-
-        const payload = { ...team };
-
-        payload.name = event.target.inputTeamName.value;
+        let complementUrl = "";
+        const defaultYear = new Date().getFullYear();
+        const payload = {
+            name: event.target.inputTeamName.value,
+        };
 
         if (editable) {
             await Api.patch("team", id, payload);
+            complementUrl = id + "/" + defaultYear;
         } else {
-            await Api.post("team", payload);
+            const response = await Api.post("team", payload);
+            const result = await response.json();
+            complementUrl = result.id + "/" + defaultYear;
         }
 
-        history.push("/team/" + id);
+        history.push("/team/" + complementUrl);
     };
-
     return (
         <div className="body">
             <Form submitAction={getInputValues}>
                 <Title classname="title">
-                    {editable ? "Edit Team" : "New Team"}
+                    {editable
+                        ? lang.page.form.edit.option1
+                        : lang.page.form.register.option1}
                     <CancelLabel />
                 </Title>
                 <Input
                     inputType="text"
                     inputName="inputTeamName"
-                    inputHolder="Team Name"
+                    inputHolder={lang.page.form.register.option2}
                     inputRequired={true}
                     inputDefaultValue={team.name}
                 ></Input>
-                <Button>{editable ? "Save" : "Register"}</Button>
+                <Button>
+                    {editable
+                        ? lang.page.button.edit
+                        : lang.page.button.register}
+                </Button>
             </Form>
         </div>
     );

@@ -12,21 +12,24 @@ import RegisterObjectives from './pages/RegisterObjectives/RegisterObjectives';
 import RegisterTeamPartner from './pages/RegisterTeamPartner/RegisterTeamPartner';
 import Team from "./pages/Team/Team";
 import NotFound from "./pages/NotFound/NotFound";
-export default function Routes(){
+import SelectLanguage from "./pages/SelectLanguage/SelectLanguage";
+export default function Routes(props){
+    
     return(
         <Switch>
-            <Route exact path="/" component={ Home } />
-            <Route exact path="/checkpoint/:objectiveId/:date" component={ CheckPoints } />
-            <Route exact path="/login" component={ Login } />
-            <Route exact path="/objectives/:teamId/:startDate/:endDate" component={ Objectives } />
-            <Route exact path="/Relations/:id" component={ Relations } />
-            <Route exact path="/keyresults/:objectiveId" component={ KeyResults } />
-            <Route exact path="/registerteam/:id" component={ RegisterTeam } />
-            <Route exact path="/registerkeyresult/:objectiveId/:id" component={ RegiterKeyResult } />
-            <Route exact path="/registerobjectives/:teamId/:id" component={ RegisterObjectives } />
-            <Route exact path="/registerteampartner/:teamId/:id" component={ RegisterTeamPartner } />
-            <Route exact path="/team/:teamId" component={ Team } />
-            <Route path="*" component={ NotFound } />
+            <Route exact path="/" children={ <Home lang={props.lang} /> } />
+            <Route exact path="/checkpoint/:objectiveId/:date" children={ <CheckPoints lang={props.lang} /> } />
+            <Route exact path="/login" children={ <Login lang={props.lang} ></Login> } />
+            <Route exact path="/objectives/:teamId/:year/:quarter" children={ <Objectives lang={props.lang} /> } />
+            <Route exact path="/Relations/:id" children={ <Relations lang={props.lang}/> } />
+            <Route exact path="/keyresults/:objectiveId" children={ <KeyResults lang={props.lang} /> } />
+            <Route exact path="/registerteam/:id" children={ <RegisterTeam lang={props.lang} /> } />
+            <Route exact path="/registerkeyresult/:objectiveId/:id" children={ < RegiterKeyResult lang={props.lang} />} />
+            <Route exact path="/registerobjectives/:teamId/:id" children={ <RegisterObjectives lang={props.lang} /> } />
+            <Route exact path="/registerteampartner/:teamId/:id" children={ <RegisterTeamPartner lang={props.lang} /> } />
+            <Route exact path="/team/:teamId/:year" children={ <Team lang={props.lang} />} />
+            <Route exact path="/changelanguage" children={ <SelectLanguage/>} />
+            <Route path="*"  children={ <NotFound lang={props.lang} /> } />
         </Switch>
     );
 }

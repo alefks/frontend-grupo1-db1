@@ -8,7 +8,8 @@ import Box from "../../components/Box/Box";
 import Api from "../../api/api";
 import "./Objectives.css";
 
-export default function Objectives() {
+export default function Objectives(props) {
+    const lang = props.lang;
     const [selection,setSelection] = useState(undefined); 
     const select = (event)=>{
         setSelection(parseInt(event.target.parentElement.getAttribute('objectiveid')));
@@ -122,33 +123,51 @@ export default function Objectives() {
     const [objectives, setObjectives] = useState(testObjectives);
     
 
-    const { id, startDate, endDate } = useParams();
+    const { teamId, year, quarter } = useParams();
     
-    const titles = ["Name", "Description", "Start Date", "End Date", "Manager"];
+    const titles = lang.Objectives.page.table.title;
     
     const fetchGetObjectives = async () => {
-        const response = await Api.getAll("objective");
+        const response = await Api.getAll(`objective/${year}/${quarter}`);
         const result = await response.json();
-        setObjectives(result);
-        setSelection(result[0].id)
+        const value = [];
+        for(let i =0;result.length>i;i++){
+            let dateStart = new Date(result[i].startDate);
+            let dateFinal = new Date(result[i].endDate);
+            value.push(
+                {
+                    id:result[i].id,
+                    name:result[i].name,
+                    description: result[i].description,
+                    start:dateStart.getDate()+"/"+(dateStart.getMonth()+1)+"/"+dateStart.getFullYear(),
+                    end:dateFinal.getDate()+"/"+(dateFinal.getMonth()+1)+"/"+dateFinal.getFullYear(),
+                    manager:result[i].managerId
+                }
+            )
+        }
+
+        if(value.length!==0){
+            setObjectives(value);
+            setSelection(value[0].id);
+        }
     };
 
     useEffect(() => {
-        setSelection(objectives[0].id); // temporário até liberar o fetch
-        // fetchGetObjectives(); // comentei para poder utilisar o useEffect sem erro
-    }, [JSON.stringify(objectives)]);
+        //setSelection(objectives[0].id); // temporário até liberar o fetch
+        fetchGetObjectives(); // comentei para poder utilisar o useEffect sem erro
+    }, []);
 
     return (
         <div className="body objectives">
             <Box classname="boxtitle">
-                Objectives
+                {lang.Objectives.page.table.name}
             </Box>
             <Table className="objectives-list">
                 <TableTitle titles={titles} />
                 <tbody className="tbody">
                     {objectives.map((objective,index) => (
                         <TableLine
-                            teamId={id}
+                            teamId={teamId}
                             values={objective}
                             key={index}
                             objectName={"objective"}
@@ -158,7 +177,7 @@ export default function Objectives() {
                     ))}
                 </tbody>
             </Table>
-            <KeyResultsList classname="boxtitle2" objectiveId={selection}></KeyResultsList>
+            <KeyResultsList classname="boxtitle2" objectiveId={selection} lang={lang.KeyResults.page}></KeyResultsList>
         </div>
     );
 }

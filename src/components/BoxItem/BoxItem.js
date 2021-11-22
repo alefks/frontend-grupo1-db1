@@ -3,7 +3,7 @@ import './BoxItem.css';
 
 export default function BoxItem(props){
     return (
-        <div className="box-item">
+        <div className={props.classname?"box-item " + props.classname:"box-item"}>
             {props.children}
         </div>
     );

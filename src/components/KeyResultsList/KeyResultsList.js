@@ -1,11 +1,12 @@
-import React,{ useState, useEffect } from 'react';
-import Box from '../Box/Box';
-import Table from '../Table/Table';
-import TableTitle from '../TableTitle/TableTitle';
-import TableLine from '../TableLine/TableLine';
-import './KeyResultsList.css';
+import React, { useState, useEffect } from "react";
+import Box from "../Box/Box";
+import Table from "../Table/Table";
+import TableTitle from "../TableTitle/TableTitle";
+import TableLine from "../TableLine/TableLine";
+import "./KeyResultsList.css";
+import Api from "../../api/api";
 
-export default function KeyResultsList(props){
+export default function KeyResultsList(props) {
     const objectiveId = props.objectiveId;
     const keyResultMap = [
         {
@@ -17,7 +18,7 @@ export default function KeyResultsList(props){
             frequency: "",
             responsibleId: 0,
             checkinDates: [],
-        }
+        },
     ];
     const [keyResults, setKeyResults] = useState(keyResultMap);
     const testKeyResults = [
@@ -26,190 +27,191 @@ export default function KeyResultsList(props){
             name: "key teste",
             description: "testesando",
             goal: 20,
-            achieved: 30,
             responsible: "name",
-            checkinDates: [],
+            lastStatus: 0,
+            lastFeeling: "#54C213",
         },
         {
             id: 1,
             name: "key teste",
             description: "testesando",
             goal: 20,
-            achieved: 30,
-            responsible:  "name",
-            checkinDates: [],
+            responsible: "name",
+            lastStatus: 0,
+            lastFeeling: "#00ffdd",
         },
         {
             id: 1,
             name: "key teste",
             description: "testesando",
             goal: 20,
-            achieved: 30,
             responsible: "name",
-            checkinDates: [],
+            lastStatus: 0,
+            lastFeeling: "#54C213",
         },
         {
             id: 1,
             name: "key teste",
             description: "testesando",
             goal: 20,
-            achieved: 30,
             responsible: "name",
-            checkinDates: [],
+            lastStatus: 0,
+            lastFeeling: "",
         },
         {
             id: 1,
             name: "key teste",
             description: "testesando",
             goal: 20,
-            achieved: 30,
             responsible: "name",
-            checkinDates: [],
+            lastStatus: 0,
+            lastFeeling: "#54C213",
         },
         {
             id: 1,
             name: "key teste",
             description: "testesando",
             goal: 20,
-            achieved: 30,
             responsible: "name",
-            checkinDates: [],
+            lastStatus: 0,
+            lastFeeling: "#C23700",
         },
         {
             id: 1,
             name: "key teste",
             description: "testesando",
             goal: 20,
-            achieved: 30,
             responsible: "name",
-            checkinDates: [],
+            lastStatus: 0,
+            lastFeeling: "#54C213",
         },
         {
             id: 1,
             name: "key teste",
             description: "testesando",
             goal: 20,
-            achieved: 30,
             responsible: "name",
-            checkinDates: [],
+            lastStatus: 0,
+            lastFeeling: "#C23700",
         },
         {
             id: 1,
             name: "key teste",
             description: "testesando",
             goal: 20,
-            achieved: 30,
             responsible: "name",
-            checkinDates: [],
+            lastStatus: 0,
+            lastFeeling: "#C2B91B",
         },
         {
             id: 1,
             name: "key teste",
             description: "testesando",
             goal: 20,
-            achieved: 30,
             responsible: "name",
-            checkinDates: [],
+            lastStatus: 0,
+            lastFeeling: "#C23700",
         },
         {
             id: 1,
             name: "key teste",
             description: "testesando",
             goal: 20,
-            achieved: 30,
             responsible: "name",
-            checkinDates: [],
+            lastStatus: 0,
+            lastFeeling: "#C2B91B",
         },
         {
             id: 1,
             name: "key teste",
             description: "testesando",
             goal: 20,
-            achieved: 30,
             responsible: "name",
-            checkinDates: [],
+            lastStatus: 0,
+            lastFeeling: "#C2B91B",
         },
         {
             id: 1,
             name: "key teste",
             description: "testesando",
             goal: 20,
-            achieved: 30,
             responsible: "name",
-            checkinDates: [],
+            lastStatus: 0,
+            lastFeeling: "#C23700",
         },
         {
             id: 1,
             name: "key teste",
             description: "testesando",
             goal: 20,
-            achieved: 30,
             responsible: "name",
-            checkinDates: [],
+            lastStatus: 0,
+            lastFeeling: "",
         },
         {
             id: 1,
             name: "key teste",
             description: "testesando",
             goal: 20,
-            achieved: 30,
             responsible: "name",
-            checkinDates: [],
+            lastStatus: 0,
+            lastFeeling: "",
         },
         {
             id: 1,
             name: "key teste",
             description: "testesando",
             goal: 20,
-            achieved: 30,
             responsible: "name",
-            checkinDates: [],
+            lastStatus: 0,
+            lastFeeling: "",
         },
         {
             id: 1,
             name: "key teste",
             description: "testesando",
             goal: 20,
-            achieved: 30,
             responsible: "name",
-            checkinDates: [],
+            lastStatus: 0,
+            lastFeeling: "",
         },
         {
             id: 1,
             name: "key teste",
             description: "testesando",
             goal: 20,
-            achieved: 30,
             responsible: "name",
-            checkinDates: [],
+            lastStatus: 0,
+            lastFeeling: "",
         },
     ];
 
     const fetchGetKeyResults = async () => {
-        // const response = await Api.getById("objective", objectiveId);
-        // const result = await response.json().keyResults;
-        // setKeyResults(result);
-        setKeyResults(testKeyResults)
+        //const response = await Api.getById("objective", objectiveId);
+        //const result = await response.json();
+        setKeyResults(testKeyResults);
     };
 
     useEffect(() => {
         fetchGetKeyResults();
-    }, [JSON.stringify(keyResults)]);
+    }, []);
 
-    const titles = [
-        "Name",
-        "Description",
-        "Goal",
-        "Achieved",
-        "Responsible",
-    ];
+    const titles = props.lang.table.title;
     return (
         <div className="key-results-list">
-            <Box classname={!props.classname?"boxtitle":"boxtitle "+props.classname}>Key Results</Box>
+            <Box
+                classname={
+                    !props.classname
+                        ? "boxtitle"
+                        : "boxtitle " + props.classname
+                }
+            >
+                {props.lang.table.name}
+            </Box>
             <Table>
                 <TableTitle titles={titles} />
                 <tbody className="tbody">
-                    {keyResults.map((keyResult,index) => (
+                    {keyResults.map((keyResult, index) => (
                         <TableLine
                             objectiveId={objectiveId}
                             values={keyResult}
