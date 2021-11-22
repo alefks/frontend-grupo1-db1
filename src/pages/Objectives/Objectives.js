@@ -123,7 +123,7 @@ export default function Objectives(props) {
     const [objectives, setObjectives] = useState(testObjectives);
     
 
-    const { id, year, quarter } = useParams();
+    const { teamId, year, quarter } = useParams();
     
     const titles = lang.Objectives.page.table.title;
     
@@ -145,7 +145,7 @@ export default function Objectives(props) {
                 }
             )
         }
-      
+
         if(value.length!==0){
             setObjectives(value);
             setSelection(value[0].id);
@@ -162,12 +162,12 @@ export default function Objectives(props) {
             <Box classname="boxtitle">
                 {lang.Objectives.page.table.name}
             </Box>
-            <Table classname="objectives-list">
+            <Table className="objectives-list">
                 <TableTitle titles={titles} />
                 <tbody className="tbody">
                     {objectives.map((objective,index) => (
                         <TableLine
-                            teamId={id}
+                            teamId={teamId}
                             values={objective}
                             key={index}
                             objectName={"objective"}
