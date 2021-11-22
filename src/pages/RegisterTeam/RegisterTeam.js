@@ -8,9 +8,8 @@ import CancelLabel from "../../components/CancelLabel/CancelLabel";
 import { useParams } from "react-router-dom";
 import Api from "../../api/api";
 
-export default function RegisterTeam(props,{ history }) {
+export default function RegisterTeam(props, { history }) {
     const { id } = useParams();
-    const lang = props.lang.RegisterTeam;
     const [editable, setEditable] = useState(false);
     const [team, setTeam] = useState({ name: "" });
 
@@ -20,7 +19,7 @@ export default function RegisterTeam(props,{ history }) {
             fetchTeamById();
         }
     }, []);
-    console.log(editable)
+
     const fetchTeamById = async () => {
         const response = await Api.getById("team", id);
         const result = await response.json();
@@ -30,10 +29,10 @@ export default function RegisterTeam(props,{ history }) {
     const getInputValues = async (event) => {
         event.preventDefault();
         let complementUrl = "";
-        const defaultYear = (new Date()).getFullYear();
-        const payload = { ...team };
-
-        payload.name = event.target.inputTeamName.value;
+        const defaultYear = new Date().getFullYear();
+        const payload = {
+            name: event.target.inputTeamName.value,
+        };
 
         if (editable) {
             await Api.patch("team", id, payload);
@@ -42,16 +41,17 @@ export default function RegisterTeam(props,{ history }) {
             const response = await Api.post("team", payload);
             const result = await response.json();
             complementUrl = result.id + "/" + defaultYear;
-
         }
 
-       history.push("/team/" + complementUrl);
+        history.push("/team/" + complementUrl);
     };
     return (
         <div className="body">
             <Form submitAction={getInputValues}>
                 <Title classname="title">
-                    {editable ? lang.page.form.edit.option1 : lang.page.form.register.option1}
+                    {editable
+                        ? lang.page.form.edit.option1
+                        : lang.page.form.register.option1}
                     <CancelLabel />
                 </Title>
                 <Input
@@ -61,7 +61,11 @@ export default function RegisterTeam(props,{ history }) {
                     inputRequired={true}
                     inputDefaultValue={team.name}
                 ></Input>
-                <Button>{editable ? lang.page.button.edit : lang.page.button.register }</Button>
+                <Button>
+                    {editable
+                        ? lang.page.button.edit
+                        : lang.page.button.register}
+                </Button>
             </Form>
         </div>
     );
