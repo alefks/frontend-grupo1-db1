@@ -99,7 +99,7 @@ export default function Team(props) {
                             {partner.name}
                             <div className="options">
                                 <Link
-                                    to={`/registerteampartner/${params.teamId}/${partner.id}`}
+                                    to={`/team/registerteampartner/${params.teamId}/${partner.id}`}
                                 >
                                     <img className="icon" src={Pencil} alt="edit" />
                                 </Link>
@@ -113,7 +113,7 @@ export default function Team(props) {
                         <BoxItem key={index}>
                             <Link
                                 to={
-                                    "/objectives/" +
+                                    "/team/objectives/" +
                                     params.teamId +
                                     `/${params.year}/${index + 1}`
                                 }

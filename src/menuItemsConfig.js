@@ -29,7 +29,7 @@ const menuItems = {
             modal: false,
         },
         {
-            route: '/registerobjectives/',
+            route: '/team/registerobjectives/',
             routeText: Language.Objectives.menu.option2,
             icon: Objective,
             modal: false,
@@ -68,7 +68,7 @@ const menuItems = {
             modal: false,
         },
         {
-            route: '/registerkeyresult/',
+            route: '/team/objective/registerkeyresult/',
             routeText: Language.KeyResults.menu.option2,
             icon: Key,
             modal: false,
@@ -99,7 +99,7 @@ const menuItems = {
             modal: true,
         },
         {
-            route: '/registerteampartner/',
+            route: '/team/registerteampartner/',
             routeText: Language.Teams.menu.option4,
             icon: TeamPartner,
             modal: false,

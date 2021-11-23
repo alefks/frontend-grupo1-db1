@@ -25,7 +25,7 @@ export default function MenuItem(props){
             !props.returnPage?
                 !props.option.modal?
                     <div className="menu-item">
-                        <Link to={props.option.route==='/registerobjectives/'||props.option.route==='/registerkeyresult/'||props.option.route==='/registerteampartner/'
+                        <Link to={props.option.route==='/team/registerobjectives/'||props.option.route==='/team/objective/registerkeyresult/'||props.option.route==='/team/registerteampartner/'
                                 ?props.option.route+(params.objectiveId?params.objectiveId:params.teamId) + "/new":props.option.route==='/registerteam/'?props.option.route+params.teamId:props.option.route}>
                             <img src={props.option.icon} alt="icon" className="icon"></img>
                             {props.option.routeText}

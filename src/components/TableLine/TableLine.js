@@ -38,20 +38,20 @@ export default function TableLine(props){
                 ))}
                 {props.objectName!=="objective"?"":
                     <td key={5} className="icons">
-                        <Link to={"/relations/"+props.values.id}>
+                        <Link to={"/team/objective/relations/"+props.values.id}>
                             <img src={Relation} className="list-relations" alt="relations" />
                             <span className="legend legend-conect">
                                 Go to related Objetives
                             </span>
                         </Link>
-                        <Link to={"/keyresults/"+props.values.id}>
+                        <Link to={"/team/objective/keyresults/"+props.values.id}>
                             <img src={List} className="list-krs" alt="krs" />
                             <span className="legend legend-conect">
                                 Go to keyR list
                             </span>
                         </Link>
                         
-                        <Link to={"/registerobjectives/"+props.teamId+"/"+props.values.id}>
+                        <Link to={"/team/registerobjectives/"+props.teamId+"/"+props.values.id}>
                             <img src={Pencil} className="edit" alt="edit" />
                             <span className="legend legend-conect">
                                 Edit this objective
