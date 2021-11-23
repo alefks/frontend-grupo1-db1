@@ -67,7 +67,7 @@ export default function TableLine(props){
                 }
                 {props.objectName!=="keyresult"?"":
                     <td key={6} className="icons">
-                         <Link to={"/registerkeyresult/"+props.objectiveId+"/"+props.values.id}>
+                         <Link to={"/team/objective/registerkeyresult/"+props.objectiveId+"/"+props.values.id}>
                             <img src={Pencil} className="edit" alt="edit" />
                             <span className="legend legend-conect">
                                 Edit this keyResult
