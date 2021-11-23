@@ -141,7 +141,7 @@ export default function Objectives(props) {
                     description: result[i].description,
                     start:dateStart.getDate()+"/"+(dateStart.getMonth()+1)+"/"+dateStart.getFullYear(),
                     end:dateFinal.getDate()+"/"+(dateFinal.getMonth()+1)+"/"+dateFinal.getFullYear(),
-                    manager:result[i].managerId
+                    manager:result[i].manager.name
                 }
             )
         }
@@ -153,8 +153,7 @@ export default function Objectives(props) {
     };
 
     useEffect(() => {
-        //setSelection(objectives[0].id); // temporário até liberar o fetch
-        fetchGetObjectives(); // comentei para poder utilisar o useEffect sem erro
+        fetchGetObjectives();
     }, []);
     
     return (
