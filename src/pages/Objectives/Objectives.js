@@ -128,7 +128,7 @@ export default function Objectives(props) {
     const titles = lang.Objectives.page.table.title;
     
     const fetchGetObjectives = async () => {
-        const response = await Api.getAll(`objective/${year}/${quarter}`);
+        const response = await Api.getAll(`objective/${teamId}/${year}/${quarter}`);
         const result = await response.json();
         const value = [];
         for(let i =0;result.length>i;i++){
@@ -141,7 +141,7 @@ export default function Objectives(props) {
                     description: result[i].description,
                     start:dateStart.getDate()+"/"+(dateStart.getMonth()+1)+"/"+dateStart.getFullYear(),
                     end:dateFinal.getDate()+"/"+(dateFinal.getMonth()+1)+"/"+dateFinal.getFullYear(),
-                    manager:result[i].managerId
+                    manager:result[i].manager.name
                 }
             )
         }
@@ -153,10 +153,9 @@ export default function Objectives(props) {
     };
 
     useEffect(() => {
-        //setSelection(objectives[0].id); // temporário até liberar o fetch
-        fetchGetObjectives(); // comentei para poder utilisar o useEffect sem erro
+        fetchGetObjectives();
     }, []);
-
+    
     return (
         <div className="body objectives">
             <Box classname="boxtitle">
@@ -177,7 +176,7 @@ export default function Objectives(props) {
                     ))}
                 </tbody>
             </Table>
-            <KeyResultsList classname="boxtitle2" objectiveId={selection} lang={lang.KeyResults.page}></KeyResultsList>
+            {selection && <KeyResultsList classname="boxtitle2" objectiveId={selection} lang={lang.KeyResults.page}></KeyResultsList>}
         </div>
     );
 }

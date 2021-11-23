@@ -14,10 +14,9 @@ export default function KeyResultsList(props) {
             name: "",
             description: "",
             goal: 0,
-            achieved: 0,
-            frequency: "",
-            responsibleId: 0,
-            checkinDates: [],
+            responsible: "",
+            lastStatus: 0,
+            lastFeeling: "",
         },
     ];
     const [keyResults, setKeyResults] = useState(keyResultMap);
@@ -187,9 +186,21 @@ export default function KeyResultsList(props) {
     ];
 
     const fetchGetKeyResults = async () => {
-        //const response = await Api.getById("objective", objectiveId);
-        //const result = await response.json();
-        setKeyResults(testKeyResults);
+        const response = await Api.getById("objective", objectiveId);
+        const result = await response.json();
+        const value = result.keyResults.map(kr => {
+            keyResultMap[0].id = kr.id;
+            keyResultMap[0].name = kr.name;
+            keyResultMap[0].description = kr.description;
+            keyResultMap[0].goal = kr.goal;
+            keyResultMap[0].responsible = kr.responsible.name;
+            keyResultMap[0].lastStatus = 0;
+            keyResultMap[0].lastFeeling = "#54C213";
+
+            return keyResultMap[0]
+        }
+        )
+        setKeyResults(value);
     };
 
     useEffect(() => {
