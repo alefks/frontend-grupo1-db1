@@ -13,6 +13,8 @@ export default function RegisterTeam(props, { history }) {
     const [editable, setEditable] = useState(false);
     const [team, setTeam] = useState({ name: "" });
 
+    const lang = props.lang.RegisterTeam;
+
     useEffect(() => {
         if (id !== "new") {
             setEditable(true);
