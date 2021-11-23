@@ -15,6 +15,41 @@ export default function CheckPoints(props){
             name:'item1 - teste',
             result:0,
         },
+        {
+            id:2,
+            name:'item2 - teste',
+            result:0,
+        },
+        {
+            id:3,
+            name:'item3 - teste',
+            result:0,
+        },
+        {
+            id:4,
+            name:'item4 - teste',
+            result:0,
+        },
+        {
+            id:5,
+            name:'item5 - teste',
+            result:0,
+        },
+        {
+            id:6,
+            name:'item6 - teste',
+            result:0,
+        },
+        {
+            id:7,
+            name:'item7 - teste',
+            result:0,
+        },
+        {
+            id:8,
+            name:'item8 - teste',
+            result:0,
+        },
     ]);
     const getFormValues = (event)=>{
         event.preventDefault();
@@ -25,7 +60,8 @@ export default function CheckPoints(props){
             keyResultsCheckPoint.push(
                 {
                     keyResultId:event.target.inputPoint.id,
-                    keyResultValue:event.target.inputPoint.value
+                    keyResultValue:event.target.inputPoint.value,
+                    keyResultFeeling:event.target.colorGroup.value
                 },
             );
         }else{
@@ -33,7 +69,8 @@ export default function CheckPoints(props){
                 keyResultsCheckPoint.push(
                     {
                         keyResultId:event.target.inputPoint[count].id,
-                        keyResultValue:event.target.inputPoint[count].value
+                        keyResultValue:event.target.inputPoint[count].value,
+                        keyResultFeeling:event.target.colorGroup[count].value
                     },
                 );
             }
