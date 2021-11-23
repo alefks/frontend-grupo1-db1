@@ -29,7 +29,7 @@ export default function RegisterObjectives(props, { history }) {
     useEffect(() => {
         if (id !== "new") {
             setEditable(true);
-            //fetchGetObjective(id);
+            fetchGetObjective(id);
         }
         fetchGetManagersList();
         fetchGetTeamsList();
@@ -37,27 +37,28 @@ export default function RegisterObjectives(props, { history }) {
 
     const getInputValues = async (event) => {
         event.preventDefault();
-        const payload = { ...objective };
+        const payload = { 
+            name: event.target.inputName.value,
+            description: event.target.inputDescription.value,
+            startDate: new Date(event.target.inputStartDate.value),
+            endDate: new Date(event.target.inputFinalDate.value),
+            team: +teamId,
+            manager: +event.target.inputManager.value,
+            relationalObjectives: [+event.target.inputObjectives.value],
+            frequency: +event.target.inputFrequency.value,
+         };
 
-        payload.name = event.target.inputName.value;
-        payload.description = event.target.inputDescription.value;
-        payload.startDate = event.target.inputStartDate.value;
-        payload.endDate = event.target.inputFinalDate.value;
-        payload.team = +teamId;
-        payload.manager = event.target.inputManager.value;
-        payload.relationalObjectives = [+event.target.inputObjectives.value];
-        payload.frequency = +event.target.inputFrequency.value;
-
-        !payload.relationalObjectives && delete payload.relationalObjectives;
+        payload.relationalObjectives[0] === 0 && delete payload.relationalObjectives;
 
         if (editable) {
-            payload.id && delete payload.id;
             await Api.patch("objective", id, payload);
+            console.log('PATCH', payload)
         } else {
+            console.log('POST',payload)
             await Api.post("objective", payload);
         }
 
-        //history.push("/team/" + teamId);
+        //history.goBack();
     };
 
     const fetchGetManagersList = async () => {
@@ -103,7 +104,8 @@ export default function RegisterObjectives(props, { history }) {
     const fetchGetObjective = async (id) => {
         const response = await Api.getById("objective", id);
         const result = await response.json();
-        setSelectedObjectives(result);
+        setObjective(result);
+        console.log()
     };
 
     return (
@@ -121,12 +123,14 @@ export default function RegisterObjectives(props, { history }) {
                         inputName="inputName"
                         inputHolder={lang.page.form.register.option2}
                         inputRequired={true}
+                        inputDefaultValue={objective.name}
                     ></Input>
                     <Input
                         inputType="number"
                         inputName="inputFrequency"
                         inputHolder={lang.page.form.register.option3}
                         inputRequired={true}
+                        inputDefaultValue={objective.frequency}
                     ></Input>
                     <Input
                         classname="objective-description"
@@ -134,6 +138,7 @@ export default function RegisterObjectives(props, { history }) {
                         inputName="inputDescription"
                         inputHolder={lang.page.form.register.option4}
                         inputRequired={true}
+                        inputDefaultValue={objective.description}
                     ></Input>
                     <Title classname="sub-title" htmlfor="inputManager">
                         {lang.page.form.register.option5}
@@ -170,6 +175,7 @@ export default function RegisterObjectives(props, { history }) {
                         inputName="inputStartDate"
                         inputHolder=""
                         inputRequired={true}
+                        inputDefaultValue={objective.startDate.slice(0, 10)}
                     ></Input>
                     <Title classname="sub-title" htmlfor="inputFinalDate">
                         {lang.page.form.register.option9}
@@ -179,6 +185,7 @@ export default function RegisterObjectives(props, { history }) {
                         inputName="inputFinalDate"
                         inputHolder=""
                         inputRequired={true}
+                        inputDefaultValue={objective.endDate.slice(0, 10)}
                     ></Input>
                 </fieldset>
                 {editable ? (
