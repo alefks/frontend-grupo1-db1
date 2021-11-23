@@ -11,7 +11,7 @@ import Select from "../../components/Select/Select";
 import SelectLanguage from "../SelectLanguage/SelectLanguage";
 
 export default function RegisterKeyResult(props,{ history }) {
-    const { objectiveId,id } = useParams();
+    const { objectiveId, id } = useParams();
     const lang = props.lang.RegisterKeyResult;
     const [editable, setEditable] = useState(false);
     const [keyResult, setKeyResult] = useState({ 
@@ -26,6 +26,7 @@ export default function RegisterKeyResult(props,{ history }) {
     useEffect(() => {
         if (id !== "new") {
             setEditable(true);
+            fetchGetKeyResult();
         }
         fetchGetTeamPartners();
     }, []);
@@ -36,26 +37,30 @@ export default function RegisterKeyResult(props,{ history }) {
         setTeamPartners(result);
     };
 
+    const fetchGetKeyResult = async () => {
+        const response = await Api.getById('keyresult', id);
+        const result = await response.json();
+        setKeyResult(result);
+    }
+
     const getInputValues = async (event) => {
         event.preventDefault();
 
-        const payload = { ...keyResult };
-
-        payload.name = event.target.inputName.value;
-        payload.description = event.target.inputDescription.value;
-        payload.goal = +event.target.inputGoal.value;
-        payload.responsible = +event.target.inputResponsible.value;
-        payload.objective = +objectiveId; 
+        const payload = { 
+            name: event.target.inputName.value,
+            description: event.target.inputDescription.value,
+            goal: +event.target.inputGoal.value,
+            responsible: +event.target.inputResponsible.value,
+            objective: +objectiveId, 
+         };
 
         if (editable) {
-            //await Api.patch("keyresult", id, payload);
-            console.log('PATCH', payload)
+            await Api.patch("keyresult", id, payload);
         } else {
-            //await Api.post("keyresult", payload);
-            console.log('POST', payload)
+            await Api.post("keyresult", payload);
         }
 
-        //history.push("/team/" + id);
+        //history.goBack();
     };
     return (
         <div className="body">
@@ -73,24 +78,28 @@ export default function RegisterKeyResult(props,{ history }) {
                     inputName="inputName"
                     inputHolder={lang.page.form.register.option2}
                     inputRequired={true}
+                    inputDefaultValue={keyResult.name}
                 ></Input>
                 <Input
                     inputType="text"
                     inputName="inputDescription"
                     inputHolder={lang.page.form.register.option3}
                     inputRequired={true}
+                    inputDefaultValue={keyResult.description}
                 ></Input>
                 <Input
                     inputType="number"
                     inputName="inputGoal"
-                    inputHolder={lang.page.form.register.option3}
+                    inputHolder={lang.page.form.register.option4}
                     inputRequired={false}
+                    inputDefaultValue={keyResult.goal}
                 ></Input>
-                <Title classname="sub-title" htmlfor="inputResponsible">{lang.page.form.register.option4}</Title>
+                <Title classname="sub-title" htmlfor="inputResponsible">{lang.page.form.register.option5}</Title>
                     <Select 
                         name="inputResponsible"
                         values={teamPartners} 
                         eventAction={false}
+                        select={keyResult.responsibleId}
                     ></Select>
                 <Button>{editable ? "Save" : "Register"}</Button>
             </Form>
