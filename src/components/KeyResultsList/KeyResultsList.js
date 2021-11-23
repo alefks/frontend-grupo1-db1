@@ -10,7 +10,7 @@ export default function KeyResultsList(props) {
     const objectiveId = props.objectiveId;
     const keyResultMap = [
         {
-            id: 0,
+            id: 1,
             name: "",
             description: "",
             goal: 0,
@@ -188,19 +188,23 @@ export default function KeyResultsList(props) {
     const fetchGetKeyResults = async () => {
         const response = await Api.getById("objective", objectiveId);
         const result = await response.json();
-        const value = result.keyResults.map(kr => {
-            keyResultMap[0].id = kr.id;
-            keyResultMap[0].name = kr.name;
-            keyResultMap[0].description = kr.description;
-            keyResultMap[0].goal = kr.goal;
-            keyResultMap[0].responsible = kr.responsible.name;
-            keyResultMap[0].lastStatus = 0;
-            keyResultMap[0].lastFeeling = "#54C213";
+        if(JSON.stringify(result)!==JSON.stringify([])&&response.status!==404&&response.status!==500){
+            const value = result.keyResults.map(kr => {
+                keyResultMap[0].id = kr.id;
+                keyResultMap[0].name = kr.name;
+                keyResultMap[0].description = kr.description;
+                keyResultMap[0].goal = kr.goal;
+                keyResultMap[0].responsible = kr.responsible.name;
+                keyResultMap[0].lastStatus = 0;
+                keyResultMap[0].lastFeeling = "#54C213";
 
-            return keyResultMap[0]
-        }
-        )
+                return keyResultMap[0]
+            }
+            )
         setKeyResults(value);
+        }else if(response.status===404){
+            console.log("This objective, do not have key results, create one or choise other objective!")
+        }
     };
 
     useEffect(() => {
@@ -222,14 +226,16 @@ export default function KeyResultsList(props) {
             <Table>
                 <TableTitle titles={titles} />
                 <tbody className="tbody">
-                    {keyResults.map((keyResult, index) => (
-                        <TableLine
-                            objectiveId={objectiveId}
-                            values={keyResult}
-                            key={index}
-                            objectName={"keyresult"}
-                        />
-                    ))}
+                    {JSON.stringify(keyResults)!==JSON.stringify([])?
+                        keyResults.map((keyResult, index) => (
+                            <TableLine
+                                objectiveId={objectiveId}
+                                values={keyResult}
+                                key={index}
+                                objectName={"keyresult"}
+                                select={props.select}
+                            />
+                    )):""}
                 </tbody>
             </Table>
         </div>

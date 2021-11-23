@@ -47,6 +47,7 @@ const pt=
                 },
                 box:{
                     name:"Datas de Validação de Resultados",
+                    name2:"Datas de Validação por Chave",
 
                 }
             }

@@ -47,6 +47,7 @@ const en=
                 },
                 box:{
                     name:"Checkin Dates",
+                    name2:"Checkin Dates By Key Result",
 
                 }
             }

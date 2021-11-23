@@ -27,7 +27,7 @@ export default function TableLine(props){
         }
     };
     return (
-            <tr onClick={props.select?props.select:undefined} className={props.select?"selected":""} style={props.style} objectiveid={props.values.id?props.values.id:0}>
+            <tr onClick={props.select?props.select:undefined} className={props.select?"selected":""} style={props.style} objectiveid={props.values.id?props.values.id:0} id={props.objectiveId?props.values.id:0}>
                 {values.map((value,index)=>(
                     <td key={index}>{props.objectName==="keyresult"?
                         index===4?
