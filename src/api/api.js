@@ -1,7 +1,7 @@
 import {JwtHandler} from '../local-storage/jwt-handler'
 
 const Api = {
-    apiLinks: ["http://localhost:3001", "https://backend-db1-okr.herokuapp.com"],
+    apiLinks: ["http://localhost:3000", "https://backend-db1-okr.herokuapp.com"],
     baseUrl: () => Api.apiLinks[0],
     getAll: (tableName, auth) => fetch(Api.baseUrl() + `/${tableName}`, getRequest(auth)),
     getById: (tableName, id, auth) => fetch(Api.baseUrl() + `/${tableName}/${id}`, getRequest(auth)),
