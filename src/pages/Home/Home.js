@@ -3,56 +3,60 @@ import { Link } from "react-router-dom";
 import Box from './../../components/Box/Box';
 import './Home.css';
 import Api from '../../api/api'
+import HomePageLoader from "../../components/ContentLoaders/HomePageLoader";
 
 export default function Home(props){
     const lang=props.lang.Home.page;
-    const testTeamsList = [
-        {
-            id : 1,
-            name : "financeiro",
-            objectives : [],
-            teamPartners : [],
-            score : 50
-        },
-        {
-            id : 2,
-            name : "financeiro",
-            objectives : [],
-            teamPartners : [],
-            score : 50
-        },
-        {
-            id : 3,
-            name : "financeiro",
-            objectives : [],
-            teamPartners : [],
-            score : 50
-        },
-        {
-            id : 4,
-            name : "financeiro",
-            objectives : [],
-            teamPartners : [],
-            score : 50
-        },
+    // const testTeamsList = [
+    //     {
+    //         id : 1,
+    //         name : "financeiro",
+    //         objectives : [],
+    //         teamPartners : [],
+    //         score : 50
+    //     },
+    //     {
+    //         id : 2,
+    //         name : "financeiro",
+    //         objectives : [],
+    //         teamPartners : [],
+    //         score : 50
+    //     },
+    //     {
+    //         id : 3,
+    //         name : "financeiro",
+    //         objectives : [],
+    //         teamPartners : [],
+    //         score : 50
+    //     },
+    //     {
+    //         id : 4,
+    //         name : "financeiro",
+    //         objectives : [],
+    //         teamPartners : [],
+    //         score : 50
+    //     },
     
-    ];
-   
+    // ];
+    const [loading,setLoading] = useState(true);
     const [selectedYear,setSelectedYear] = useState((new Date()).getFullYear());
     useEffect(() => {
         fetchGetTeams();
+        
         //fetchGetYears();
     }, [selectedYear])
    
     const testYears = [2019,2018,2021,2017,2016].sort().reverse();
 
-    const [teams, setTeams] = useState(testTeamsList);
+    const [teams, setTeams] = useState([]);
     const [years, setYears] = useState(testYears);
 
     const fetchGetTeams = async () => {
+        setLoading(true);
         const response = await Api.getAll("team");
         const result = await response.json();
         result !== [] && setTeams(result);
+        setLoading(false);
     };
 
     const fetchGetYears = async () => {
@@ -71,6 +75,13 @@ export default function Home(props){
         const selectValue = selectElement.childNodes[selectElement.selectedIndex].value;
         setSelectedYear(parseInt(selectValue));
     }
+    if(loading===true){
+        return(
+        <HomePageLoader>
+
+        </HomePageLoader>
+        );
+    }else{
     return (
         <div className="body">
             <div className="select">
@@ -105,4 +116,5 @@ export default function Home(props){
             </Box>
         </div>
     ); 
+    }
 }

@@ -3,6 +3,7 @@ import Box from "../Box/Box";
 import Table from "../Table/Table";
 import TableTitle from "../TableTitle/TableTitle";
 import TableLine from "../TableLine/TableLine";
+import KeyResultsListLoader from "../ContentLoaders/KeyResultsListLoader";
 import "./KeyResultsList.css";
 import Api from "../../api/api";
 
@@ -19,172 +20,172 @@ export default function KeyResultsList(props) {
             lastFeeling: "",
         },
     ];
-    const [keyResults, setKeyResults] = useState(keyResultMap);
-    const testKeyResults = [
-        {
-            id: 1,
-            name: "key teste",
-            description: "testesando",
-            goal: 20,
-            responsible: "name",
-            lastStatus: 0,
-            lastFeeling: "#54C213",
-        },
-        {
-            id: 1,
-            name: "key teste",
-            description: "testesando",
-            goal: 20,
-            responsible: "name",
-            lastStatus: 0,
-            lastFeeling: "#00ffdd",
-        },
-        {
-            id: 1,
-            name: "key teste",
-            description: "testesando",
-            goal: 20,
-            responsible: "name",
-            lastStatus: 0,
-            lastFeeling: "#54C213",
-        },
-        {
-            id: 1,
-            name: "key teste",
-            description: "testesando",
-            goal: 20,
-            responsible: "name",
-            lastStatus: 0,
-            lastFeeling: "",
-        },
-        {
-            id: 1,
-            name: "key teste",
-            description: "testesando",
-            goal: 20,
-            responsible: "name",
-            lastStatus: 0,
-            lastFeeling: "#54C213",
-        },
-        {
-            id: 1,
-            name: "key teste",
-            description: "testesando",
-            goal: 20,
-            responsible: "name",
-            lastStatus: 0,
-            lastFeeling: "#C23700",
-        },
-        {
-            id: 1,
-            name: "key teste",
-            description: "testesando",
-            goal: 20,
-            responsible: "name",
-            lastStatus: 0,
-            lastFeeling: "#54C213",
-        },
-        {
-            id: 1,
-            name: "key teste",
-            description: "testesando",
-            goal: 20,
-            responsible: "name",
-            lastStatus: 0,
-            lastFeeling: "#C23700",
-        },
-        {
-            id: 1,
-            name: "key teste",
-            description: "testesando",
-            goal: 20,
-            responsible: "name",
-            lastStatus: 0,
-            lastFeeling: "#C2B91B",
-        },
-        {
-            id: 1,
-            name: "key teste",
-            description: "testesando",
-            goal: 20,
-            responsible: "name",
-            lastStatus: 0,
-            lastFeeling: "#C23700",
-        },
-        {
-            id: 1,
-            name: "key teste",
-            description: "testesando",
-            goal: 20,
-            responsible: "name",
-            lastStatus: 0,
-            lastFeeling: "#C2B91B",
-        },
-        {
-            id: 1,
-            name: "key teste",
-            description: "testesando",
-            goal: 20,
-            responsible: "name",
-            lastStatus: 0,
-            lastFeeling: "#C2B91B",
-        },
-        {
-            id: 1,
-            name: "key teste",
-            description: "testesando",
-            goal: 20,
-            responsible: "name",
-            lastStatus: 0,
-            lastFeeling: "#C23700",
-        },
-        {
-            id: 1,
-            name: "key teste",
-            description: "testesando",
-            goal: 20,
-            responsible: "name",
-            lastStatus: 0,
-            lastFeeling: "",
-        },
-        {
-            id: 1,
-            name: "key teste",
-            description: "testesando",
-            goal: 20,
-            responsible: "name",
-            lastStatus: 0,
-            lastFeeling: "",
-        },
-        {
-            id: 1,
-            name: "key teste",
-            description: "testesando",
-            goal: 20,
-            responsible: "name",
-            lastStatus: 0,
-            lastFeeling: "",
-        },
-        {
-            id: 1,
-            name: "key teste",
-            description: "testesando",
-            goal: 20,
-            responsible: "name",
-            lastStatus: 0,
-            lastFeeling: "",
-        },
-        {
-            id: 1,
-            name: "key teste",
-            description: "testesando",
-            goal: 20,
-            responsible: "name",
-            lastStatus: 0,
-            lastFeeling: "",
-        },
-    ];
-
+    const [keyResults, setKeyResults] = useState([]);
+    // const testKeyResults = [
+    //     {
+    //         id: 1,
+    //         name: "key teste",
+    //         description: "testesando",
+    //         goal: 20,
+    //         responsible: "name",
+    //         lastStatus: 0,
+    //         lastFeeling: "#54C213",
+    //     },
+    //     {
+    //         id: 1,
+    //         name: "key teste",
+    //         description: "testesando",
+    //         goal: 20,
+    //         responsible: "name",
+    //         lastStatus: 0,
+    //         lastFeeling: "#00ffdd",
+    //     },
+    //     {
+    //         id: 1,
+    //         name: "key teste",
+    //         description: "testesando",
+    //         goal: 20,
+    //         responsible: "name",
+    //         lastStatus: 0,
+    //         lastFeeling: "#54C213",
+    //     },
+    //     {
+    //         id: 1,
+    //         name: "key teste",
+    //         description: "testesando",
+    //         goal: 20,
+    //         responsible: "name",
+    //         lastStatus: 0,
+    //         lastFeeling: "",
+    //     },
+    //     {
+    //         id: 1,
+    //         name: "key teste",
+    //         description: "testesando",
+    //         goal: 20,
+    //         responsible: "name",
+    //         lastStatus: 0,
+    //         lastFeeling: "#54C213",
+    //     },
+    //     {
+    //         id: 1,
+    //         name: "key teste",
+    //         description: "testesando",
+    //         goal: 20,
+    //         responsible: "name",
+    //         lastStatus: 0,
+    //         lastFeeling: "#C23700",
+    //     },
+    //     {
+    //         id: 1,
+    //         name: "key teste",
+    //         description: "testesando",
+    //         goal: 20,
+    //         responsible: "name",
+    //         lastStatus: 0,
+    //         lastFeeling: "#54C213",
+    //     },
+    //     {
+    //         id: 1,
+    //         name: "key teste",
+    //         description: "testesando",
+    //         goal: 20,
+    //         responsible: "name",
+    //         lastStatus: 0,
+    //         lastFeeling: "#C23700",
+    //     },
+    //     {
+    //         id: 1,
+    //         name: "key teste",
+    //         description: "testesando",
+    //         goal: 20,
+    //         responsible: "name",
+    //         lastStatus: 0,
+    //         lastFeeling: "#C2B91B",
+    //     },
+    //     {
+    //         id: 1,
+    //         name: "key teste",
+    //         description: "testesando",
+    //         goal: 20,
+    //         responsible: "name",
+    //         lastStatus: 0,
+    //         lastFeeling: "#C23700",
+    //     },
+    //     {
+    //         id: 1,
+    //         name: "key teste",
+    //         description: "testesando",
+    //         goal: 20,
+    //         responsible: "name",
+    //         lastStatus: 0,
+    //         lastFeeling: "#C2B91B",
+    //     },
+    //     {
+    //         id: 1,
+    //         name: "key teste",
+    //         description: "testesando",
+    //         goal: 20,
+    //         responsible: "name",
+    //         lastStatus: 0,
+    //         lastFeeling: "#C2B91B",
+    //     },
+    //     {
+    //         id: 1,
+    //         name: "key teste",
+    //         description: "testesando",
+    //         goal: 20,
+    //         responsible: "name",
+    //         lastStatus: 0,
+    //         lastFeeling: "#C23700",
+    //     },
+    //     {
+    //         id: 1,
+    //         name: "key teste",
+    //         description: "testesando",
+    //         goal: 20,
+    //         responsible: "name",
+    //         lastStatus: 0,
+    //         lastFeeling: "",
+    //     },
+    //     {
+    //         id: 1,
+    //         name: "key teste",
+    //         description: "testesando",
+    //         goal: 20,
+    //         responsible: "name",
+    //         lastStatus: 0,
+    //         lastFeeling: "",
+    //     },
+    //     {
+    //         id: 1,
+    //         name: "key teste",
+    //         description: "testesando",
+    //         goal: 20,
+    //         responsible: "name",
+    //         lastStatus: 0,
+    //         lastFeeling: "",
+    //     },
+    //     {
+    //         id: 1,
+    //         name: "key teste",
+    //         description: "testesando",
+    //         goal: 20,
+    //         responsible: "name",
+    //         lastStatus: 0,
+    //         lastFeeling: "",
+    //     },
+    //     {
+    //         id: 1,
+    //         name: "key teste",
+    //         description: "testesando",
+    //         goal: 20,
+    //         responsible: "name",
+    //         lastStatus: 0,
+    //         lastFeeling: "",
+    //     },
+    // ];
+    const [loading,setLoading] = useState(true);
     const fetchGetKeyResults = async () => {
         const response = await Api.getById("objective", objectiveId);
         const result = await response.json();
@@ -205,6 +206,7 @@ export default function KeyResultsList(props) {
         }else if(response.status===404){
             console.log("This objective, do not have key results, create one or choise other objective!")
         }
+        setLoading(false)
     };
 
     useEffect(() => {
@@ -212,6 +214,13 @@ export default function KeyResultsList(props) {
     }, []);
 
     const titles = props.lang.table.title;
+    if(loading===true){
+        return(
+        <KeyResultsListLoader>
+
+        </KeyResultsListLoader>
+        );
+    }else{
     return (
         <div className="key-results-list">
             <Box
@@ -240,4 +249,5 @@ export default function KeyResultsList(props) {
             </Table>
         </div>
     );
+    }
 }

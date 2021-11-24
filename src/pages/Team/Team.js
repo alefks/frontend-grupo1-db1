@@ -8,6 +8,7 @@ import DeleteItem from "../../components/DeleteItem/DeleteItem";
 import Trash from "./../../img/icons/white-trash.png";
 import Box from "./../../components/Box/Box";
 import Pencil from "./../../img/icons/pencil.png";
+import TeamLoader from "../../components/ContentLoaders/TeamLoader";
 import "./Team.css";
 export default function Team(props) {
     const lang = props.lang.Teams.page;
@@ -23,73 +24,82 @@ export default function Team(props) {
     };
     const params = useParams();
     const date = new Date();
-    const testTeam = {
-        id: 1,
-        name: "",
-        objectives: [
-            {
-                id: 1,
-                startDate:
-                    date.getDay() +
-                    "-" +
-                    (date.getMonth() + 1) +
-                    "-" +
-                    date.getFullYear(),
-                endDate:
-                    date.getDay() +
-                    "-" +
-                    (date.getMonth() + 1) +
-                    "-" +
-                    date.getFullYear(),
-            },
-            {
-                id: 2,
-                startDate:
-                    date.getDay() +
-                    "-" +
-                    (date.getMonth() + 1) +
-                    "-" +
-                    date.getFullYear(),
-                endDate:
-                    date.getDay() +
-                    "-" +
-                    (date.getMonth() + 1) +
-                    "-" +
-                    date.getFullYear(),
-            },
-        ],
-        teamPartners: [
-            {
-                id: 1,
-                name: "julia",
-                teamId: 1,
-            },
-            {
-                id: 2,
-                name: "pedro",
-                teamId: 2,
-            },
-            {
-                id: 3,
-                name: "livia",
-                teamId: 1,
-            },
-        ],
-    };
+    // const testTeam = {
+    //     id: 1,
+    //     name: "",
+    //     objectives: [
+    //         {
+    //             id: 1,
+    //             startDate:
+    //                 date.getDay() +
+    //                 "-" +
+    //                 (date.getMonth() + 1) +
+    //                 "-" +
+    //                 date.getFullYear(),
+    //             endDate:
+    //                 date.getDay() +
+    //                 "-" +
+    //                 (date.getMonth() + 1) +
+    //                 "-" +
+    //                 date.getFullYear(),
+    //         },
+    //         {
+    //             id: 2,
+    //             startDate:
+    //                 date.getDay() +
+    //                 "-" +
+    //                 (date.getMonth() + 1) +
+    //                 "-" +
+    //                 date.getFullYear(),
+    //             endDate:
+    //                 date.getDay() +
+    //                 "-" +
+    //                 (date.getMonth() + 1) +
+    //                 "-" +
+    //                 date.getFullYear(),
+    //         },
+    //     ],
+    //     teamPartners: [
+    //         {
+    //             id: 1,
+    //             name: "julia",
+    //             teamId: 1,
+    //         },
+    //         {
+    //             id: 2,
+    //             name: "pedro",
+    //             teamId: 2,
+    //         },
+    //         {
+    //             id: 3,
+    //             name: "livia",
+    //             teamId: 1,
+    //         },
+    //     ],
+    // };
 
     const quaters = [1, 2, 3, 4];
-
-    const [team, setTeam] = useState(testTeam);
+    const [loading,setLoading] = useState(true);
+    const [team, setTeam] = useState([]);
     
     const fetchGetTeam = async () => {
+        setLoading(true);
         const response = await Api.getById("team", params.teamId);
         const result = await response.json();
         setTeam(result);
+        setLoading(false);
     };
 
     useEffect(() => {
         fetchGetTeam();
     }, []);
+    if(loading===true){
+        return(
+        <TeamLoader>
+
+        </TeamLoader>
+        );
+    }else{
     return (
         <div className="body">
             <Box classname="team-box">
@@ -139,4 +149,5 @@ export default function Team(props) {
             </Modal> 
         </div>
     );
+    }
 }

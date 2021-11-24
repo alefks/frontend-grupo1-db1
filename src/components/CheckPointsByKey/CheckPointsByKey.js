@@ -4,6 +4,7 @@ import CheckPointStatusByItem from './../CheckPointStatusItem/CheckPointStatusIt
 import './CheckPointsByKey.css';
 export default function CheckPointsByKey(props){
     const [keyResultCheckPoints,setKeyResultCheckPoints] = useState([])
+    
     return (
         <div className="by-key">
             <Box classname="boxtitle boxtitle2">{props.lang.box.name2}</Box>
