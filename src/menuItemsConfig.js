@@ -6,6 +6,7 @@ import Home from './img/icons/home.png';
 import Key from './img/icons/key.png';
 import LanguageIcon from './img/icons/language.png';
 import Language from './languages/Language';
+import CheckPoint from './img/icons/checkpoint.png';
 const menuItems = {
     home:[
         {
@@ -71,6 +72,12 @@ const menuItems = {
             route: '/team/objective/registerkeyresult/',
             routeText: Language.KeyResults.menu.option2,
             icon: Key,
+            modal: false,
+        },
+        {
+            route: '/team/objective/keyresults/checkpoint/',
+            routeText: Language.KeyResults.menu.option3,
+            icon: CheckPoint,
             modal: false,
         },
         {
