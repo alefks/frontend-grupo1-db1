@@ -81,19 +81,25 @@ export default function CheckPoints(props){
     return (
        <div className="body check-points">
            <Form submitAction={getFormValues}>
+                <div className="check-point-column">
+                <Box classname="boxtitle boxtitle2">{lang.titleCheck}</Box>
                 <Box classname="check-point-box">
                     {keyResults.map((keyResult,index)=>(
                         <CheckPointItem id={keyResult.id} keyResult={keyResult} key={index}/>
                     ))}
                 </Box>
-                <Box classname="column">
-                    <Box classname="note-block">
-                        <textarea className="note" name="note"></textarea>
-                    </Box>    
-                    <Button>
-                        {lang.button}   
-                    </Button>        
-                </Box>
+                </div>
+                <div className="check-point-column-note">
+                    <Box classname="boxtitle boxtitle2">{lang.titleNote}</Box>
+                    <Box classname="column">
+                        <Box classname="note-block">
+                            <textarea className="note" name="note"></textarea>
+                        </Box>    
+                        <Button>
+                            {lang.button}   
+                        </Button>        
+                    </Box>
+                </div>
             </Form>
        </div>
     );

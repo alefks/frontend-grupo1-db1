@@ -10,7 +10,7 @@ import Box from "./../../components/Box/Box";
 import Pencil from "./../../img/icons/pencil.png";
 import "./Team.css";
 export default function Team(props) {
-    const lang = props.lang.Team;
+    const lang = props.lang.Teams.page;
     const [showModal,setShowModal] = useState({display:"none"});
     const [ deleteId, setDeleteId ] = useState(0);
     const openModal = (event)=>{
@@ -93,6 +93,8 @@ export default function Team(props) {
     return (
         <div className="body">
             <Box classname="team-box">
+                <div className="team-content">
+                <Box classname="boxtitle boxtitle2">{lang.titlePartner}</Box>
                 <Box classname="team-partners-list">
                     {team.teamPartners.map((partner) => (
                         <BoxItem classname="team-partner-item" key={partner.id}>
@@ -108,6 +110,9 @@ export default function Team(props) {
                         </BoxItem>
                     ))}
                 </Box>
+                </div>
+                <div className="team-content">
+                <Box classname="boxtitle boxtitle2">{lang.titleQuarters}</Box>
                 <Box classname="team-quarters-list">
                     {quaters.map((objective, index) => (
                         <BoxItem key={index}>
@@ -123,6 +128,7 @@ export default function Team(props) {
                         </BoxItem>
                     ))}
                 </Box>
+                </div>
             </Box>
             <Modal style={showModal}>
                 {JSON.stringify(showModal)!==JSON.stringify({display:"none"})?

@@ -6,7 +6,7 @@ const pt=
                 option2:"Mudar Idioma",
             },
             page:{
-
+                title:"Times",
             }
         },
         Teams:{
@@ -18,7 +18,8 @@ const pt=
                 option5:"Voltar",
             },
             page:{
-               
+                titlePartner:"Parceiros do Time",
+                titleQuarters:"Quarters",
             }
         },
         Objectives:{
@@ -38,7 +39,8 @@ const pt=
             menu:{
                 option1:"Início",
                 option2:"Criar Nova Chave",
-                option3:"Voltar",
+                option3:"Nova Validação de Resultados",
+                option4:"Voltar",
             },
             page:{
                 table:{
@@ -59,7 +61,8 @@ const pt=
             },
             page:{
                 button:"Salvar",
-                
+                titleCheck:"Check point",
+                titleNote:"Bloco de Observações"
             }
         },
         Relations:{

@@ -5,7 +5,7 @@ import './Home.css';
 import Api from '../../api/api'
 
 export default function Home(props){
-    
+    const lang=props.lang.Home.page;
     const testTeamsList = [
         {
             id : 1,
@@ -74,6 +74,9 @@ export default function Home(props){
     return (
         <div className="body">
             <div className="select">
+                <div className="team-title">
+                    {lang.title}
+                </div>
                 <select name="year" className="select-item" onChange={changeYear}>
                 {years.map((year,index)=>(
                     <option value={year} key={index}>{year}</option>

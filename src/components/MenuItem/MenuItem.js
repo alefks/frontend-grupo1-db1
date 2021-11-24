@@ -10,7 +10,7 @@ import AddRelation from '../AddRelation/AddRelation';
 export default function MenuItem(props){
     const params = useParams();
     const history = useHistory();
-   
+    const today = (new Date()).getDate()+"-"+(new Date()).getMonth()+"-"+(new Date()).getFullYear();
     const [showModal,setShowModal] = useState({display:"none"});
     const openModal = ()=>{
         if(JSON.stringify(showModal)===JSON.stringify({display:"none"})){
@@ -26,7 +26,7 @@ export default function MenuItem(props){
                 !props.option.modal?
                     <div className="menu-item">
                         <Link to={props.option.route==='/team/registerobjectives/'||props.option.route==='/team/objective/registerkeyresult/'||props.option.route==='/team/registerteampartner/'
-                                ?props.option.route+(params.objectiveId?params.objectiveId:params.teamId) + "/new":props.option.route==='/registerteam/'?props.option.route+params.teamId:props.option.route}>
+                                ?props.option.route+(params.objectiveId?params.objectiveId:params.teamId) + "/new":props.option.route==='/registerteam/'?props.option.route+params.teamId:props.option.route==='/team/objective/keyresults/checkpoint/'?("/team/objective/keyresults/checkpoint/"+params.objectiveId+"/"+today):props.option.route}>
                             <img src={props.option.icon} alt="icon" className="icon"></img>
                             {props.option.routeText}
                         </Link>

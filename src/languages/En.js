@@ -6,7 +6,7 @@ const en=
                 option2:"Change Language"
             },
             page:{
-
+                title:"Teams",
             }
         },
         Teams:{
@@ -18,7 +18,8 @@ const en=
                 option5:"Turn Back",
             },
             page:{
-            
+                titlePartner:"Team Partners",
+                titleQuarters:"Quarters",
             }
         },
         Objectives:{
@@ -38,7 +39,8 @@ const en=
             menu:{
                 option1:"Home",
                 option2:"New Key Result",
-                option3:"Turn Back",
+                option3:"New Check Point",
+                option4:"Turn Back",
             },
             page:{
                 table:{
@@ -59,6 +61,8 @@ const en=
             },
             page:{
                 button:"Save",
+                titleCheck:"Check point",
+                titleNote:"Notepad"
                 
             }
         },
