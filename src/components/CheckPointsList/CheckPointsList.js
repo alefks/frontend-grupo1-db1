@@ -14,13 +14,7 @@ export default function CheckPointsList(props){
                     <Link to={"/team/objective/keyresults/checkpoint/"+props.objectiveId+"/"+now}>
                         {now}
                     </Link>
-                </Box>
-                <Box classname="check-date">
-                    <Link to={"/team/objective/keyresults/checkpoint/"+props.objectiveId+"/"+now}>
-                        {now}
-                    </Link>
-                </Box>
-                        
+                </Box>                        
             </Box>
         </div>
     );
