@@ -63,7 +63,7 @@ export default function CheckPoints(props){
                 {
                     keyResultId:event.target.inputPoint.id,
                     keyResultValue:event.target.inputPoint.value,
-                    keyResultFeeling:event.target.colorGroup.value
+                    keyResultFeeling:document.querySelector('input[name="colorGroup'+event.target.inputPoint.id+'"]:checked').value
                 },
             );
         }else{
@@ -72,7 +72,7 @@ export default function CheckPoints(props){
                     {
                         keyResultId:event.target.inputPoint[count].id,
                         keyResultValue:event.target.inputPoint[count].value,
-                        keyResultFeeling:event.target.colorGroup[count].value
+                        keyResultFeeling:document.querySelector('input[name="colorGroup'+event.target.inputPoint[count].id+'"]:checked').value
                     },
                 );
             }
