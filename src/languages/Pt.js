@@ -40,7 +40,8 @@ const pt=
                 option1:"Início",
                 option2:"Criar Nova Chave",
                 option3:"Nova Validação de Resultados",
-                option4:"Voltar",
+                option4:"Editar Validação de Resultados",
+                option5:"Voltar",
             },
             page:{
                 table:{
@@ -49,7 +50,7 @@ const pt=
                 },
                 box:{
                     name:"Datas de Validação de Resultados",
-                    name2:"Datas de Validação por Chave",
+                    name2:"Datas de Validação por Chave de Resultados",
 
                 }
             }
@@ -199,7 +200,8 @@ const pt=
                 form:{
                     option1:"Adicionar Parceiro",
                 },
-                button:"Adicionar"
+                button:"Adicionar",
+                cancel:"Cancelar"
             }
         },
         AddRelation:{
@@ -209,9 +211,16 @@ const pt=
                     option2:"Objetivo Relacionado (Time)",
                     option3:"Objetivo Relacionado"
                 },
-                button:"Adicionar"
+                button:"Adicionar",
+                cancel:"Cancelar"
+            }
+        },
+        DeleteItem:{
+            page:{
+                text:"Tem certeza? \n que deseja deletar este item?",
+                button:"Confirmar",
+                cancel:"Cancelar"
             }
         }
-
     }
 export default pt;

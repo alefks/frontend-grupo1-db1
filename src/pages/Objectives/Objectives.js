@@ -172,6 +172,7 @@ export default function Objectives(props) {
                 <tbody className="tbody">
                     {objectives.map((objective,index) => (
                         <TableLine
+                            lang={props.lang}
                             teamId={teamId}
                             values={objective}
                             key={index}
@@ -182,7 +183,7 @@ export default function Objectives(props) {
                     ))}
                 </tbody>
             </Table>
-            {selection && <KeyResultsList classname="boxtitle2" objectiveId={selection} lang={lang.KeyResults.page}></KeyResultsList>}
+            {selection && <KeyResultsList langDelete={props.lang} classname="boxtitle2" objectiveId={selection} lang={lang.KeyResults.page}></KeyResultsList>}
         </div>
     );
     }

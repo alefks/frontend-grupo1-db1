@@ -5,3 +5,23 @@
    
     background-color: transparent;
 }
+.cancel-button{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    margin-top:0.5em;
+    margin-bottom: 0.5em;
+    background-color: var(--colorSecond);
+    width: 90%;
+    height: 2.5em;
+    border:none;
+    border-radius: var(--defaultRadius);
+    box-shadow: 0px 0px 2px 1px black;
+    color:var(--colorFourth);
+    font-size: large;
+    font-weight: bolder;
+    cursor: pointer;
+}

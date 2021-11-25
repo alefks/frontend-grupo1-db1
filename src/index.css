@@ -13,6 +13,7 @@
   --colorBkTransp  : rgba(255, 255, 255, 0.5);
   --defaultFont    : 'Roboto', sans-serif;
   --defaultRadius  : 2px;
+  --colorCancel    : #FA7863;
 }
 
 body {

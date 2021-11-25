@@ -13,9 +13,8 @@ export default function KeyResults(props) {
     }
     return (
         <div className="body keyresults">
-            <KeyResultsList objectiveId={objectiveId} lang={lang} select={getKeyResultId}></KeyResultsList>
+            <KeyResultsList langDelete={props.lang} objectiveId={objectiveId} lang={lang} select={getKeyResultId}></KeyResultsList>
             <CheckPointsByKey lang={lang} keyResultId={keyResultId}></CheckPointsByKey>
-            <CheckPointsList objectiveId={objectiveId} lang={lang}></CheckPointsList>
         </div>
     );
 }

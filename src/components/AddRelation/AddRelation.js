@@ -11,12 +11,8 @@ import { useParams } from "react-router-dom";
 
 export default function AddRelation(props){
     const lang = props.lang.AddRelation.page;
-    const [editable, setEditable] = useState(false);
     const {id} = useParams()
     useEffect(() => {
-        if (id !== "new") {
-            setEditable(true);
-        }
         fetchGetTeamsList()
     }, []);
     const [selectedObjectives, setSelectedObjectives] = useState([]);
@@ -81,9 +77,10 @@ export default function AddRelation(props){
                     eventAction={false}
                 ></Select>
             </Box>
-            <Button>
-                {lang.button}
-            </Button>
+            <div className="buttons-group-modal">
+                <Button classname={"button cancel-button"} onclick={props.closeButton}>{lang.cancel}</Button>
+                <Button classname="button confirm-button">{lang.button}</Button>
+            </div>
         </Form>
     )
 }

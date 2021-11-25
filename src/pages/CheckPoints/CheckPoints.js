@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Box from "../../components/Box/Box";
 import Form from '../../components/Form/Form';
 import Button from '../../components/Button/Button';
@@ -6,11 +6,13 @@ import Input from "../../components/Input/Input";
 import './CheckPoints.css';
 import CheckPointItem from "../../components/CheckPointItem/CheckPointItem";
 import { useParams } from "react-router-dom";
+import Select from "../../components/Select/Select";
 
 export default function CheckPoints(props){
     const { objectiveId ,date } = useParams();
+    const selectDates = ["3-11-2021","4-11-2021"];
     const lang = props.lang.CheckPoints.page;
-    const [keyResults, setKeyResults] = useState([
+    const testKeyResults = [
         {
             id:1,
             name:'item1 - teste',
@@ -51,8 +53,15 @@ export default function CheckPoints(props){
             name:'item8 - teste',
             result:0,
         },
-    ]);
-    const dateDefault = date.split('-')[2]+"-"+date.split('-')[1]+"-"+(parseInt(date.split('-')[0])<=9?"0"+date.split('-')[0]:date.split('-')[0]);
+    ];
+    const [keyResults, setKeyResults] = useState([]);
+    const [dateDefault,setDateDefault] = useState("");
+    useEffect(()=>{
+        if(date!=="edit"){
+            setDateDefault(date.split('-')[2]+"-"+date.split('-')[1]+"-"+(parseInt(date.split('-')[0])<=9?"0"+date.split('-')[0]:date.split('-')[0]));
+        }
+        setKeyResults(testKeyResults);
+    },[]);
     const getFormValues = (event)=>{
         event.preventDefault();
         const keyResultsCheckPoint = [
@@ -78,16 +87,34 @@ export default function CheckPoints(props){
             }
         }
         console.log(keyResultsCheckPoint);
+        
         console.log(note);
+    }
+    const getDateToSet=(event)=>{
+        const newDate = event.target.value;
+        setDateDefault(
+            newDate.split('-')[2]+"-"+
+            newDate.split('-')[1]+"-"+
+            (parseInt(newDate.split('-')[0])<=9?
+                "0"+newDate.split('-')[0]
+            :
+                newDate.split('-')[0]
+            )
+        );
     }
     return (
        <div className="body check-points">
            <Form submitAction={getFormValues}>
                 <div className="check-point-column">
                     <Box classname="boxtitle boxtitle2">
-                        <Input inputType={"date"} id={"date"} inputDefaultValue={dateDefault}></Input>
+                        {date==="edit"?
+                            <Select name="date" eventAction={getDateToSet} classname="select-date" values={selectDates}></Select>
+                        :
+                            <div className="space"></div>
+                        }
                         <label>{lang.titleCheck}</label>
-                        <div className="space"></div>
+                        
+                        <Input inputType={"date"} id={"date"} inputDefaultValue={dateDefault!==""?dateDefault:undefined}></Input>
                     </Box>
                     <Box classname="check-point-box">
                         {keyResults.map((keyResult,index)=>(
