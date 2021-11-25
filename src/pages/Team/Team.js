@@ -15,6 +15,7 @@ export default function Team(props) {
     const [showModal,setShowModal] = useState({display:"none"});
     const [ deleteId, setDeleteId ] = useState(0);
     const openModal = (event)=>{
+        event.preventDefault();
         setDeleteId(event.target.id);
         if(JSON.stringify(showModal)===JSON.stringify({display:"none"})){
             setShowModal({display:"flex"});

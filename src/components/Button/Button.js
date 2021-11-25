@@ -5,7 +5,7 @@ export default function Button(props){
     const history = useHistory();
    
     return (
-        <button className={ !!props.classname?props.classname:"button" } onClick={ !props.classname?props.onclick:history.goBack }>
+        <button type="submit" className={ !!props.classname?props.classname:"button" } onClick={ !props.classname?props.onclick:props.goback?history.goBack:undefined }>
             {props.children}
         </button>
     );

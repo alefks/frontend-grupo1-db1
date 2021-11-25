@@ -78,7 +78,7 @@ export default function AddRelation(props){
                 ></Select>
             </Box>
             <div className="buttons-group-modal">
-                <Button classname={"button cancel-button"} onclick={props.closeButton}>{lang.cancel}</Button>
+            <CancelLabel classname={"button cancel-button"} closeButton={true} action={props.closeButton}>{lang.cancel}</CancelLabel>
                 <Button classname="button confirm-button">{lang.button}</Button>
             </div>
         </Form>

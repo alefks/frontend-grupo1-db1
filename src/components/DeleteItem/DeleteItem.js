@@ -20,7 +20,7 @@ export default function DeleteItem(props) {
             };
             await Api.patch("team-partner", props.idItem, payload);
         }
-        props.closeButton();
+        props.closeButton(event);
     };
     return (
         <Form submitAction={deleteItem} classname="form delete">
@@ -32,7 +32,7 @@ export default function DeleteItem(props) {
             </Title>
             <div className="buttons-group-modal">
                 <CancelLabel classname={"button cancel-button"} closeButton={true} action={props.closeButton}>{lang.cancel}</CancelLabel>
-                <Button classname="button confirm-button">{lang.button}</Button>
+                <Button classname="button confirm-button" goback={false}>{lang.button}</Button>
             </div>
         </Form>
     );
