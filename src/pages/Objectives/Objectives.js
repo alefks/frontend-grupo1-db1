@@ -140,8 +140,8 @@ export default function Objectives(props) {
                     id:result[i].id,
                     name:result[i].name,
                     description: result[i].description,
-                    start:dateStart.getDate()+"/"+(dateStart.getMonth()+1)+"/"+dateStart.getFullYear(),
-                    end:dateFinal.getDate()+"/"+(dateFinal.getMonth()+1)+"/"+dateFinal.getFullYear(),
+                    start:dateStart.getUTCDate()+"/"+(dateStart.getUTCMonth()+1)+"/"+dateStart.getUTCFullYear(),
+                    end:dateFinal.getUTCDate()+"/"+(dateFinal.getUTCMonth()+1)+"/"+dateFinal.getUTCFullYear(),
                     manager:result[i].manager.name
                 }
             )
