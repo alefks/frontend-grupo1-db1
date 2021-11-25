@@ -39,6 +39,7 @@ export default function TableLine(props){
                 ))}
                 {props.objectName!=="objective"?"":
                     <td key={5} className="icons">
+                        <td className="content-icons">
                         <Link to={"/team/objective/relations/"+props.values.id}>
                             <img src={Relation} className="list-relations" alt="relations" />
                             <span className="legend legend-conect">
@@ -58,28 +59,31 @@ export default function TableLine(props){
                                 Edit this objective
                             </span>
                         </Link>
-                        <div classsName="trash" onClick={openModal}>
+                        <div className="trash" onClick={openModal}>
                             <img src={Trash} className="trash-icon" alt="trash" />
                             <span className="legend legend-conect">
                                 Delete this Objective
                             </span>
                         </div>
+                        </td>
                     </td>
                 }
                 {props.objectName!=="keyresult"?"":
                     <td key={6} className="icons">
+                        <td className="content-icons">
                          <Link to={"/team/objective/registerkeyresult/"+props.objectiveId+"/"+props.values.id}>
                             <img src={Pencil} className="edit" alt="edit" />
                             <span className="legend legend-conect">
                                 Edit this keyResult
                             </span>
                         </Link>
-                        <div classsName="trash" onClick={openModal}>
+                        <div className="trash" onClick={openModal}>
                             <img src={Trash} className="trash-icon" alt="trash" />
                             <span className="legend legend-conect">
                                 Delete this Objective
                             </span>
                         </div>
+                        </td>
                     </td>
                 }
                 <Modal style={showModal}>
