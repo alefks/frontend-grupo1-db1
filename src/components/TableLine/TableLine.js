@@ -18,7 +18,8 @@ export default function TableLine(props){
             backgroundColor: Object.values(props.values).slice(1)[5]
         }
     };
-    const openModal = ()=>{
+    const openModal = (event)=>{
+        event.preventDefault();
         setTable(props.objectName);
         if(JSON.stringify(showModal)===JSON.stringify({display:"none"})){
             setShowModal({display:"flex"});
@@ -82,7 +83,7 @@ export default function TableLine(props){
                     </td>
                 }
                 <Modal style={showModal}>
-                        <DeleteItem closeButton={openModal} idItem={props.values.id} table={table}></DeleteItem>
+                        <DeleteItem lang={props.lang} closeButton={openModal} idItem={props.values.id} table={table}></DeleteItem>
                 </Modal> 
             </tr>
     );

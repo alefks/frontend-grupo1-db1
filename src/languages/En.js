@@ -39,8 +39,9 @@ const en=
             menu:{
                 option1:"Home",
                 option2:"New Key Result",
-                option3:"New Check Point",
-                option4:"Turn Back",
+                option3:"New Check in",
+                option4:"Edit Check in",
+                option5:"Turn Back",
             },
             page:{
                 table:{
@@ -49,7 +50,7 @@ const en=
                 },
                 box:{
                     name:"Checkin Dates",
-                    name2:"Checkin Dates By Key Result",
+                    name2:"Check in Dates By Key Result",
 
                 }
             }
@@ -200,7 +201,8 @@ const en=
                 form:{
                     option1:"Add New Team Partner",
                 },
-                button:"Add"
+                button:"Add",
+                cancel:"Cancelar"
             }
         },
         AddRelation:{
@@ -210,7 +212,15 @@ const en=
                     option2:"Relational Objective (Team)",
                     option3:"Relational Objective"
                 },
-                button:"Add"
+                button:"Add",
+                cancel:"Cancelar"
+            }
+        },
+        DeleteItem:{
+            page:{
+                text:"Are you really sure? \n about deleting this?",
+                button:"Confirm",
+                cancel:"Cancel"
             }
         }
 

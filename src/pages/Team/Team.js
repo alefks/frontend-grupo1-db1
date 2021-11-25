@@ -142,7 +142,7 @@ export default function Team(props) {
             </Box>
             <Modal style={showModal}>
                 {JSON.stringify(showModal)!==JSON.stringify({display:"none"})?
-                    <DeleteItem closeButton={openModal} idItem={deleteId} teamId={params.teamId} table={"partner"}></DeleteItem>
+                    <DeleteItem lang={props.lang} closeButton={openModal} idItem={deleteId} teamId={params.teamId} table={"partner"}></DeleteItem>
                 :
                     ""
                 }

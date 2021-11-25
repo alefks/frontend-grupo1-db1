@@ -7,6 +7,7 @@ import "./DeleteItem.css";
 import Api from "../../api/api";
 
 export default function DeleteItem(props) {
+    const lang = props.lang.DeleteItem.page;
     const deleteItem = async (event) => {
         event.preventDefault();
         if (props.table === "objective") {
@@ -19,16 +20,20 @@ export default function DeleteItem(props) {
             };
             await Api.patch("team-partner", props.idItem, payload);
         }
+        props.closeButton();
     };
     return (
         <Form submitAction={deleteItem} classname="form delete">
             <Title classname="title">
-                Are you really sure
-                <br />
-                about deleting this?
+                {lang.text.split('\n')[0]}
+                <br/>
+                {lang.text.split('\n')[1]}
                 <CancelLabel closeButton={true} action={props.closeButton} />
             </Title>
-            <Button>Confirm</Button>
+            <div className="buttons-group-modal">
+                <CancelLabel classname={"button cancel-button"} closeButton={true} action={props.closeButton}>{lang.cancel}</CancelLabel>
+                <Button classname="button confirm-button">{lang.button}</Button>
+            </div>
         </Form>
     );
 }

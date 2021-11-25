@@ -81,6 +81,12 @@ const menuItems = {
             modal: false,
         },
         {
+            route: '/team/objective/keyresults/checkpoint/edit',
+            routeText: Language.KeyResults.menu.option4,
+            icon: CheckPoint,
+            modal: false,
+        },
+        {
             route: '',
             routeText: '',
             modal: false,

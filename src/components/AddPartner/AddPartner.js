@@ -43,6 +43,7 @@ export default function AddPartner(props) {
         
         window.location.reload();
     };
+    
     return (
         <Form classname={"form add"} submitAction={getInputValues}>
             <Title classname="title">
@@ -60,7 +61,10 @@ export default function AddPartner(props) {
                     </option>
                 ))}
             </select>
-            <Button>{lang.button}</Button>
+            <div className="buttons-group-modal">
+                <CancelLabel classname={"button cancel-button"} closeButton={true} action={props.closeButton}>{lang.cancel}</CancelLabel>
+                <Button classname={"button confirm-button"}>{lang.button}</Button>
+            </div>
         </Form>
     );
 }
