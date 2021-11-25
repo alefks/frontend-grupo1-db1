@@ -126,6 +126,7 @@ export default function Relations(props){
                 <tbody className="tbody">
                     {relations.map((objective,index) => (
                         <TableLine
+                            lang={props.lang}
                             teamId={id}
                             values={objective}
                             key={index}
