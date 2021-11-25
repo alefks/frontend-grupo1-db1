@@ -106,9 +106,7 @@ export default function Home(props){
                             <label className="team-name">
                                 {teamItem.name}
                             </label>
-                            <label className="team-score">
-                                {teamItem.score}%
-                            </label>
+                           
                             <hr className={"team-score-color alert"} />
                         </Link>
                     </Box>
