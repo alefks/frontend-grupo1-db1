@@ -3,7 +3,6 @@ import Input from '../Input/Input';
 import './CheckPointItem.css';
 
 export default function CheckPointItem(props){
-    const [selectedColor, setSelectedColor] = useState({green:false,yellow:false,red:false});
     const colorCheck = (event)=>{
         const defaultElement = event.target.parentElement;
        if(event.target.id==="green"){
@@ -23,7 +22,6 @@ export default function CheckPointItem(props){
             defaultElement.parentElement.children[2].style.border="none";
        }
     }
-    console.log(props.id);
     return (
         <div className="item-check">
             <label>{props.keyResult.name}</label>

@@ -106,3 +106,11 @@
 .note:focus{
     outline: none;
 }
+.check-point-column .boxtitle .select-date{
+    width: 20%;
+    min-height: 2.5em;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    background-color: white;
+}
