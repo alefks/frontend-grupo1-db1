@@ -7,12 +7,14 @@ import Button from "../../components/Button/Button";
 import CancelLabel from "../../components/CancelLabel/CancelLabel";
 import { useParams } from "react-router-dom";
 import Api from "../../api/api";
-
-export default function RegisterTeam(props, { history }) {
+import MessageToast from "../../components/MessageToast/MessageToast";
+import { useHistory } from "react-router";
+export default function RegisterTeam(props) {
     const { id } = useParams();
+    const history = useHistory();
     const [editable, setEditable] = useState(false);
     const [team, setTeam] = useState({ name: "" });
-
+    const [message,setMessage] = useState({mssg:"",show:false});
     const lang = props.lang.RegisterTeam;
 
     useEffect(() => {
@@ -20,6 +22,7 @@ export default function RegisterTeam(props, { history }) {
             setEditable(true);
             fetchTeamById();
         }
+        setMessage({mssg:"",show:false});
     }, []);
 
     const fetchTeamById = async () => {
@@ -37,18 +40,49 @@ export default function RegisterTeam(props, { history }) {
         };
 
         if (editable) {
-            await Api.patch("team", id, payload);
+            const response = await Api.patch("team", id, payload);
             complementUrl = id + "/" + defaultYear;
+            console.log(response)
+            switch(response.status){
+                case 400 :
+                    setMessage({mssg:lang.page.messages.error,show:true});
+                    break;
+                case 200 :
+                    if(localStorage.getItem("message")){
+                        localStorage.removeItem("message");
+                    }
+                    localStorage.setItem("message",[lang.page.messages.edit]);
+                    history.push("/team/" + complementUrl);
+                    break;
+            }
         } else {
             const response = await Api.post("team", payload);
             const result = await response.json();
             complementUrl = result.id + "/" + defaultYear;
+            switch(response.status){
+                case 500 :
+                    setMessage({mssg:lang.page.messages.error,show:true});
+                    break;
+                case 400 :
+                    setMessage({mssg:lang.page.messages.exists,show:true});
+                    break;
+                case 201 :
+                    if(localStorage.getItem("message")){
+                        localStorage.removeItem("message");
+                    }
+                    localStorage.setItem("message",[lang.page.messages.register]);
+                    history.push("/team/" + complementUrl);
+                    break;
+            }
         }
-
-        history.push("/team/" + complementUrl);
     };
     return (
         <div className="body">
+            {message.show?
+                    <MessageToast message={message.mssg}/>
+                :
+                    ""
+            }
             <Form submitAction={getInputValues}>
                 <Title classname="title">
                     {editable

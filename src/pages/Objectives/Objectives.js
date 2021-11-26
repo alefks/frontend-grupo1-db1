@@ -3,8 +3,10 @@ import { useParams } from "react-router-dom";
 import Table from "../../components/Table/Table";
 import TableLine from "../../components/TableLine/TableLine";
 import TableTitle from "../../components/TableTitle/TableTitle";
+import MessageToast from "../../components/MessageToast/MessageToast";
 import KeyResultsList from "../../components/KeyResultsList/KeyResultsList";
 import Box from "../../components/Box/Box";
+import ObjectivesLoader from "../../components/ContentLoaders/ObjectivesLoader";
 import Api from "../../api/api";
 import "./Objectives.css";
 
@@ -22,111 +24,13 @@ export default function Objectives(props) {
         "-" +
         newDate.getFullYear();
 
-    const testObjectives = [
-        {
-            id: 1,
-            name: "go test",
-            description: "testing table",
-            startDate: date,
-            endDate: date,
-            manager: "",
-        },
-        {
-            id: 2,
-            name: "go test",
-            description: "testing table",
-            startDate: date,
-            endDate: date,
-            manager: "",
-        },
-        {
-            id: 3,
-            name: "go test",
-            description: "testing table",
-            startDate: date,
-            endDate: date,
-            manager: "",
-        },
-        {
-            id: 4,
-            name: "go test",
-            description: "testing table",
-            startDate: date,
-            endDate: date,
-            manager: "",
-        },
-        {
-            id: 5,
-            name: "go test",
-            description: "testing table",
-            startDate: date,
-            endDate: date,
-            manager: "",
-        },
-        {
-            id: 6,
-            name: "go test",
-            description: "testing table",
-            startDate: date,
-            endDate: date,
-            manager: "",
-        },
-        {
-            id: 7,
-            name: "go test",
-            description: "testing table",
-            startDate: date,
-            endDate: date,
-            manager: "",
-        },
-        {
-            id: 8,
-            name: "go test",
-            description: "testing table",
-            startDate: date,
-            endDate: date,
-            manager: "",
-        },
-        {
-            id: 9,
-            name: "go test",
-            description: "testing table",
-            startDate: date,
-            endDate: date,
-            manager: "",
-        },
-        {
-            id: 10,
-            name: "go test",
-            description: "testing table",
-            startDate: date,
-            endDate: date,
-            manager: "",
-        },
-        {
-            id: 11,
-            name: "go test",
-            description: "testing table",
-            startDate: date,
-            endDate: date,
-            manager: "",
-        },
-        {
-            id: 12,
-            name: "go test",
-            description: "testing table",
-            startDate: date,
-            endDate: date,
-            manager: "",
-        },
-    ];
-    const [objectives, setObjectives] = useState(testObjectives);
-    
+    const [objectives, setObjectives] = useState([]);
+    const [message,setMessage] = useState({mssg:"",show:false});
 
     const { teamId, year, quarter } = useParams();
     
     const titles = lang.Objectives.page.table.title;
-    
+    const [loading,setLoading] = useState(true);
     const fetchGetObjectives = async () => {
         const response = await Api.getAll(`objective/${teamId}/${year}/${quarter}`);
         const result = await response.json();
@@ -139,9 +43,9 @@ export default function Objectives(props) {
                     id:result[i].id,
                     name:result[i].name,
                     description: result[i].description,
-                    start:dateStart.getDate()+"/"+(dateStart.getMonth()+1)+"/"+dateStart.getFullYear(),
-                    end:dateFinal.getDate()+"/"+(dateFinal.getMonth()+1)+"/"+dateFinal.getFullYear(),
-                    manager:result[i].manager.name,
+                    start:dateStart.getUTCDate()+"/"+(dateStart.getUTCMonth()+1)+"/"+dateStart.getUTCFullYear(),
+                    end:dateFinal.getUTCDate()+"/"+(dateFinal.getUTCMonth()+1)+"/"+dateFinal.getUTCFullYear(),
+                    manager:result[i].manager.name
                 }
             )
         }
@@ -150,15 +54,31 @@ export default function Objectives(props) {
             setObjectives(value);
             setSelection(value[0].id);
         }
+        setLoading(false);
     };
 
     useEffect(() => {
-        //setSelection(objectives[0].id); // temporário até liberar o fetch
-        fetchGetObjectives(); // comentei para poder utilisar o useEffect sem erro
+        fetchGetObjectives();
+        if(localStorage.getItem("message")){
+            setMessage({mssg:localStorage.getItem("message"),show:true});
+            localStorage.removeItem("message");
+        }
     }, []);
-
+    if(loading){
+        return(
+        <ObjectivesLoader />
+        );
+    }else{
     return (
         <div className="body objectives">
+            {message.show?
+                    <MessageToast message={message.mssg}/>
+                :
+                    ""
+            }
+            <Box classname="boxtitle margin">
+                {localStorage.getItem("defaultTeam")}
+            </Box>
             <Box classname="boxtitle">
                 {lang.Objectives.page.table.name}
             </Box>
@@ -167,6 +87,7 @@ export default function Objectives(props) {
                 <tbody className="tbody">
                     {objectives.map((objective,index) => (
                         <TableLine
+                            lang={props.lang}
                             teamId={teamId}
                             values={objective}
                             key={index}
@@ -177,7 +98,8 @@ export default function Objectives(props) {
                     ))}
                 </tbody>
             </Table>
-            <KeyResultsList classname="boxtitle2" objectiveId={selection} lang={lang.KeyResults.page}></KeyResultsList>
+            {selection && <KeyResultsList langDelete={props.lang} classname="boxtitle2" objectiveId={selection} lang={lang.KeyResults.page}></KeyResultsList>}
         </div>
     );
+    }
 }

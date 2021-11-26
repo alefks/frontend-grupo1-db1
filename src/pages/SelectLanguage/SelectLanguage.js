@@ -32,7 +32,7 @@ export default function SelectLanguage(props){
             <Form classname="form select-language" submitAction={setLanguage} >
                 <Title classname="title select-title">
                     Select other language
-                    <CancelLabel action={props.closeButton} closeButton={true}/>
+                    <CancelLabel/>
                 </Title>
                 <Select name={"inputLanguage"} values={values} ></Select>
                 <Button>Save</Button>

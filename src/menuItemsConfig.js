@@ -6,6 +6,7 @@ import Home from './img/icons/home.png';
 import Key from './img/icons/key.png';
 import LanguageIcon from './img/icons/language.png';
 import Language from './languages/Language';
+import CheckPoint from './img/icons/checkpoint.png';
 const menuItems = {
     home:[
         {
@@ -29,7 +30,7 @@ const menuItems = {
             modal: false,
         },
         {
-            route: '/registerobjectives/',
+            route: '/team/registerobjectives/',
             routeText: Language.Objectives.menu.option2,
             icon: Objective,
             modal: false,
@@ -68,9 +69,21 @@ const menuItems = {
             modal: false,
         },
         {
-            route: '/registerkeyresult/',
+            route: '/team/objective/registerkeyresult/',
             routeText: Language.KeyResults.menu.option2,
             icon: Key,
+            modal: false,
+        },
+        {
+            route: '/team/objective/keyresults/checkpoint/',
+            routeText: Language.KeyResults.menu.option3,
+            icon: CheckPoint,
+            modal: false,
+        },
+        {
+            route: '/team/objective/keyresults/checkpoint/edit',
+            routeText: Language.KeyResults.menu.option4,
+            icon: CheckPoint,
             modal: false,
         },
         {
@@ -99,7 +112,7 @@ const menuItems = {
             modal: true,
         },
         {
-            route: '/registerteampartner/',
+            route: '/team/registerteampartner/',
             routeText: Language.Teams.menu.option4,
             icon: TeamPartner,
             modal: false,

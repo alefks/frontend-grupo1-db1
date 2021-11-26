@@ -6,7 +6,7 @@ const en=
                 option2:"Change Language"
             },
             page:{
-
+                title:"Teams",
             }
         },
         Teams:{
@@ -18,7 +18,8 @@ const en=
                 option5:"Turn Back",
             },
             page:{
-            
+                titlePartner:"Team Partners",
+                titleQuarters:"Quarters",
             }
         },
         Objectives:{
@@ -38,7 +39,9 @@ const en=
             menu:{
                 option1:"Home",
                 option2:"New Key Result",
-                option3:"Turn Back",
+                option3:"New Check in",
+                option4:"Edit Check in",
+                option5:"Turn Back",
             },
             page:{
                 table:{
@@ -47,6 +50,7 @@ const en=
                 },
                 box:{
                     name:"Checkin Dates",
+                    name2:"Check in Dates By Key Result",
 
                 }
             }
@@ -58,13 +62,15 @@ const en=
             },
             page:{
                 button:"Save",
+                titleCheck:"Check point",
+                titleNote:"Notepad"
                 
             }
         },
         Relations:{
             menu:{
                 option1:"Home",
-                option2:"Add New Realtion",
+                option2:"Add New Relation",
                 option3:"Turn Back",
             },
             page:{
@@ -114,6 +120,12 @@ const en=
                 button:{
                     register:"Register",
                     edit:"Save"
+                },
+                messages:{
+                    edit:"The edit values to this Team are saved now!",
+                    register:"The new Team has been created now!",
+                    error:"bad request",
+                    exists:"This Team already exists!"
                 }
             }
         },
@@ -135,6 +147,12 @@ const en=
                 button:{
                     register:"Register",
                     edit:"Save",
+                },
+                messages:{
+                    edit:"The edit values to this Team Partner are saved now!",
+                    register:"The new Team Partner has been created now!",
+                    error:"Bad request",
+                    exists:"This Team Partner already exists!"
                 }
             }
         },
@@ -163,7 +181,13 @@ const en=
                 button:{
                     register:"Register",
                     edit:"Save"
-                } 
+                },
+                messages:{
+                    edit:"The edit values to this objective are saved now!",
+                    register:"The new objective has been created now!",
+                    error:"bad request",
+                    exists:"This Objective already exists!"
+                }
             }
         },
         RegisterKeyResult:{
@@ -187,7 +211,13 @@ const en=
                 button:{
                     register:"Register",
                     edit:"Save"
-                } 
+                }, 
+                messages:{
+                    edit:"The edit values to this key result are saved now!",
+                    register:"The new key result has been created now!",
+                    error:"bad request",
+                    exists:"This Key Result already exists!"
+                }
             }
         },
         AddPartner:{
@@ -195,7 +225,12 @@ const en=
                 form:{
                     option1:"Add New Team Partner",
                 },
-                button:"Add"
+                button:"Add",
+                cancel:"Cancelar",
+                messages:{
+                    add:"The new Team Partner has been added now!",
+                    error:"bad request",
+                }
             }
         },
         AddRelation:{
@@ -205,7 +240,21 @@ const en=
                     option2:"Relational Objective (Team)",
                     option3:"Relational Objective"
                 },
-                button:"Add"
+                button:"Add",
+                cancel:"Cancelar"
+            }
+        },
+        DeleteItem:{
+            page:{
+                text:"Are you really sure? \n about deleting this?",
+                button:"Confirm",
+                cancel:"Cancel",
+                messages:{
+                    error:"Error, The item can not be deleted!",
+                    Objective:"The Objective has been deleted now!",
+                    KeyResults:"The Key Result has been deleted now!",
+                    Partner:"The TeamPartner has been deleted now!",
+                }
             }
         }
 

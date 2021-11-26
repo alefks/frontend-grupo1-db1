@@ -23,7 +23,7 @@
     padding: 0;
 }
 .table tbody td{
-    height: 2em;
+    height: 4em;
 }
 .table th:last-child,.table tbody td:last-child {
     border-right: none;

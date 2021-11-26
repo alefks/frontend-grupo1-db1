@@ -6,7 +6,7 @@ const pt=
                 option2:"Mudar Idioma",
             },
             page:{
-
+                title:"Times",
             }
         },
         Teams:{
@@ -18,7 +18,8 @@ const pt=
                 option5:"Voltar",
             },
             page:{
-               
+                titlePartner:"Parceiros do Time",
+                titleQuarters:"Quarters",
             }
         },
         Objectives:{
@@ -38,7 +39,9 @@ const pt=
             menu:{
                 option1:"Início",
                 option2:"Criar Nova Chave",
-                option3:"Voltar",
+                option3:"Nova Validação de Resultados",
+                option4:"Editar Validação de Resultados",
+                option5:"Voltar",
             },
             page:{
                 table:{
@@ -47,6 +50,7 @@ const pt=
                 },
                 box:{
                     name:"Datas de Validação de Resultados",
+                    name2:"Datas de Validação por Chave de Resultados",
 
                 }
             }
@@ -58,7 +62,8 @@ const pt=
             },
             page:{
                 button:"Salvar",
-                
+                titleCheck:"Check point",
+                titleNote:"Bloco de Observações"
             }
         },
         Relations:{
@@ -114,6 +119,12 @@ const pt=
                 button:{
                     register:"Registrar",
                     edit:"Salvar"
+                }, 
+                messages:{
+                    edit:"Os valores editados deste Time foi salvo!",
+                    register:"O novo Time está criado agora!",
+                    error:"",
+                    exists:"Este Time já existe!"
                 }
             }
         },
@@ -135,6 +146,12 @@ const pt=
                 button:{
                     register:"Registrar",
                     edit:"Salvar",
+                }, 
+                messages:{
+                    edit:"Os valores editados deste Parceiro de Time foi salvo!",
+                    register:"O novo Parceiro de Time está criado agora!",
+                    error:"",
+                    exists:"Este Parceiro de Time já existe!"
                 }
             }
         },
@@ -163,7 +180,13 @@ const pt=
                 button:{
                     register:"Registrar",
                     edit:"Salvar"
-                } 
+                }, 
+                messages:{
+                    edit:"Os valores editados deste objetivo foi salvo!",
+                    register:"O novo objetivo está criado agora!",
+                    error:"Requisição Ruim",
+                    exists:"Este objetivo já existe!"
+                }
             }
         },
         RegisterKeyResult:{
@@ -187,7 +210,13 @@ const pt=
                 button:{
                     register:"Registrar",
                     edit:"Salvar"
-                } 
+                }, 
+                messages:{
+                    edit:"Os valores editados deste resultado chave foi salvo!",
+                    register:"O novo valor chave está criado agora!",
+                    error:"Requisição Ruim",
+                    exists:"Este Resultado Chave já existe!"
+                }
             }
         },
         AddPartner:{
@@ -195,7 +224,12 @@ const pt=
                 form:{
                     option1:"Adicionar Parceiro",
                 },
-                button:"Adicionar"
+                button:"Adicionar",
+                cancel:"Cancelar",
+                messages:{
+                    add:"O novo parceiro de time foi adicionado!",
+                    error:"Requisição Ruim",
+                }
             }
         },
         AddRelation:{
@@ -205,9 +239,22 @@ const pt=
                     option2:"Objetivo Relacionado (Time)",
                     option3:"Objetivo Relacionado"
                 },
-                button:"Adicionar"
+                button:"Adicionar",
+                cancel:"Cancelar"
+            }
+        },
+        DeleteItem:{
+            page:{
+                text:"Tem certeza? \n que deseja deletar este item?",
+                button:"Confirmar",
+                cancel:"Cancelar",
+                messages:{
+                    error:"Erro. O item não pode ser deletado!",
+                    Objective:"O objective foi deletado agora!",
+                    KeyResults:"A chave de resultado foi deletada agora!",
+                    Partner:"O parceiro de time foi removido agora!",
+                }
             }
         }
-
     }
 export default pt;

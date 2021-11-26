@@ -7,3 +7,14 @@
 .objectives-list{
     height: none;
 }
+.margin{
+    margin-bottom: 0.5em;
+}
+.objectives .margin{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+    font-size: 1.2em;
+}

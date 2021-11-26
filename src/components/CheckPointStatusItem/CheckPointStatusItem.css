@@ -1,0 +1,37 @@
+.point-item{
+    display: flex;
+    width: 22%;
+    height: 3em;
+    margin:0.5%;
+    color: var(--colorFirst);
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: var(--colorFourth);
+    align-items: center;
+}
+.point-item:hover{
+    cursor: pointer;
+    background-color: var(--colorThird);
+}
+.value{
+    height:auto;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.value p{
+    margin: 0;
+}
+.point-item .space{
+    margin: 0;
+    padding: 0;
+    width: 1px;
+    height: 100%;
+    border: none;
+}
+.color-feeling{
+    background-color: red;
+
+}

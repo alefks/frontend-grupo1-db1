@@ -5,8 +5,8 @@ export default function CancelLabel(props){
     const history = useHistory();
     
     return (
-        <label className="cancel" onClick={!props.closeButton?(history.goBack):(props.action)}>
-            X
+        <label className={props.classname?props.classname:"cancel"} onClick={!props.closeButton?(history.goBack):(props.action)}>
+            {props.children?props.children:"X"}
         </label>
     );
 }

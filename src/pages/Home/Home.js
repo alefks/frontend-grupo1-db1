@@ -3,63 +3,28 @@ import { Link } from "react-router-dom";
 import Box from './../../components/Box/Box';
 import './Home.css';
 import Api from '../../api/api'
+import HomePageLoader from "../../components/ContentLoaders/HomePageLoader";
 
 export default function Home(props){
-    
-    const testTeamsList = [
-        {
-            id : 1,
-            name : "financeiro",
-            objectives : [],
-            teamPartners : [],
-            score : 50
-        },
-        {
-            id : 2,
-            name : "financeiro",
-            objectives : [],
-            teamPartners : [],
-            score : 50
-        },
-        {
-            id : 3,
-            name : "financeiro",
-            objectives : [],
-            teamPartners : [],
-            score : 50
-        },
-        {
-            id : 4,
-            name : "financeiro",
-            objectives : [],
-            teamPartners : [],
-            score : 50
-        },
-    
-    ];
-   
+    const lang=props.lang.Home.page;
+    const [loading,setLoading] = useState(true);
     const [selectedYear,setSelectedYear] = useState((new Date()).getFullYear());
     useEffect(() => {
         fetchGetTeams();
-        //fetchGetYears();
     }, [selectedYear])
    
     const testYears = [2019,2018,2021,2017,2016].sort().reverse();
 
-    const [teams, setTeams] = useState(testTeamsList);
+    const [teams, setTeams] = useState([]);
     const [years, setYears] = useState(testYears);
 
     const fetchGetTeams = async () => {
+        setLoading(true);
         const response = await Api.getAll("team");
         const result = await response.json();
         result !== [] && setTeams(result);
+        setLoading(false);
     };
-
-    const fetchGetYears = async () => {
-        const response = await Api.getAll("years");
-        const result = await response.json();
-        result !== [] && setYears(result);
-    }
     
     const changeYear = (event)=>{
         const selectElement = event.target;
@@ -71,9 +36,19 @@ export default function Home(props){
         const selectValue = selectElement.childNodes[selectElement.selectedIndex].value;
         setSelectedYear(parseInt(selectValue));
     }
+    if(loading===true){
+        return(
+        <HomePageLoader>
+
+        </HomePageLoader>
+        );
+    }else{
     return (
         <div className="body">
             <div className="select">
+                <div className="team-title">
+                    {lang.title}
+                </div>
                 <select name="year" className="select-item" onChange={changeYear}>
                 {years.map((year,index)=>(
                     <option value={year} key={index}>{year}</option>
@@ -92,9 +67,7 @@ export default function Home(props){
                             <label className="team-name">
                                 {teamItem.name}
                             </label>
-                            <label className="team-score">
-                                {teamItem.score}%
-                            </label>
+                           
                             <hr className={"team-score-color alert"} />
                         </Link>
                     </Box>
@@ -102,4 +75,5 @@ export default function Home(props){
             </Box>
         </div>
     ); 
+    }
 }

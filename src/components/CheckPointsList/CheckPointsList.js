@@ -11,16 +11,10 @@ export default function CheckPointsList(props){
             <Box classname="boxtitle boxtitle2">{props.lang.box.name}</Box>
             <Box classname="check-points">
                 <Box classname="check-date">
-                    <Link to={"/checkpoint/"+props.objectiveId+"/"+now}>
+                    <Link to={"/team/objective/keyresults/checkpoint/"+props.objectiveId+"/"+now}>
                         {now}
                     </Link>
-                </Box>
-                <Box classname="check-date">
-                    <Link to={"/checkpoint/"+props.objectiveId+"/"+now}>
-                        {now}
-                    </Link>
-                </Box>
-                        
+                </Box>                        
             </Box>
         </div>
     );

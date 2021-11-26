@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams,useHistory } from "react-router-dom";
 import "./RegisterObjectives.css";
 import Box from "../../components/Box/Box";
 import Title from "../../components/Title/Title";
@@ -9,8 +9,9 @@ import Button from "../../components/Button/Button";
 import CancelLabel from "../../components/CancelLabel/CancelLabel";
 import Api from "../../api/api";
 import Select from "../../components/Select/Select";
-
-export default function RegisterObjectives(props, { history }) {
+import MessageToast from "../../components/MessageToast/MessageToast";
+export default function RegisterObjectives(props) {
+    const history = useHistory();
     const [editable, setEditable] = useState(false);
     const { teamId, id } = useParams();
     const lang = props.lang.RegisterObjective;
@@ -25,39 +26,66 @@ export default function RegisterObjectives(props, { history }) {
         frequency: "",
     });
     const [managers, setManagers] = useState([]);
-
+    const [message,setMessage] = useState({mssg:"",show:false});
     useEffect(() => {
         if (id !== "new") {
             setEditable(true);
-            //fetchGetObjective(id);
+            fetchGetObjective(id);
         }
+        setMessage({mssg:"",show:false});
         fetchGetManagersList();
         fetchGetTeamsList();
     }, []);
 
     const getInputValues = async (event) => {
         event.preventDefault();
-        const payload = { ...objective };
+        const payload = { 
+            name: event.target.inputName.value,
+            description: event.target.inputDescription.value,
+            startDate: new Date(event.target.inputStartDate.value),
+            endDate: new Date(event.target.inputFinalDate.value),
+            team: +teamId,
+            manager: +event.target.inputManager.value,
+            relationalObjectives: [+event.target.inputObjectives.value],
+            frequency: +event.target.inputFrequency.value,
+         };
 
-        payload.name = event.target.inputName.value;
-        payload.description = event.target.inputDescription.value;
-        payload.startDate = event.target.inputStartDate.value;
-        payload.endDate = event.target.inputFinalDate.value;
-        payload.team = +teamId;
-        payload.manager = event.target.inputManager.value;
-        payload.relationalObjectives = [+event.target.inputObjectives.value];
-        payload.frequency = +event.target.inputFrequency.value;
-
-        !payload.relationalObjectives && delete payload.relationalObjectives;
+        payload.relationalObjectives[0] === 0 && delete payload.relationalObjectives;
 
         if (editable) {
-            payload.id && delete payload.id;
-            await Api.patch("objective", id, payload);
+            const response = await Api.patch("objective", id, payload);
+            switch(response.status){
+                case 400 :
+                    setMessage({mssg:lang.page.messages.error,show:true});
+                    break;
+                case 200 :
+                    if(localStorage.getItem("message")){
+                        localStorage.removeItem("message");
+                    }
+                    localStorage.setItem("message",[lang.page.messages.edit]);
+                window.setTimeout(()=>{history.goBack()},3000);
+                break;
+            }
         } else {
-            await Api.post("objective", payload);
+            const response = await Api.post("objective", payload);
+            switch(response.status){
+                case 500 :
+                    setMessage({mssg:lang.page.messages.error,show:true});
+                    break;
+                case 400 :
+                    setMessage({mssg:lang.page.messages.exists,show:true});
+                    break;
+                case 201 :
+                    if(localStorage.getItem("message")){
+                        localStorage.removeItem("message");
+                    }
+                    localStorage.setItem("message",[lang.page.messages.register]);
+                    window.setTimeout(()=>{history.goBack()},3000);
+                    break;
+            }
         }
 
-        //history.push("/team/" + teamId);
+        
     };
 
     const fetchGetManagersList = async () => {
@@ -68,14 +96,14 @@ export default function RegisterObjectives(props, { history }) {
 
     const [selectedObjectives, setSelectedObjectives] = useState([]);
     const [showObjectives, setShowObjectives] = useState({ display: "none" });
+
     const teamObjectives = (event) => {
         const selectElement = event.target;
         if (
             selectElement.childNodes[selectElement.selectedIndex].value !== "0"
         ) {
             const teamId = selectElement.value;
-            //fetchGetObjectives(teamId);
-            setSelectedObjectives(["item1", "item2"]);
+            fetchGetTeamObjectives(teamId);
             setShowObjectives({ display: "flex" });
         } else {
             setSelectedObjectives([]);
@@ -103,11 +131,22 @@ export default function RegisterObjectives(props, { history }) {
     const fetchGetObjective = async (id) => {
         const response = await Api.getById("objective", id);
         const result = await response.json();
-        setSelectedObjectives(result);
+        setObjective(result);
     };
+
+    const fetchGetTeamObjectives = async (id) => {
+        const response = await Api.getById('team', id)
+        const result = await response.json()
+        setSelectedObjectives(result.objectives);
+    }
 
     return (
         <div className="body register">
+            {message.show?
+                    <MessageToast message={message.mssg}/>
+                :
+                    ""
+            }
             <Form submitAction={getInputValues}>
                 <Title classname="title">
                     {editable
@@ -121,12 +160,14 @@ export default function RegisterObjectives(props, { history }) {
                         inputName="inputName"
                         inputHolder={lang.page.form.register.option2}
                         inputRequired={true}
+                        inputDefaultValue={objective.name}
                     ></Input>
                     <Input
                         inputType="number"
                         inputName="inputFrequency"
                         inputHolder={lang.page.form.register.option3}
                         inputRequired={true}
+                        inputDefaultValue={objective.frequency}
                     ></Input>
                     <Input
                         classname="objective-description"
@@ -134,6 +175,7 @@ export default function RegisterObjectives(props, { history }) {
                         inputName="inputDescription"
                         inputHolder={lang.page.form.register.option4}
                         inputRequired={true}
+                        inputDefaultValue={objective.description}
                     ></Input>
                     <Title classname="sub-title" htmlfor="inputManager">
                         {lang.page.form.register.option5}
@@ -170,6 +212,7 @@ export default function RegisterObjectives(props, { history }) {
                         inputName="inputStartDate"
                         inputHolder=""
                         inputRequired={true}
+                        inputDefaultValue={objective.startDate.slice(0, 10)}
                     ></Input>
                     <Title classname="sub-title" htmlfor="inputFinalDate">
                         {lang.page.form.register.option9}
@@ -179,6 +222,7 @@ export default function RegisterObjectives(props, { history }) {
                         inputName="inputFinalDate"
                         inputHolder=""
                         inputRequired={true}
+                        inputDefaultValue={objective.endDate.slice(0, 10)}
                     ></Input>
                 </fieldset>
                 {editable ? (
