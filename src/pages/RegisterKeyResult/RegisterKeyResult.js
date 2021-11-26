@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./RegisterKeyResult.css";
+import { useHistory } from "react-router";
 import Title from "./../../components/Title/Title";
 import Form from "./../../components/Form/Form";
 import Input from "./../../components/Input/Input";
@@ -8,12 +9,15 @@ import CancelLabel from "../../components/CancelLabel/CancelLabel";
 import Api from "../../api/api";
 import { useParams } from "react-router-dom";
 import Select from "../../components/Select/Select";
-import SelectLanguage from "../SelectLanguage/SelectLanguage";
-
-export default function RegisterKeyResult(props,{ history }) {
+import { toast, ToastContainer } from 'react-toastify';
+import MessageToast from "../../components/MessageToast/MessageToast";
+import 'react-toastify/dist/ReactToastify.css';
+export default function RegisterKeyResult(props) {
     const { objectiveId, id } = useParams();
+    const history = useHistory();
     const lang = props.lang.RegisterKeyResult;
     const [editable, setEditable] = useState(false);
+    const [message,setMessage] = useState({mssg:"",show:false});
     const [keyResult, setKeyResult] = useState({ 
         name: "",
         description: "",
@@ -22,12 +26,12 @@ export default function RegisterKeyResult(props,{ history }) {
         objective: ""
     });
     const [teamPartners, setTeamPartners] = useState([])
-
     useEffect(() => {
         if (id !== "new") {
             setEditable(true);
             fetchGetKeyResult();
         }
+        setMessage({mssg:"",show:false});
         fetchGetTeamPartners();
     }, []);
 
@@ -42,10 +46,8 @@ export default function RegisterKeyResult(props,{ history }) {
         const result = await response.json();
         setKeyResult(result);
     }
-
     const getInputValues = async (event) => {
         event.preventDefault();
-
         const payload = { 
             name: event.target.inputName.value,
             description: event.target.inputDescription.value,
@@ -55,15 +57,40 @@ export default function RegisterKeyResult(props,{ history }) {
          };
 
         if (editable) {
-            await Api.patch("keyresult", id, payload);
+           const response = await Api.patch("keyresult", id, payload);
+           switch(response.status){
+                case 400 :
+                    setMessage({mssg:lang.page.messages.error,show:true});
+                    break;
+                case 200 :
+                    setMessage({mssg:lang.page.messages.edit,show:true});
+                window.setTimeout(()=>{history.goBack()},3000);
+                break;
+            }
         } else {
-            await Api.post("keyresult", payload);
+            const response = await Api.post("keyresult", payload);
+            switch(response.status){
+                case 500 :
+                    setMessage({mssg:lang.page.messages.error,show:true});
+                    break;
+                case 400 :
+                    setMessage({mssg:lang.page.messages.exists,show:true});
+                    break;
+                case 201 :
+                    setMessage({mssg:lang.page.messages.register,show:true});
+                    window.setTimeout(()=>{history.goBack()},3000);
+                    break;
+            }
         }
-
-        //history.goBack();
+      
     };
     return (
         <div className="body">
+            {message.show?
+                    <MessageToast message={message.mssg}/>
+                :
+                    ""
+            }
             <Form submitAction={getInputValues}>
                 <Title classname="title">
                     {editable?

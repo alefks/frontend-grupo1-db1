@@ -119,6 +119,12 @@ const pt=
                 button:{
                     register:"Registrar",
                     edit:"Salvar"
+                }, 
+                messages:{
+                    edit:"Os valores editados deste Time foi salvo!",
+                    register:"O novo Time está criado agora!",
+                    error:"",
+                    exists:"Este Time já existe!"
                 }
             }
         },
@@ -140,6 +146,12 @@ const pt=
                 button:{
                     register:"Registrar",
                     edit:"Salvar",
+                }, 
+                messages:{
+                    edit:"Os valores editados deste Parceiro de Time foi salvo!",
+                    register:"O novo Parceiro de Time está criado agora!",
+                    error:"",
+                    exists:"Este Parceiro de Time já existe!"
                 }
             }
         },
@@ -168,7 +180,13 @@ const pt=
                 button:{
                     register:"Registrar",
                     edit:"Salvar"
-                } 
+                }, 
+                messages:{
+                    edit:"Os valores editados deste objetivo foi salvo!",
+                    register:"O novo objetivo está criado agora!",
+                    error:"Requisição Ruim",
+                    exists:"Este objetivo já existe!"
+                }
             }
         },
         RegisterKeyResult:{
@@ -192,7 +210,13 @@ const pt=
                 button:{
                     register:"Registrar",
                     edit:"Salvar"
-                } 
+                }, 
+                messages:{
+                    edit:"Os valores editados deste resultado chave foi salvo!",
+                    register:"O novo valor chave está criado agora!",
+                    error:"Requisição Ruim",
+                    exists:"Este Resultado Chave já existe!"
+                }
             }
         },
         AddPartner:{
@@ -201,7 +225,11 @@ const pt=
                     option1:"Adicionar Parceiro",
                 },
                 button:"Adicionar",
-                cancel:"Cancelar"
+                cancel:"Cancelar",
+                messages:{
+                    add:"O novo parceiro de time foi adicionado!",
+                    error:"Requisição Ruim",
+                }
             }
         },
         AddRelation:{

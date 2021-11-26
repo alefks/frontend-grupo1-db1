@@ -13,7 +13,7 @@
     background-color: var(--colorFirst);
     color: var(--colorThird);
 }
-.icons a:hover > .legend,.icons .trash:hover > .legend{
+.icons a:hover > .legend,.icons div:hover > .legend{
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
@@ -90,11 +90,11 @@
     width: 1em;
     padding: 0.5em;
 }
-.icons .trash{
+.icons .trash,.icons .list{
     height: 1em;
     width: 1em;
     padding: 0.45em;
 }
-.trash:hover{
+.trash:hover,.list:hover{
     background-color: var(--colorSecond);
 }

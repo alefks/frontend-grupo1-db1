@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import { Link } from "react-router-dom";
+import { Link,useHistory } from "react-router-dom";
 import Pencil from './../../img/icons/pencilBk.png';
 import List from './../../img/icons/list.png';
 import Relation from './../../img/icons/relations.png';
@@ -9,6 +9,7 @@ import Modal from '../Modal/Modal';
 import './TableLine.css';
 export default function TableLine(props){
     const [table,setTable] = useState(undefined);
+    const history = useHistory();
     const [showModal,setShowModal] = useState({display:"none"});
     let values = Object.values(props.values).slice(1);
     let keyColor = {};
@@ -17,7 +18,25 @@ export default function TableLine(props){
         keyColor = {
             backgroundColor: Object.values(props.values).slice(1)[5]
         }
-    };
+    }
+    const goToKeyResults = ()=>{
+        if(props.objectName==="objective"){
+            if(localStorage.getItem("defaultObjective")){
+                localStorage.removeItem("defaultObjective");
+            }
+            localStorage.setItem("defaultObjective",props.values.name);
+        }
+        history.push("/team/objective/keyresults/"+props.values.id);
+    }
+    const goToRelations = ()=>{
+        if(props.objectName==="objective"){
+            if(localStorage.getItem("defaultObjective")){
+                localStorage.removeItem("defaultObjective");
+            }
+            localStorage.setItem("defaultObjective",props.values.name);
+        }
+        history.push("/team/objective/relations/"+props.values.id);
+    }
     const openModal = (event)=>{
         event.preventDefault();
         setTable(props.objectName);
@@ -40,18 +59,18 @@ export default function TableLine(props){
                 {props.objectName!=="objective"?"":
                     <td key={5} className="icons">
                         <td className="content-icons">
-                        <Link to={"/team/objective/relations/"+props.values.id}>
+                        <div className="list" onClick={goToRelations}>
                             <img src={Relation} className="list-relations" alt="relations" />
                             <span className="legend legend-conect">
                                 Go to related Objetives
                             </span>
-                        </Link>
-                        <Link to={"/team/objective/keyresults/"+props.values.id}>
+                        </div>
+                        <div className="list" onClick={goToKeyResults}>
                             <img src={List} className="list-krs" alt="krs" />
                             <span className="legend legend-conect">
                                 Go to keyR list
                             </span>
-                        </Link>
+                        </div>
                         
                         <Link to={"/team/registerobjectives/"+props.teamId+"/"+props.values.id}>
                             <img src={Pencil} className="edit" alt="edit" />
@@ -77,6 +96,18 @@ export default function TableLine(props){
                                 Edit this keyResult
                             </span>
                         </Link>
+                        <div className="trash" onClick={openModal}>
+                            <img src={Trash} className="trash-icon" alt="trash" />
+                            <span className="legend legend-conect">
+                                Delete this Objective
+                            </span>
+                        </div>
+                        </td>
+                    </td>
+                }
+                {props.objectName!=="relations"?"":
+                    <td key={6} className="icons">
+                        <td className="content-icons">
                         <div className="trash" onClick={openModal}>
                             <img src={Trash} className="trash-icon" alt="trash" />
                             <span className="legend legend-conect">
