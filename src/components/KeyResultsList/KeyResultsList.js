@@ -195,17 +195,16 @@ export default function KeyResultsList(props) {
                 keyResultMap[0].name = kr.name;
                 keyResultMap[0].description = kr.description;
                 keyResultMap[0].goal = kr.goal;
-               // keyResultMap[0].responsible = kr.responsible.name;
+                keyResultMap[0].responsible = kr.responsible.name;
                 keyResultMap[0].lastStatus = 0;
                 keyResultMap[0].lastFeeling = "#54C213";
 
                 return keyResultMap[0]
             }
             )
-        //setKeyResults(value);
-        setKeyResults(testKeyResults);
+        setKeyResults(value);
         }else if(response.status===404){
-            console.log("This objective, do not have key results, create one or choise other objective!")
+            console.log("There's no key results yet, create one or choose another objective!")
         }
         setLoading(false)
     };
@@ -218,7 +217,7 @@ export default function KeyResultsList(props) {
     if(loading===true){
         return(
         <KeyResultsListLoader>
-
+            
         </KeyResultsListLoader>
         );
     }else{
