@@ -118,7 +118,7 @@ export default function TableLine(props){
                     </td>
                 }
                 <Modal style={showModal}>
-                        <DeleteItem lang={props.lang} closeButton={openModal} idItem={props.values.id} table={table}></DeleteItem>
+                        <DeleteItem lang={props.lang} closeButton={openModal} idItem={props.values.id} objectiveId={props.objectiveId || undefined} table={table}></DeleteItem>
                 </Modal> 
             </tr>
     );
