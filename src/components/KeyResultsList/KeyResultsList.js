@@ -21,7 +21,6 @@ export default function KeyResultsList(props) {
         },
     ];
     const [keyResults, setKeyResults] = useState([]);
-
     const [loading,setLoading] = useState(true);
     const fetchGetKeyResults = async () => {
         const response = await Api.getById("objective", objectiveId);
@@ -48,7 +47,7 @@ export default function KeyResultsList(props) {
 
     useEffect(() => {
         fetchGetKeyResults();
-    }, []);
+    }, [props.objectiveId]);
 
     const titles = props.lang.table.title;
     if(loading===true){
