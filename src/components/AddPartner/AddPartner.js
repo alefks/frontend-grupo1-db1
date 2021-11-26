@@ -39,9 +39,23 @@ export default function AddPartner(props) {
             teamPartners: [+event.target.partner.value],
         };
 
-        await Api.patch('team', teamId, payload)
-        
-        window.location.reload();
+        const response = await Api.patch('team', teamId, payload)
+        switch(response.status){
+            case 400 :
+                if(localStorage.getItem("message")){
+                    localStorage.removeItem("message");
+                }
+                localStorage.setItem("message",[lang.messages.error]);
+                break;
+            case 200 :
+                if(localStorage.getItem("message")){
+                    localStorage.removeItem("message");
+                }
+                localStorage.setItem("message",[lang.messages.add]);
+                
+                break;
+        }
+       window.location.reload();
     };
     
     return (

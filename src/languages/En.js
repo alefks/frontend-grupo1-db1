@@ -226,7 +226,11 @@ const en=
                     option1:"Add New Team Partner",
                 },
                 button:"Add",
-                cancel:"Cancelar"
+                cancel:"Cancelar",
+                messages:{
+                    add:"The new Team Partner has been added now!",
+                    error:"bad request",
+                }
             }
         },
         AddRelation:{
