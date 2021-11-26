@@ -124,7 +124,8 @@ const en=
                 messages:{
                     edit:"The edit values to this Team are saved now!",
                     register:"The new Team has been created now!",
-                    error:"bad request"
+                    error:"bad request",
+                    exists:"This Team already exists!"
                 }
             }
         },
@@ -150,7 +151,8 @@ const en=
                 messages:{
                     edit:"The edit values to this Team Partner are saved now!",
                     register:"The new Team Partner has been created now!",
-                    error:"bad request"
+                    error:"Bad request",
+                    exists:"This Team Partner already exists!"
                 }
             }
         },
@@ -183,7 +185,8 @@ const en=
                 messages:{
                     edit:"The edit values to this objective are saved now!",
                     register:"The new objective has been created now!",
-                    error:"bad request"
+                    error:"bad request",
+                    exists:"This Objective already exists!"
                 }
             }
         },
@@ -212,7 +215,8 @@ const en=
                 messages:{
                     edit:"The edit values to this key result are saved now!",
                     register:"The new key result has been created now!",
-                    error:"bad request"
+                    error:"bad request",
+                    exists:"This Key Result already exists!"
                 }
             }
         },

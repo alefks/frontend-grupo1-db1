@@ -19,6 +19,8 @@ export default function DeleteItem(props) {
                 disconnectTeam: +props.teamId,
             };
             await Api.patch("team-partner", props.idItem, payload);
+        }else if (props.table === "relations"){
+            console.log("remove relation "+props.idItem);
         }
         props.closeButton(event);
     };

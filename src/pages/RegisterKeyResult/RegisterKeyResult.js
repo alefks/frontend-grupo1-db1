@@ -59,21 +59,30 @@ export default function RegisterKeyResult(props) {
         if (editable) {
            const response = await Api.patch("keyresult", id, payload);
            switch(response.status){
-            case 400 :
-                setMessage(lang.page.messages.error);
-            case 201 :
-                setMessage(lang.page.messages.edit);
+                case 400 :
+                    setMessage({mssg:lang.page.messages.error,show:true});
+                    break;
+                case 200 :
+                    setMessage({mssg:lang.page.messages.edit,show:true});
+                window.setTimeout(()=>{history.goBack()},3000);
+                break;
             }
         } else {
             const response = await Api.post("keyresult", payload);
             switch(response.status){
-                case 400 :
+                case 500 :
                     setMessage({mssg:lang.page.messages.error,show:true});
+                    break;
+                case 400 :
+                    setMessage({mssg:lang.page.messages.exists,show:true});
+                    break;
                 case 201 :
                     setMessage({mssg:lang.page.messages.register,show:true});
+                    window.setTimeout(()=>{history.goBack()},3000);
+                    break;
             }
         }
-      window.setTimeout(()=>{history.goBack()},3000);
+      
     };
     return (
         <div className="body">
