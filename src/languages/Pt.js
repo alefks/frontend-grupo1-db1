@@ -119,6 +119,11 @@ const pt=
                 button:{
                     register:"Registrar",
                     edit:"Salvar"
+                }, 
+                messages:{
+                    edit:"Os valores editados deste Time foi salvo!",
+                    register:"O novo Time está criado agora!",
+                    error:""
                 }
             }
         },
@@ -140,6 +145,11 @@ const pt=
                 button:{
                     register:"Registrar",
                     edit:"Salvar",
+                }, 
+                messages:{
+                    edit:"Os valores editados deste Parceiro de Time foi salvo!",
+                    register:"O novo Parceiro de Time está criado agora!",
+                    error:""
                 }
             }
         },
@@ -168,7 +178,12 @@ const pt=
                 button:{
                     register:"Registrar",
                     edit:"Salvar"
-                } 
+                }, 
+                messages:{
+                    edit:"Os valores editados deste objetivo foi salvo!",
+                    register:"O novo objetivo está criado agora!",
+                    error:"Requisição Ruim"
+                }
             }
         },
         RegisterKeyResult:{
@@ -192,7 +207,12 @@ const pt=
                 button:{
                     register:"Registrar",
                     edit:"Salvar"
-                } 
+                }, 
+                messages:{
+                    edit:"Os valores editados deste resultado chave foi salvo!",
+                    register:"O novo valor chave está criado agora!",
+                    error:"Requisição Ruim"
+                }
             }
         },
         AddPartner:{

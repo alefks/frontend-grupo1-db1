@@ -8,9 +8,11 @@ import CancelLabel from "../../components/CancelLabel/CancelLabel";
 import { useParams } from "react-router-dom";
 import Api from "../../api/api";
 import { useHistory } from "react-router-dom";
+import MessageToast from "../../components/MessageToast/MessageToast";
 
 export default function RegisterTeamPartner(props) {
     const [editable, setEditable] = useState(false);
+    const [message,setMessage] = useState({mssg:"",show:false});
     const { teamId, id } = useParams();
     const lang = props.lang.RegisterTeamPartner;
     const history = useHistory();
@@ -23,6 +25,7 @@ export default function RegisterTeamPartner(props) {
             setEditable(true);
             fetchTeamPartnerById();
         }
+        setMessage({mssg:"",show:false});
     }, []);
 
     const fetchTeamPartnerById = async () => {
@@ -39,16 +42,33 @@ export default function RegisterTeamPartner(props) {
 
         if (editable) {
             delete payload.id;
-            await Api.patch("team-partner", id, payload);
+            const response = await Api.patch("team-partner", id, payload);
+            switch(response.status){
+                case 400 :
+                    setMessage(lang.page.messages.error);
+                case 201 :
+                    setMessage(lang.page.messages.edit);
+                }
         } else {
-            await Api.post("team-partner", payload);
+            const response = await Api.post("team-partner", payload);
+            switch(response.status){
+                case 400 :
+                    setMessage({mssg:lang.page.messages.error,show:true});
+                case 201 :
+                    setMessage({mssg:lang.page.messages.register,show:true});
+            }
         }
 
-        history.goBack();
+        window.setTimeout(()=>{history.goBack()},3000);
     };
 
     return (
         <div className="body">
+            {message.show?
+                    <MessageToast message={message.mssg}/>
+                :
+                    ""
+            }
             <Form submitAction={getInputValues}>
                 <Title classname="title">
                     {editable ? lang.page.form.edit.option1 : lang.page.form.register.option1}

@@ -120,6 +120,11 @@ const en=
                 button:{
                     register:"Register",
                     edit:"Save"
+                },
+                messages:{
+                    edit:"The edit values to this Team are saved now!",
+                    register:"The new Team has been created now!",
+                    error:"bad request"
                 }
             }
         },
@@ -141,6 +146,11 @@ const en=
                 button:{
                     register:"Register",
                     edit:"Save",
+                },
+                messages:{
+                    edit:"The edit values to this Team Partner are saved now!",
+                    register:"The new Team Partner has been created now!",
+                    error:"bad request"
                 }
             }
         },
@@ -169,7 +179,12 @@ const en=
                 button:{
                     register:"Register",
                     edit:"Save"
-                } 
+                },
+                messages:{
+                    edit:"The edit values to this objective are saved now!",
+                    register:"The new objective has been created now!",
+                    error:"bad request"
+                }
             }
         },
         RegisterKeyResult:{
@@ -193,7 +208,12 @@ const en=
                 button:{
                     register:"Register",
                     edit:"Save"
-                } 
+                }, 
+                messages:{
+                    edit:"The edit values to this key result are saved now!",
+                    register:"The new key result has been created now!",
+                    error:"bad request"
+                }
             }
         },
         AddPartner:{

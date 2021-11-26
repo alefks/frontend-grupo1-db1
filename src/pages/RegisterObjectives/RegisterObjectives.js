@@ -9,6 +9,7 @@ import Button from "../../components/Button/Button";
 import CancelLabel from "../../components/CancelLabel/CancelLabel";
 import Api from "../../api/api";
 import Select from "../../components/Select/Select";
+import MessageToast from "../../components/MessageToast/MessageToast";
 
 export default function RegisterObjectives(props, { history }) {
     const [editable, setEditable] = useState(false);
@@ -25,12 +26,13 @@ export default function RegisterObjectives(props, { history }) {
         frequency: "",
     });
     const [managers, setManagers] = useState([]);
-
+    const [message,setMessage] = useState({mssg:"",show:false});
     useEffect(() => {
         if (id !== "new") {
             setEditable(true);
             fetchGetObjective(id);
         }
+        setMessage({mssg:"",show:false});
         fetchGetManagersList();
         fetchGetTeamsList();
     }, []);
@@ -51,14 +53,24 @@ export default function RegisterObjectives(props, { history }) {
         payload.relationalObjectives[0] === 0 && delete payload.relationalObjectives;
 
         if (editable) {
-            await Api.patch("objective", id, payload);
-            console.log('PATCH', payload)
+            const response = await Api.patch("objective", id, payload);
+            switch(response.status){
+            case 400 :
+                setMessage(lang.page.messages.error);
+            case 201 :
+                setMessage(lang.page.messages.edit);
+            }
         } else {
-            console.log('POST',payload)
-            await Api.post("objective", payload);
+            const response = await Api.post("objective", payload);
+            switch(response.status){
+                case 400 :
+                    setMessage({mssg:lang.page.messages.error,show:true});
+                case 201 :
+                    setMessage({mssg:lang.page.messages.register,show:true});
+            }
         }
 
-        //history.goBack();
+        window.setTimeout(()=>{history.goBack()},3000);
     };
 
     const fetchGetManagersList = async () => {
@@ -110,6 +122,11 @@ export default function RegisterObjectives(props, { history }) {
 
     return (
         <div className="body register">
+            {message.show?
+                    <MessageToast message={message.mssg}/>
+                :
+                    ""
+            }
             <Form submitAction={getInputValues}>
                 <Title classname="title">
                     {editable
