@@ -70,7 +70,7 @@ const en=
         Relations:{
             menu:{
                 option1:"Home",
-                option2:"Add New Realtion",
+                option2:"Add New Relation",
                 option3:"Turn Back",
             },
             page:{
