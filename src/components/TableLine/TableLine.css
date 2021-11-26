@@ -13,7 +13,7 @@
     background-color: var(--colorFirst);
     color: var(--colorThird);
 }
-.icons a:hover > .legend,.icons .trash:hover > .legend{
+.icons a:hover > .legend,.icons div:hover > .legend{
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
