@@ -48,8 +48,11 @@ export default function RegisterTeamPartner(props) {
                     setMessage({mssg:lang.page.messages.error,show:true});
                     break;
                 case 200 :
-                    setMessage({mssg:lang.page.messages.edit,show:true});
-                    window.setTimeout(()=>{history.goBack()},3000);
+                    if(localStorage.getItem("message")){
+                        localStorage.removeItem("message");
+                    }
+                    localStorage.setItem("message",lang.page.messages.edit);
+                    history.goBack();
                     break;
                 }
         } else {
@@ -62,8 +65,11 @@ export default function RegisterTeamPartner(props) {
                     setMessage({mssg:lang.page.messages.exists,show:true});
                     break;
                 case 201 :
-                    setMessage({mssg:lang.page.messages.register,show:true});
-                    window.setTimeout(()=>{history.goBack()},3000);
+                    if(localStorage.getItem("message")){
+                        localStorage.removeItem("message");
+                    }
+                    localStorage.setItem("message",lang.page.messages.register);
+                    history.goBack();
                     break;
             }
         }

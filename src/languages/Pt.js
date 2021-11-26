@@ -225,7 +225,11 @@ const pt=
                     option1:"Adicionar Parceiro",
                 },
                 button:"Adicionar",
-                cancel:"Cancelar"
+                cancel:"Cancelar",
+                messages:{
+                    add:"O novo parceiro de time foi adicionado!",
+                    error:"Requisição Ruim",
+                }
             }
         },
         AddRelation:{

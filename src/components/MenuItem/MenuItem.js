@@ -17,6 +17,7 @@ export default function MenuItem(props){
             setShowModal({display:"flex"});
         }else{
             setShowModal({display:"none"});
+
         }
     };
     return (

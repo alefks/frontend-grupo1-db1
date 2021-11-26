@@ -6,7 +6,8 @@
     flex-direction: row;
     justify-content: space-around;
     width: 93%;
-    height: 80%;
+    height: auto;
+    max-height: 80%;
     margin: 0;
     padding: 0;
 }
@@ -27,10 +28,10 @@
     justify-content: flex-start;
     align-items: center;
     margin: 0;
-    width: 90%;
+    width: 100%;
     height: 100%;
-    padding: 5%;
-    overflow: auto;
+    padding: 0;
+    overflow:auto;
 }
 .box-item{
     min-height: 3em;
@@ -62,11 +63,18 @@
 .team-quarters-list .box-item a{
     justify-content: center;
 }
+.box-item{
+    min-height: 1em;
+    height: 3em;
+    margin: 0.2em;
+    width: 90%;
+}
 .team-partner-item{
     min-height: 1em;
     height: 2em;
     padding: 0.5em;
-    width: 96%;
+    margin: 0.2em;
+    width: 90%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -74,8 +82,6 @@
 }
 .team-partner-item a{
     padding: 0.2em;
-    width: auto;
-    height: auto;
 }
 .options{
     display: flex;
@@ -103,4 +109,14 @@
 .boxtitle3{
     max-width: 81.5%;
     margin-bottom: 0.5em;
+}
+.box-view{
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: transparent;
+    box-shadow: none;
 }

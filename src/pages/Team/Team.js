@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Api from "../../api/api";
 import BoxItem from "../../components/BoxItem/BoxItem";
+import MessageToast from "../../components/MessageToast/MessageToast";
 import Modal from "../../components/Modal/Modal";
 import DeleteItem from "../../components/DeleteItem/DeleteItem";
 import Trash from "./../../img/icons/white-trash.png";
@@ -14,6 +15,7 @@ export default function Team(props) {
     const lang = props.lang.Teams.page;
     const [showModal,setShowModal] = useState({display:"none"});
     const [ deleteId, setDeleteId ] = useState(0);
+    const [message,setMessage] = useState({mssg:"",show:false});
     const openModal = (event)=>{
         event.preventDefault();
         setDeleteId(event.target.id);
@@ -98,6 +100,10 @@ export default function Team(props) {
 
     useEffect(() => {
         fetchGetTeam();
+        if(localStorage.getItem("message")){
+            setMessage({mssg:localStorage.getItem("message"),show:true});
+            localStorage.removeItem("message");
+        }
     }, []);
     if(loading===true){
         return(
@@ -108,11 +114,17 @@ export default function Team(props) {
     }else{
     return (
         <div className="body">
+            {message.show?
+                    <MessageToast message={message.mssg}/>
+                :
+                    ""
+            }
             <Box classname="boxtitle boxtitle3">{team.name}</Box>
             <Box classname="team-box">
                 <div className="team-content">
                 <Box classname="boxtitle boxtitle2">{lang.titlePartner}</Box>
                 <Box classname="team-partners-list">
+                    <Box classname="box-view">
                     {team.teamPartners.map((partner) => (
                         <BoxItem classname="team-partner-item" key={partner.id}>
                             {partner.name}
@@ -126,11 +138,13 @@ export default function Team(props) {
                             </div>
                         </BoxItem>
                     ))}
+                    </Box>
                 </Box>
                 </div>
                 <div className="team-content">
                 <Box classname="boxtitle boxtitle2">{lang.titleQuarters}</Box>
                 <Box classname="team-quarters-list">
+                    <Box classname="box-view">
                     {quaters.map((objective, index) => (
                         <BoxItem key={index}>
                             <Link
@@ -144,6 +158,7 @@ export default function Team(props) {
                             </Link>
                         </BoxItem>
                     ))}
+                    </Box>
                 </Box>
                 </div>
             </Box>
