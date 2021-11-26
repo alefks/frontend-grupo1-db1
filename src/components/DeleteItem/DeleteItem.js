@@ -16,7 +16,7 @@ export default function DeleteItem(props) {
                 case 400 :
                     localStorage.setItem("message",[lang.messages.error]);
                     break;
-                case 200 :
+                case 204 :
                     if(localStorage.getItem("message")){
                         localStorage.removeItem("message");
                     }
@@ -29,7 +29,7 @@ export default function DeleteItem(props) {
                 case 400 :
                     localStorage.setItem("message",[lang.messages.error]);
                     break;
-                case 200 :
+                case 204 :
                     if(localStorage.getItem("message")){
                         localStorage.removeItem("message");
                     }
@@ -45,7 +45,7 @@ export default function DeleteItem(props) {
                 case 400 :
                     localStorage.setItem("message",[lang.messages.error]);
                     break;
-                case 200 :
+                case 204 :
                     if(localStorage.getItem("message")){
                         localStorage.removeItem("message");
                     }
@@ -53,7 +53,21 @@ export default function DeleteItem(props) {
                 break;
             }
         }else if (props.table === "relations"){
-            console.log("remove relation "+props.idItem);
+            const payload = {
+                disconnectObjective: +props.idItem
+            }
+            const response = await Api.patch("objective", props.objectiveId, payload);
+            switch(response.status){
+                case 400 :
+                    localStorage.setItem("message",[lang.messages.error]);
+                    break;
+                case 204 :
+                    if(localStorage.getItem("message")){
+                        localStorage.removeItem("message");
+                    }
+                    localStorage.setItem("message",[lang.messages.Partner]);
+                break;
+            }
         }
         window.location.reload();
     };
