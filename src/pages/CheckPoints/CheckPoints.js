@@ -7,18 +7,20 @@ import './CheckPoints.css';
 import CheckPointItem from "../../components/CheckPointItem/CheckPointItem";
 import { useParams } from "react-router-dom";
 import Select from "../../components/Select/Select";
+import Api from '../../api/api'
 
 export default function CheckPoints(props){
-    const { objectiveId ,date } = useParams();
+    const { objectiveId, date } = useParams();
     const selectDates = ["3-11-2021","4-11-2021"];
     const lang = props.lang.CheckPoints.page;
 
     const [keyResults, setKeyResults] = useState([]);
-    const [dateDefault,setDateDefault] = useState("");
+    const [dateDefault, setDateDefault] = useState("");
     useEffect(()=>{
         if(date!=="edit"){
             setDateDefault(date.split('-')[2]+"-"+date.split('-')[1]+"-"+(parseInt(date.split('-')[0])<=9?"0"+date.split('-')[0]:date.split('-')[0]));
         }
+        fetchGetKeyResultsByObjective();
     },[]);
     const getFormValues = (event)=>{
         event.preventDefault();
@@ -39,7 +41,7 @@ export default function CheckPoints(props){
                     {
                         keyResultId:event.target.inputPoint[count].id,
                         keyResultValue:event.target.inputPoint[count].value,
-                        keyResultFeeling:document.querySelector('input[name="colorGroup'+event.target.inputPoint[count].id+'"]:checked').value
+                        keyResultFeeling:document.querySelector(`input[name="colorGroup${event.target.inputPoint[count].id}"]:checked`).value
                     },
                 );
             }
@@ -59,6 +61,12 @@ export default function CheckPoints(props){
                 newDate.split('-')[0]
             )
         );
+    }
+
+    const fetchGetKeyResultsByObjective = async () => {
+        const response = await Api.getById('objective', objectiveId)
+        const result = await response.json()
+        setKeyResults(result.keyResults)
     }
     return (
        <div className="body check-points">
