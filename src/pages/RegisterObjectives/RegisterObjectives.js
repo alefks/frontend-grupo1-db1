@@ -69,14 +69,14 @@ export default function RegisterObjectives(props, { history }) {
 
     const [selectedObjectives, setSelectedObjectives] = useState([]);
     const [showObjectives, setShowObjectives] = useState({ display: "none" });
+
     const teamObjectives = (event) => {
         const selectElement = event.target;
         if (
             selectElement.childNodes[selectElement.selectedIndex].value !== "0"
         ) {
             const teamId = selectElement.value;
-            //fetchGetObjectives(teamId);
-            setSelectedObjectives(["item1", "item2"]);
+            fetchGetTeamObjectives(teamId);
             setShowObjectives({ display: "flex" });
         } else {
             setSelectedObjectives([]);
@@ -105,8 +105,13 @@ export default function RegisterObjectives(props, { history }) {
         const response = await Api.getById("objective", id);
         const result = await response.json();
         setObjective(result);
-        console.log()
     };
+
+    const fetchGetTeamObjectives = async (id) => {
+        const response = await Api.getById('team', id)
+        const result = await response.json()
+        setSelectedObjectives(result.objectives);
+    }
 
     return (
         <div className="body register">
