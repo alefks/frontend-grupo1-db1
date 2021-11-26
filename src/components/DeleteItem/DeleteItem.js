@@ -11,18 +11,51 @@ export default function DeleteItem(props) {
     const deleteItem = async (event) => {
         event.preventDefault();
         if (props.table === "objective") {
-            await Api.delete("objective", props.idItem);
+            const response = await Api.delete("objective", props.idItem);
+            switch(response.status){
+                case 400 :
+                    localStorage.setItem("message",[lang.messages.error]);
+                    break;
+                case 200 :
+                    if(localStorage.getItem("message")){
+                        localStorage.removeItem("message");
+                    }
+                    localStorage.setItem("message",[lang.messages.Objective]);
+                break;
+            }
         } else if (props.table === "keyresult") {
-            await Api.delete("keyresult", props.idItem);
+            const response = await Api.delete("keyresult", props.idItem);
+            switch(response.status){
+                case 400 :
+                    localStorage.setItem("message",[lang.messages.error]);
+                    break;
+                case 200 :
+                    if(localStorage.getItem("message")){
+                        localStorage.removeItem("message");
+                    }
+                    localStorage.setItem("message",[lang.messages.KeyResults]);
+                break;
+            }
         } else if (props.table === "partner") {
             const payload = {
                 disconnectTeam: +props.teamId,
             };
-            await Api.patch("team-partner", props.idItem, payload);
+            const response = await Api.patch("team-partner", props.idItem, payload);
+            switch(response.status){
+                case 400 :
+                    localStorage.setItem("message",[lang.messages.error]);
+                    break;
+                case 200 :
+                    if(localStorage.getItem("message")){
+                        localStorage.removeItem("message");
+                    }
+                    localStorage.setItem("message",[lang.messages.Partner]);
+                break;
+            }
         }else if (props.table === "relations"){
             console.log("remove relation "+props.idItem);
         }
-        props.closeButton(event);
+        window.location.reload();
     };
     return (
         <Form submitAction={deleteItem} classname="form delete">

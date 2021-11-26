@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams,useHistory } from "react-router-dom";
 import "./RegisterObjectives.css";
 import Box from "../../components/Box/Box";
 import Title from "../../components/Title/Title";
@@ -10,8 +10,8 @@ import CancelLabel from "../../components/CancelLabel/CancelLabel";
 import Api from "../../api/api";
 import Select from "../../components/Select/Select";
 import MessageToast from "../../components/MessageToast/MessageToast";
-
-export default function RegisterObjectives(props, { history }) {
+export default function RegisterObjectives(props) {
+    const history = useHistory();
     const [editable, setEditable] = useState(false);
     const { teamId, id } = useParams();
     const lang = props.lang.RegisterObjective;
@@ -59,7 +59,10 @@ export default function RegisterObjectives(props, { history }) {
                     setMessage({mssg:lang.page.messages.error,show:true});
                     break;
                 case 200 :
-                    setMessage({mssg:lang.page.messages.edit,show:true});
+                    if(localStorage.getItem("message")){
+                        localStorage.removeItem("message");
+                    }
+                    localStorage.setItem("message",[lang.page.messages.edit]);
                 window.setTimeout(()=>{history.goBack()},3000);
                 break;
             }
@@ -73,7 +76,10 @@ export default function RegisterObjectives(props, { history }) {
                     setMessage({mssg:lang.page.messages.exists,show:true});
                     break;
                 case 201 :
-                    setMessage({mssg:lang.page.messages.register,show:true});
+                    if(localStorage.getItem("message")){
+                        localStorage.removeItem("message");
+                    }
+                    localStorage.setItem("message",[lang.page.messages.register]);
                     window.setTimeout(()=>{history.goBack()},3000);
                     break;
             }

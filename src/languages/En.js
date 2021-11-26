@@ -248,7 +248,13 @@ const en=
             page:{
                 text:"Are you really sure? \n about deleting this?",
                 button:"Confirm",
-                cancel:"Cancel"
+                cancel:"Cancel",
+                messages:{
+                    error:"Error, The item can not be deleted!",
+                    Objective:"The Objective has been deleted now!",
+                    KeyResults:"The Key Result has been deleted now!",
+                    Partner:"The TeamPartner has been deleted now!",
+                }
             }
         }
 
