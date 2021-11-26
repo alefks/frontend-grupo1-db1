@@ -6,7 +6,7 @@
     flex-direction: row;
     justify-content: space-around;
     width: 93%;
-    height: 90%;
+    height: 80%;
     margin: 0;
     padding: 0;
 }
@@ -99,4 +99,8 @@
     width: 98%;
     height: 3em;
     margin: 0;
+}
+.boxtitle3{
+    max-width: 81.5%;
+    margin-bottom: 0.5em;
 }

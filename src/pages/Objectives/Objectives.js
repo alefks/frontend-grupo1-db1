@@ -164,6 +164,9 @@ export default function Objectives(props) {
     }else{
     return (
         <div className="body objectives">
+            <Box classname="boxtitle margin">
+                {localStorage.getItem("defaultTeam")}
+            </Box>
             <Box classname="boxtitle">
                 {lang.Objectives.page.table.name}
             </Box>

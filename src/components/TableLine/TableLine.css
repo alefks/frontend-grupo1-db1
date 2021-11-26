@@ -90,11 +90,11 @@
     width: 1em;
     padding: 0.5em;
 }
-.icons .trash{
+.icons .trash,.icons .list{
     height: 1em;
     width: 1em;
     padding: 0.45em;
 }
-.trash:hover{
+.trash:hover,.list:hover{
     background-color: var(--colorSecond);
 }

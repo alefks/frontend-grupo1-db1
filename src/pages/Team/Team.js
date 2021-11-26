@@ -88,7 +88,12 @@ export default function Team(props) {
         const response = await Api.getById("team", params.teamId);
         const result = await response.json();
         setTeam(result);
+        if(localStorage.getItem("defaultTeam")){
+            localStorage.removeItem("defaultTeam");
+        }
+        localStorage.setItem("defaultTeam",result.name);
         setLoading(false);
+        
     };
 
     useEffect(() => {
@@ -103,6 +108,7 @@ export default function Team(props) {
     }else{
     return (
         <div className="body">
+            <Box classname="boxtitle boxtitle3">{team.name}</Box>
             <Box classname="team-box">
                 <div className="team-content">
                 <Box classname="boxtitle boxtitle2">{lang.titlePartner}</Box>
