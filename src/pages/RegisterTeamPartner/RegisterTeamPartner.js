@@ -33,7 +33,7 @@ export default function RegisterTeamPartner(props) {
         const result = await response.json();
         setTeamPartner(result);
     };
-
+   
     const getInputValues = async (event) => {
         const payload = { ...teamPartner };
         event.preventDefault();
@@ -45,21 +45,29 @@ export default function RegisterTeamPartner(props) {
             const response = await Api.patch("team-partner", id, payload);
             switch(response.status){
                 case 400 :
-                    setMessage(lang.page.messages.error);
-                case 201 :
-                    setMessage(lang.page.messages.edit);
+                    setMessage({mssg:lang.page.messages.error,show:true});
+                    break;
+                case 200 :
+                    setMessage({mssg:lang.page.messages.edit,show:true});
+                    window.setTimeout(()=>{history.goBack()},3000);
+                    break;
                 }
         } else {
             const response = await Api.post("team-partner", payload);
             switch(response.status){
-                case 400 :
+                case 500 :
                     setMessage({mssg:lang.page.messages.error,show:true});
+                    break;
+                case 400 :
+                    setMessage({mssg:lang.page.messages.exists,show:true});
+                    break;
                 case 201 :
                     setMessage({mssg:lang.page.messages.register,show:true});
+                    window.setTimeout(()=>{history.goBack()},3000);
+                    break;
             }
         }
 
-        window.setTimeout(()=>{history.goBack()},3000);
     };
 
     return (

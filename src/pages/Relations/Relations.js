@@ -16,7 +16,7 @@ export default function Relations(props){
             team:'finance'
         },
         {
-            id:1,
+            id:2,
             name:'testar',
             team:'finance'
         },
@@ -118,7 +118,7 @@ export default function Relations(props){
     return (
         <div className="body relations">
             <Box classname="relations-title">
-                <label>{"Objective"}</label>
+                <label>{localStorage.getItem("defaultObjective")}</label>
                 {lang.table.name}
             </Box>
             <Table className="relations-list">
