@@ -7,43 +7,10 @@ import HomePageLoader from "../../components/ContentLoaders/HomePageLoader";
 
 export default function Home(props){
     const lang=props.lang.Home.page;
-    // const testTeamsList = [
-    //     {
-    //         id : 1,
-    //         name : "financeiro",
-    //         objectives : [],
-    //         teamPartners : [],
-    //         score : 50
-    //     },
-    //     {
-    //         id : 2,
-    //         name : "financeiro",
-    //         objectives : [],
-    //         teamPartners : [],
-    //         score : 50
-    //     },
-    //     {
-    //         id : 3,
-    //         name : "financeiro",
-    //         objectives : [],
-    //         teamPartners : [],
-    //         score : 50
-    //     },
-    //     {
-    //         id : 4,
-    //         name : "financeiro",
-    //         objectives : [],
-    //         teamPartners : [],
-    //         score : 50
-    //     },
-    
-    // ];
     const [loading,setLoading] = useState(true);
     const [selectedYear,setSelectedYear] = useState((new Date()).getFullYear());
     useEffect(() => {
         fetchGetTeams();
-        
-        //fetchGetYears();
     }, [selectedYear])
    
     const testYears = [2019,2018,2021,2017,2016].sort().reverse();
@@ -58,12 +25,6 @@ export default function Home(props){
         result !== [] && setTeams(result);
         setLoading(false);
     };
-
-    const fetchGetYears = async () => {
-        const response = await Api.getAll("years");
-        const result = await response.json();
-        result !== [] && setYears(result);
-    }
     
     const changeYear = (event)=>{
         const selectElement = event.target;

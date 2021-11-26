@@ -21,161 +21,6 @@ export default function KeyResultsList(props) {
         },
     ];
     const [keyResults, setKeyResults] = useState([]);
-   
-    //     {
-    //         id: 1,
-    //         name: "key teste",
-    //         description: "testesando",
-    //         goal: 20,
-    //         responsible: "name",
-    //         lastStatus: 0,
-    //         lastFeeling: "#00ffdd",
-    //     },
-    //     {
-    //         id: 1,
-    //         name: "key teste",
-    //         description: "testesando",
-    //         goal: 20,
-    //         responsible: "name",
-    //         lastStatus: 0,
-    //         lastFeeling: "#54C213",
-    //     },
-    //     {
-    //         id: 1,
-    //         name: "key teste",
-    //         description: "testesando",
-    //         goal: 20,
-    //         responsible: "name",
-    //         lastStatus: 0,
-    //         lastFeeling: "",
-    //     },
-    //     {
-    //         id: 1,
-    //         name: "key teste",
-    //         description: "testesando",
-    //         goal: 20,
-    //         responsible: "name",
-    //         lastStatus: 0,
-    //         lastFeeling: "#54C213",
-    //     },
-    //     {
-    //         id: 1,
-    //         name: "key teste",
-    //         description: "testesando",
-    //         goal: 20,
-    //         responsible: "name",
-    //         lastStatus: 0,
-    //         lastFeeling: "#C23700",
-    //     },
-    //     {
-    //         id: 1,
-    //         name: "key teste",
-    //         description: "testesando",
-    //         goal: 20,
-    //         responsible: "name",
-    //         lastStatus: 0,
-    //         lastFeeling: "#54C213",
-    //     },
-    //     {
-    //         id: 1,
-    //         name: "key teste",
-    //         description: "testesando",
-    //         goal: 20,
-    //         responsible: "name",
-    //         lastStatus: 0,
-    //         lastFeeling: "#C23700",
-    //     },
-    //     {
-    //         id: 1,
-    //         name: "key teste",
-    //         description: "testesando",
-    //         goal: 20,
-    //         responsible: "name",
-    //         lastStatus: 0,
-    //         lastFeeling: "#C2B91B",
-    //     },
-    //     {
-    //         id: 1,
-    //         name: "key teste",
-    //         description: "testesando",
-    //         goal: 20,
-    //         responsible: "name",
-    //         lastStatus: 0,
-    //         lastFeeling: "#C23700",
-    //     },
-    //     {
-    //         id: 1,
-    //         name: "key teste",
-    //         description: "testesando",
-    //         goal: 20,
-    //         responsible: "name",
-    //         lastStatus: 0,
-    //         lastFeeling: "#C2B91B",
-    //     },
-    //     {
-    //         id: 1,
-    //         name: "key teste",
-    //         description: "testesando",
-    //         goal: 20,
-    //         responsible: "name",
-    //         lastStatus: 0,
-    //         lastFeeling: "#C2B91B",
-    //     },
-    //     {
-    //         id: 1,
-    //         name: "key teste",
-    //         description: "testesando",
-    //         goal: 20,
-    //         responsible: "name",
-    //         lastStatus: 0,
-    //         lastFeeling: "#C23700",
-    //     },
-    //     {
-    //         id: 1,
-    //         name: "key teste",
-    //         description: "testesando",
-    //         goal: 20,
-    //         responsible: "name",
-    //         lastStatus: 0,
-    //         lastFeeling: "",
-    //     },
-    //     {
-    //         id: 1,
-    //         name: "key teste",
-    //         description: "testesando",
-    //         goal: 20,
-    //         responsible: "name",
-    //         lastStatus: 0,
-    //         lastFeeling: "",
-    //     },
-    //     {
-    //         id: 1,
-    //         name: "key teste",
-    //         description: "testesando",
-    //         goal: 20,
-    //         responsible: "name",
-    //         lastStatus: 0,
-    //         lastFeeling: "",
-    //     },
-    //     {
-    //         id: 1,
-    //         name: "key teste",
-    //         description: "testesando",
-    //         goal: 20,
-    //         responsible: "name",
-    //         lastStatus: 0,
-    //         lastFeeling: "",
-    //     },
-    //     {
-    //         id: 1,
-    //         name: "key teste",
-    //         description: "testesando",
-    //         goal: 20,
-    //         responsible: "name",
-    //         lastStatus: 0,
-    //         lastFeeling: "",
-    //     },
-    // ];
     const [loading,setLoading] = useState(true);
     const fetchGetKeyResults = async () => {
         const response = await Api.getById("objective", objectiveId);
@@ -195,7 +40,7 @@ export default function KeyResultsList(props) {
             )
         setKeyResults(value);
         }else if(response.status===404){
-            console.log("This objective, do not have key results, create one or choise other objective!")
+            console.log("There's no key results yet, create one or choose another objective!")
         }
         setLoading(false)
     };
@@ -208,7 +53,7 @@ export default function KeyResultsList(props) {
     if(loading===true){
         return(
         <KeyResultsListLoader>
-
+            
         </KeyResultsListLoader>
         );
     }else{

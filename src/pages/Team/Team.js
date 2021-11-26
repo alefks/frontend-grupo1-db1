@@ -27,59 +27,6 @@ export default function Team(props) {
     };
     const params = useParams();
     const date = new Date();
-    // const testTeam = {
-    //     id: 1,
-    //     name: "",
-    //     objectives: [
-    //         {
-    //             id: 1,
-    //             startDate:
-    //                 date.getDay() +
-    //                 "-" +
-    //                 (date.getMonth() + 1) +
-    //                 "-" +
-    //                 date.getFullYear(),
-    //             endDate:
-    //                 date.getDay() +
-    //                 "-" +
-    //                 (date.getMonth() + 1) +
-    //                 "-" +
-    //                 date.getFullYear(),
-    //         },
-    //         {
-    //             id: 2,
-    //             startDate:
-    //                 date.getDay() +
-    //                 "-" +
-    //                 (date.getMonth() + 1) +
-    //                 "-" +
-    //                 date.getFullYear(),
-    //             endDate:
-    //                 date.getDay() +
-    //                 "-" +
-    //                 (date.getMonth() + 1) +
-    //                 "-" +
-    //                 date.getFullYear(),
-    //         },
-    //     ],
-    //     teamPartners: [
-    //         {
-    //             id: 1,
-    //             name: "julia",
-    //             teamId: 1,
-    //         },
-    //         {
-    //             id: 2,
-    //             name: "pedro",
-    //             teamId: 2,
-    //         },
-    //         {
-    //             id: 3,
-    //             name: "livia",
-    //             teamId: 1,
-    //         },
-    //     ],
-    // };
 
     const quaters = [1, 2, 3, 4];
     const [loading,setLoading] = useState(true);
