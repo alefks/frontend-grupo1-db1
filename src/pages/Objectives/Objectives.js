@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Table from "../../components/Table/Table";
 import TableLine from "../../components/TableLine/TableLine";
 import TableTitle from "../../components/TableTitle/TableTitle";
+import MessageToast from "../../components/MessageToast/MessageToast";
 import KeyResultsList from "../../components/KeyResultsList/KeyResultsList";
 import Box from "../../components/Box/Box";
 import ObjectivesLoader from "../../components/ContentLoaders/ObjectivesLoader";
@@ -122,7 +123,7 @@ export default function Objectives(props) {
     //     },
     // ];
     const [objectives, setObjectives] = useState([]);
-    
+    const [message,setMessage] = useState({mssg:"",show:false});
 
     const { teamId, year, quarter } = useParams();
     
@@ -156,6 +157,10 @@ export default function Objectives(props) {
 
     useEffect(() => {
         fetchGetObjectives();
+        if(localStorage.getItem("message")){
+            setMessage({mssg:localStorage.getItem("message"),show:true});
+            localStorage.removeItem("message");
+        }
     }, []);
     if(loading){
         return(
@@ -164,6 +169,11 @@ export default function Objectives(props) {
     }else{
     return (
         <div className="body objectives">
+            {message.show?
+                    <MessageToast message={message.mssg}/>
+                :
+                    ""
+            }
             <Box classname="boxtitle margin">
                 {localStorage.getItem("defaultTeam")}
             </Box>

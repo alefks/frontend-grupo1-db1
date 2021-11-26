@@ -63,7 +63,10 @@ export default function RegisterKeyResult(props) {
                     setMessage({mssg:lang.page.messages.error,show:true});
                     break;
                 case 200 :
-                    setMessage({mssg:lang.page.messages.edit,show:true});
+                    if(localStorage.getItem("message")){
+                        localStorage.removeItem("message");
+                    }
+                    localStorage.setItem("message",[lang.page.messages.edit]);
                 window.setTimeout(()=>{history.goBack()},3000);
                 break;
             }
@@ -77,7 +80,10 @@ export default function RegisterKeyResult(props) {
                     setMessage({mssg:lang.page.messages.exists,show:true});
                     break;
                 case 201 :
-                    setMessage({mssg:lang.page.messages.register,show:true});
+                    if(localStorage.getItem("message")){
+                        localStorage.removeItem("message");
+                    }
+                    localStorage.setItem("message",[lang.page.messages.register]);
                     window.setTimeout(()=>{history.goBack()},3000);
                     break;
             }

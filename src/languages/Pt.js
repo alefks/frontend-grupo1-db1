@@ -247,7 +247,13 @@ const pt=
             page:{
                 text:"Tem certeza? \n que deseja deletar este item?",
                 button:"Confirmar",
-                cancel:"Cancelar"
+                cancel:"Cancelar",
+                messages:{
+                    error:"Erro. O item não pode ser deletado!",
+                    Objective:"O objective foi deletado agora!",
+                    KeyResults:"A chave de resultado foi deletada agora!",
+                    Partner:"O parceiro de time foi removido agora!",
+                }
             }
         }
     }
