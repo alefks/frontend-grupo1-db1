@@ -21,16 +21,7 @@ export default function KeyResultsList(props) {
         },
     ];
     const [keyResults, setKeyResults] = useState([]);
-    const testKeyResults = [
-        {
-            id: 1,
-            name: "key teste",
-            description: "testesando",
-            goal: 20,
-            responsible: "name",
-            lastStatus: 0,
-            lastFeeling: "#54C213",
-        }];
+   
     //     {
     //         id: 1,
     //         name: "key teste",
@@ -195,15 +186,14 @@ export default function KeyResultsList(props) {
                 keyResultMap[0].name = kr.name;
                 keyResultMap[0].description = kr.description;
                 keyResultMap[0].goal = kr.goal;
-               // keyResultMap[0].responsible = kr.responsible.name;
+                keyResultMap[0].responsible = kr.responsible.name;
                 keyResultMap[0].lastStatus = 0;
                 keyResultMap[0].lastFeeling = "#54C213";
 
                 return keyResultMap[0]
             }
             )
-        //setKeyResults(value);
-        setKeyResults(testKeyResults);
+        setKeyResults(value);
         }else if(response.status===404){
             console.log("This objective, do not have key results, create one or choise other objective!")
         }
@@ -212,7 +202,7 @@ export default function KeyResultsList(props) {
 
     useEffect(() => {
         fetchGetKeyResults();
-    }, []);
+    }, [props.objectiveId]);
 
     const titles = props.lang.table.title;
     if(loading===true){
