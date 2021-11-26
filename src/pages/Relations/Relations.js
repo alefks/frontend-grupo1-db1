@@ -10,116 +10,13 @@ import Api from '../../api/api';
 export default function Relations(props){
     const {id} = useParams();
     const lang = props.lang.Relations.page;
-    const [relations,setRelations] = useState([
-        {
-            id:1,
-            name:'testar',
-            team:'finance'
-        },
-        {
-            id:2,
-            name:'testar',
-            team:'finance'
-        },
-        {
-            id:1,
-            name:'testar',
-            team:'finance'
-        },
-        {
-            id:1,
-            name:'testar',
-            team:'finance'
-        },
-        {
-            id:1,
-            name:'testar',
-            team:'finance'
-        },
-        {
-            id:1,
-            name:'testar',
-            team:'finance'
-        },
-        {
-            id:1,
-            name:'testar',
-            team:'finance'
-        },
-        {
-            id:1,
-            name:'testar',
-            team:'finance'
-        },
-        {
-            id:1,
-            name:'testar',
-            team:'finance'
-        },
-        {
-            id:1,
-            name:'testar',
-            team:'finance'
-        },
-        {
-            id:1,
-            name:'testar',
-            team:'finance'
-        },
-        {
-            id:1,
-            name:'testar',
-            team:'finance'
-        },
-
-        {
-            id:1,
-            name:'testar',
-            team:'finance'
-        },
-        {
-            id:1,
-            name:'testar',
-            team:'finance'
-        },
-        {
-            id:1,
-            name:'testar',
-            team:'finance'
-        },
-        {
-            id:1,
-            name:'testar',
-            team:'finance'
-        },
-        {
-            id:1,
-            name:'testar',
-            team:'finance'
-        },
-        {
-            id:1,
-            name:'testar',
-            team:'finance'
-        },
-        {
-            id:1,
-            name:'testar',
-            team:'finance'
-        },
-        {
-            id:1,
-            name:'testar',
-            team:'finance'
-        },
-
-    ])
+    const [relations,setRelations] = useState([])
     const titles = lang.table.title;
 
     const fetchGetRelatedObjectives = async () => {
         const response = await Api.getById("objective/lista", id)
         const result = await response.json()
-        const data = result.relatedObjectives.map(relatedItem => ({
+        const data = result.relationalObjectives.map(relatedItem => ({
             id: relatedItem.id,
             name: relatedItem.name,
             team: relatedItem.team.name
@@ -143,7 +40,7 @@ export default function Relations(props){
                     {relations.map((objective,index) => (
                         <TableLine
                             lang={props.lang}
-                            teamId={id}
+                            objectiveId={id}
                             values={objective}
                             key={index}
                             objectName={"relations"}

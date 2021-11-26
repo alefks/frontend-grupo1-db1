@@ -12,55 +12,13 @@ export default function CheckPoints(props){
     const { objectiveId ,date } = useParams();
     const selectDates = ["3-11-2021","4-11-2021"];
     const lang = props.lang.CheckPoints.page;
-    const testKeyResults = [
-        {
-            id:1,
-            name:'item1 - teste',
-            result:0,
-        },
-        {
-            id:2,
-            name:'item2 - teste',
-            result:0,
-        },
-        {
-            id:3,
-            name:'item3 - teste',
-            result:0,
-        },
-        {
-            id:4,
-            name:'item4 - teste',
-            result:0,
-        },
-        {
-            id:5,
-            name:'item5 - teste',
-            result:0,
-        },
-        {
-            id:6,
-            name:'item6 - teste',
-            result:0,
-        },
-        {
-            id:7,
-            name:'item7 - teste',
-            result:0,
-        },
-        {
-            id:8,
-            name:'item8 - teste',
-            result:0,
-        },
-    ];
+
     const [keyResults, setKeyResults] = useState([]);
     const [dateDefault,setDateDefault] = useState("");
     useEffect(()=>{
         if(date!=="edit"){
             setDateDefault(date.split('-')[2]+"-"+date.split('-')[1]+"-"+(parseInt(date.split('-')[0])<=9?"0"+date.split('-')[0]:date.split('-')[0]));
         }
-        setKeyResults(testKeyResults);
     },[]);
     const getFormValues = (event)=>{
         event.preventDefault();
